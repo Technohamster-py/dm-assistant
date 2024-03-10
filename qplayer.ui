@@ -74,8 +74,8 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>static/prev.svg</normaloff>static/prev.svg</iconset>
+       <iconset resource="static/app_resources.qrc">
+        <normaloff>:/prev.svg</normaloff>:/prev.svg</iconset>
       </property>
      </widget>
     </item>
@@ -85,8 +85,8 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>static/stop.svg</normaloff>static/stop.svg</iconset>
+       <iconset resource="static/app_resources.qrc">
+        <normaloff>:/stop.svg</normaloff>:/stop.svg</iconset>
       </property>
      </widget>
     </item>
@@ -96,8 +96,8 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>static/play.svg</normaloff>static/play.svg</iconset>
+       <iconset resource="static/app_resources.qrc">
+        <normaloff>:/play.svg</normaloff>:/play.svg</iconset>
       </property>
      </widget>
     </item>
@@ -107,8 +107,8 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>static/pause.svg</normaloff>static/pause.svg</iconset>
+       <iconset resource="static/app_resources.qrc">
+        <normaloff>:/pause.svg</normaloff>:/pause.svg</iconset>
       </property>
      </widget>
     </item>
@@ -118,14 +118,16 @@
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>static/next.svg</normaloff>static/next.svg</iconset>
+       <iconset resource="static/app_resources.qrc">
+        <normaloff>:/next.svg</normaloff>:/next.svg</iconset>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="static/app_resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
