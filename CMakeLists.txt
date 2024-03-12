@@ -8,7 +8,6 @@ set(CMAKE_AUTOUIC ON)
 
 set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 
-
 find_package(Qt5 COMPONENTS
         Core
         Gui
@@ -16,7 +15,7 @@ find_package(Qt5 COMPONENTS
         Multimedia
         REQUIRED)
 
-set(RESOURCES ${CMAKE_SOURCE_DIR}/static/app_resources.qrc)
+set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/static/app_resources.qrc)
 qt5_add_resources(RESOURCES_ADD ${RESOURCES})
 
 add_executable(${PROJECT_NAME} main.cpp
@@ -25,8 +24,6 @@ add_executable(${PROJECT_NAME} main.cpp
         qplayer.ui
         ${RESOURCES_ADD}
 )
-
-
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core

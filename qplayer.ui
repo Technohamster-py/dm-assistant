@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
+    <width>361</width>
     <height>24</height>
    </rect>
   </property>
@@ -26,8 +26,8 @@ background: transparent;
 }
 
 QPushButton:hover {
-border: 1px solid blue;
-background: red;
+border: 1px solid black;
+background: #4E4E4E;
 }</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
@@ -91,6 +91,9 @@ background: red;
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="toolTip">
+      <string>previous track</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -102,6 +105,9 @@ background: red;
    </item>
    <item>
     <widget class="QPushButton" name="stopButton">
+     <property name="toolTip">
+      <string>stop</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -113,6 +119,9 @@ background: red;
    </item>
    <item>
     <widget class="QPushButton" name="playButton">
+     <property name="toolTip">
+      <string>play</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -124,6 +133,9 @@ background: red;
    </item>
    <item>
     <widget class="QPushButton" name="pauseButton">
+     <property name="toolTip">
+      <string>pause</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -135,12 +147,29 @@ background: red;
    </item>
    <item>
     <widget class="QPushButton" name="nextButton">
+     <property name="toolTip">
+      <string>next track</string>
+     </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset resource="static/app_resources.qrc">
        <normaloff>:/next.svg</normaloff>:/next.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="editButton">
+     <property name="toolTip">
+      <string>Edit playlist</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="static/app_resources.qrc">
+       <normaloff>:/edit.svg</normaloff>:/edit.svg</iconset>
      </property>
     </widget>
    </item>
