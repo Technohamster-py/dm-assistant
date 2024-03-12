@@ -19,10 +19,13 @@ set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/static/app_resources.qrc)
 qt5_add_resources(RESOURCES_ADD ${RESOURCES})
 
 add_executable(${PROJECT_NAME} main.cpp
+        ${RESOURCES_ADD}
         qplayer.cpp
         qplayer.h
         qplayer.ui
-        ${RESOURCES_ADD}
+        qplaylistedit.cpp
+        qplaylistedit.h
+        qplaylistedit.ui
 )
 
 target_link_libraries(${PROJECT_NAME}
