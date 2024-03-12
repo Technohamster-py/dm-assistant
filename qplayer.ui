@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>310</width>
-    <height>36</height>
+    <width>350</width>
+    <height>24</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,112 +19,132 @@
   <property name="windowTitle">
    <string>QPlayer</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>315</width>
-     <height>34</height>
-    </rect>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+border: none;
+background: transparent;
+}
+
+QPushButton:hover {
+border: 1px solid blue;
+background: red;
+}</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>8</number>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="leftMargin">
-     <number>5</number>
-    </property>
-    <property name="topMargin">
-     <number>5</number>
-    </property>
-    <property name="rightMargin">
-     <number>5</number>
-    </property>
-    <property name="bottomMargin">
-     <number>5</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="numberLabel">
-      <property name="text">
-       <string>num</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="titleLabel">
-      <property name="text">
-       <string>Title</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="prevButton">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="static/app_resources.qrc">
-        <normaloff>:/prev.svg</normaloff>:/prev.svg</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="stopButton">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="static/app_resources.qrc">
-        <normaloff>:/stop.svg</normaloff>:/stop.svg</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="playButton">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="static/app_resources.qrc">
-        <normaloff>:/play.svg</normaloff>:/play.svg</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pauseButton">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="static/app_resources.qrc">
-        <normaloff>:/pause.svg</normaloff>:/pause.svg</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="nextButton">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="static/app_resources.qrc">
-        <normaloff>:/next.svg</normaloff>:/next.svg</iconset>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="numberLabel">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>num</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Title</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="prevButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="static/app_resources.qrc">
+       <normaloff>:/prev.svg</normaloff>:/prev.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="stopButton">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="static/app_resources.qrc">
+       <normaloff>:/stop.svg</normaloff>:/stop.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="playButton">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="static/app_resources.qrc">
+       <normaloff>:/play.svg</normaloff>:/play.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pauseButton">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="static/app_resources.qrc">
+       <normaloff>:/pause.svg</normaloff>:/pause.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="nextButton">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="static/app_resources.qrc">
+       <normaloff>:/next.svg</normaloff>:/next.svg</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources>
   <include location="static/app_resources.qrc"/>
