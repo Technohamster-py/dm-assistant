@@ -6,6 +6,7 @@
 
 #include "qplayer.h"
 #include "ui_QPlayer.h"
+#include "qplaylistedit.h"
 
 
 QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
@@ -13,30 +14,31 @@ QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
     ui->setupUi(this);
 
     id = numId;
+    playlistName = title;
 
-    ui->titleLabel->setText(title);
+    ui->titleLabel->setText(playlistName);
     ui->numberLabel->setText(QString::number(id));
 
     m_player = new QMediaPlayer(this);
-    m_playlist = new QMediaPlaylist(this);
-    m_player->setPlaylist(m_playlist);
+    playlist = new QMediaPlaylist(this);
+    m_player->setPlaylist(playlist);
 
-    m_playlist->setPlaybackMode(QMediaPlaylist::Loop);
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
 
     connect(ui->playButton, &QPushButton::clicked, m_player, &QMediaPlayer::play);
     connect(ui->stopButton, &QPushButton::clicked, m_player, &QMediaPlayer::stop);
     connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
-    connect(ui->nextButton, &QPushButton::clicked, m_playlist, &QMediaPlaylist::next);
-    connect(ui->prevButton, &QPushButton::clicked, m_playlist, &QMediaPlaylist::previous);
+    connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
+    connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
 }
 
 QPlayer::~QPlayer() {
     delete ui;
     delete m_player;
-    delete m_playlist;
+    delete playlist;
 }
 
 void QPlayer::on_editButton_clicked() {
-
+    //QPlaylistEdit(nullptr, this);
 }

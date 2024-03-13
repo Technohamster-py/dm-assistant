@@ -7,12 +7,57 @@
 #include "qplaylistedit.h"
 #include "ui_QPlaylistEdit.h"
 
+#include <QFileDialog>
+#include <QDir>
 
-QPlaylistEdit::QPlaylistEdit(QWidget *parent) :
-        QWidget(parent), ui(new Ui::QPlaylistEdit) {
+
+QPlaylistEdit::QPlaylistEdit(QWidget *parent, QPlayer *player) :
+        QDialog(parent), ui(new Ui::QPlaylistEdit) {
     ui->setupUi(this);
+
+    ui->titleEdit->setText(player->playlistName);
+
+    m_player = player;
+    m_playlistModel = new QStandardItemModel(this);
+    m_playlistModel->setHorizontalHeaderLabels(QStringList() << tr("Track title") << tr("File path"));
+
+    ui->playlistView->setModel(m_playlistModel);
+    ui->playlistView->hideColumn(1);
+    ui->playlistView->verticalHeader()->setVisible(false);
+    ui->playlistView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->playlistView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->playlistView->horizontalHeader()->setStretchLastSection(true);
 }
 
 QPlaylistEdit::~QPlaylistEdit() {
     delete ui;
+}
+
+void QPlaylistEdit::on_addButton_clicked() {
+    QStringList files = QFileDialog::getOpenFileNames(this,
+                                                      tr("Add tracks"),
+                                                      QString(),
+                                                      tr("Audio files (*.mp3)"));
+
+    foreach (QString filePath, files){
+        QList<QStandardItem *> items;
+        items.append((new QStandardItem(QDir(filePath).dirName())));
+        items.append(new QStandardItem(filePath));
+        m_playlistModel->appendRow(items);
+        m_player->playlist->addMedia(QUrl(filePath));
+    }
+}
+void QPlaylistEdit::on_removeButton_clicked() {
+    int index = ui->playlistView->selectionModel()->selection().indexes()[0].row();
+    qDebug() << "Index " << index;
+    //m_player->playlist->removeMedia(index);
+}
+
+void QPlaylistEdit::on_buttonBox_accepted() {
+    m_player->playlistName = ui->titleEdit->selectedText();
+    accept();
+}
+
+void QPlaylistEdit::on_buttonBox_rejected() {
+    reject();
 }

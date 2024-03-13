@@ -6,7 +6,6 @@
 #define DM_ASSIST_QPLAYER_H
 
 #include <QWidget>
-//#include <QStandardItemModel>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 
@@ -24,6 +23,8 @@ public:
     ~QPlayer() override;
 
     int id;
+    QString playlistName;
+    QMediaPlaylist *playlist; ///< Плейлист проигрывателя
 
 private slots:
     void on_editButton_clicked();
@@ -33,7 +34,6 @@ private:
 
     //QStandardItemModel *m_playlistModel; ///< Модель данных плейлиста для отображения
     QMediaPlayer *m_player; ///< Проигрыватель
-    QMediaPlaylist *m_playlist; ///< Плейлист проигрывателя
 };
 
 

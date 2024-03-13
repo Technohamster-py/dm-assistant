@@ -19,13 +19,22 @@ set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/static/app_resources.qrc)
 qt5_add_resources(RESOURCES_ADD ${RESOURCES})
 
 add_executable(${PROJECT_NAME} main.cpp
-        ${RESOURCES_ADD}
         qplayer.cpp
         qplayer.h
         qplayer.ui
+        ${RESOURCES_ADD}
         qplaylistedit.cpp
         qplaylistedit.h
         qplaylistedit.ui
+)
+
+include_directories(
+        ${Qt5Core_INCLUDE_DIRS}
+        ${Qt5Gui_INCLUDE_DIRS}
+        ${Qt5Widgets_INCLUDE_DIRS}
+        ${Qt5PrintSupport_INCLUDE_DIRS}
+        ${Qt5Sql_INCLUDE_DIRS}
+        ${Qt5Multimedia_INCLUDE_DIRS}  #the directories
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -35,7 +44,8 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Multimedia
 )
 
-if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+#[===[
+ if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     set(DEBUG_SUFFIX)
     if (MSVC AND CMAKE_BUILD_TYPE MATCHES "Debug")
         set(DEBUG_SUFFIX "d")
@@ -63,3 +73,4 @@ if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
     endforeach (QT_LIB)
 endif ()
+]===]

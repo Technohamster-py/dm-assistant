@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>QPlaylistEdit</class>
- <widget class="QWidget" name="QPlaylistEdit">
+ <widget class="QDialog" name="QPlaylistEdit">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,31 +14,13 @@
    <string>QPlaylistEdit</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="leftMargin">
-    <number>5</number>
-   </property>
-   <property name="topMargin">
-    <number>10</number>
-   </property>
-   <property name="rightMargin">
-    <number>5</number>
-   </property>
-   <property name="bottomMargin">
-    <number>5</number>
-   </property>
    <item>
     <widget class="QWidget" name="widget" native="true">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="leftMargin">
@@ -54,26 +36,16 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QLineEdit" name="titleEdit">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
+       <widget class="QLineEdit" name="titleEdit"/>
       </item>
       <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Preferred</enum>
-        </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>80</width>
+          <width>40</width>
           <height>20</height>
          </size>
         </property>
@@ -81,15 +53,29 @@
       </item>
       <item>
        <widget class="QPushButton" name="addButton">
+        <property name="toolTip">
+         <string>Add audio file</string>
+        </property>
         <property name="text">
-         <string>PushButton</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="static/app_resources.qrc">
+          <normaloff>:/add.svg</normaloff>:/add.svg</iconset>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="removeButton">
+        <property name="toolTip">
+         <string>Remove file from playlist</string>
+        </property>
         <property name="text">
-         <string>PushButton</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="static/app_resources.qrc">
+          <normaloff>:/remove.svg</normaloff>:/remove.svg</iconset>
         </property>
        </widget>
       </item>
@@ -97,10 +83,19 @@
     </widget>
    </item>
    <item>
-    <widget class="QTableWidget" name="tableWidget"/>
+    <widget class="QTableView" name="playlistView"/>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="static/app_resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
