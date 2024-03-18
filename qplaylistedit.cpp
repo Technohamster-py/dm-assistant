@@ -53,6 +53,7 @@ void QPlaylistEdit::on_addButton_clicked() {
 void QPlaylistEdit::on_removeButton_clicked() {
     int index = ui->playlistView->selectionModel()->selection().indexes()[0].row();
     qDebug() << "Index " << index;
+    m_playlistModel->removeRow(index);
     m_player->playlist->removeMedia(index);
 }
 
@@ -66,7 +67,6 @@ void QPlaylistEdit::on_buttonBox_rejected() {
 }
 
 void QPlaylistEdit::displayPlaylist() {
-    ui->playlistView->reset();
     for (int i = 0; i < m_player->playlist->mediaCount(); ++i) {
         QList<QStandardItem *> items;
         QString filePath =  m_player->playlist->media(i).canonicalUrl().toString();
