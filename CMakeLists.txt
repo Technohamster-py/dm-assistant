@@ -10,25 +10,45 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
+set(HEADER_FILES
+        qplayer.h
+        qplaylistedit.h
+)
+
+set(SOURCE_FILES
+        qplayer.cpp
+        qplaylistedit.cpp
+)
+
+set(UI_FILES
+        qplayer.ui
+        qplaylistedit.ui
+)
+
+set(TS_FILES
+        dm_assist_en.ts
+        dm_assist_ru.ts
+)
+
+set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/static/app_resources.qrc)
 
 find_package(Qt5 COMPONENTS
         Core
         Gui
         Widgets
         Multimedia
+        LinguistTools
         REQUIRED)
 
-set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/static/app_resources.qrc)
 qt5_add_resources(RESOURCES_ADD ${RESOURCES})
 
+
 add_executable(${PROJECT_NAME} main.cpp
-        qplayer.cpp
-        qplayer.h
-        qplayer.ui
+        ${HEADER_FILES}
+        ${SOURCE_FILES}
+        ${UI_FILES}
         ${RESOURCES_ADD}
-        qplaylistedit.cpp
-        qplaylistedit.h
-        qplaylistedit.ui
+        qt5_add_lupdate
 )
 
 include_directories(
