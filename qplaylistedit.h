@@ -35,6 +35,8 @@ private:
     QStandardItemModel *m_playlistModel;
 
     int m_selectedIndex;
+
+    void displayPlaylist();
 };
 
 

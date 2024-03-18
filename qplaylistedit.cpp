@@ -14,6 +14,7 @@
 QPlaylistEdit::QPlaylistEdit(QWidget *parent, QPlayer *player) :
         QDialog(parent), ui(new Ui::QPlaylistEdit) {
     ui->setupUi(this);
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
     ui->titleEdit->setText(player->playlistName);
 
@@ -27,6 +28,8 @@ QPlaylistEdit::QPlaylistEdit(QWidget *parent, QPlayer *player) :
     ui->playlistView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->playlistView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->playlistView->horizontalHeader()->setStretchLastSection(true);
+
+    displayPlaylist();
 }
 
 QPlaylistEdit::~QPlaylistEdit() {
@@ -50,14 +53,25 @@ void QPlaylistEdit::on_addButton_clicked() {
 void QPlaylistEdit::on_removeButton_clicked() {
     int index = ui->playlistView->selectionModel()->selection().indexes()[0].row();
     qDebug() << "Index " << index;
-    //m_player->playlist->removeMedia(index);
+    m_player->playlist->removeMedia(index);
 }
 
 void QPlaylistEdit::on_buttonBox_accepted() {
-    m_player->playlistName = ui->titleEdit->selectedText();
+    m_player->playlistName = ui->titleEdit->text();
     accept();
 }
 
 void QPlaylistEdit::on_buttonBox_rejected() {
     reject();
+}
+
+void QPlaylistEdit::displayPlaylist() {
+    ui->playlistView->reset();
+    for (int i = 0; i < m_player->playlist->mediaCount(); ++i) {
+        QList<QStandardItem *> items;
+        QString filePath =  m_player->playlist->media(i).canonicalUrl().toString();
+        items.append((new QStandardItem(QDir(filePath).dirName())));
+        items.append(new QStandardItem(filePath));
+        m_playlistModel->appendRow(items);
+    }
 }

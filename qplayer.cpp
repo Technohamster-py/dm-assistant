@@ -40,5 +40,6 @@ QPlayer::~QPlayer() {
 }
 
 void QPlayer::on_editButton_clicked() {
-    //QPlaylistEdit(nullptr, this);
+    QPlaylistEdit(nullptr, this).exec();
+    ui->titleLabel->setText(playlistName);
 }
