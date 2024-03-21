@@ -1,0 +1,6 @@
+<?xml version="1.0" encodiong="UTF-8"?>
+<playlist name="Ambient">
+    <file>path/to/file.mp3</file>
+    <file>path/to/file.mp3</file>
+    <file>path/to/file.mp3</file>
+</playlist>
