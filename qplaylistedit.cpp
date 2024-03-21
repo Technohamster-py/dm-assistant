@@ -15,6 +15,7 @@ QPlaylistEdit::QPlaylistEdit(QWidget *parent, QPlayer *player) :
         QDialog(parent), ui(new Ui::QPlaylistEdit) {
     ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+    setWindowTitle(tr("Edit playlist"));
 
     ui->titleEdit->setText(player->playlistName);
 
@@ -52,7 +53,6 @@ void QPlaylistEdit::on_addButton_clicked() {
 }
 void QPlaylistEdit::on_removeButton_clicked() {
     int index = ui->playlistView->selectionModel()->selection().indexes()[0].row();
-    qDebug() << "Index " << index;
     m_playlistModel->removeRow(index);
     m_player->playlist->removeMedia(index);
 }
