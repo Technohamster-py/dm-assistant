@@ -13,11 +13,11 @@ QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
         QWidget(parent), ui(new Ui::QPlayer) {
     ui->setupUi(this);
 
-    id = numId;
-    playlistName = title;
+    m_id = numId;
+    m_playlistName = title;
 
-    ui->titleLabel->setText(playlistName);
-    ui->numberLabel->setText(QString::number(id));
+    ui->titleLabel->setText(m_playlistName);
+    ui->numberLabel->setText(QString::number(m_id));
 
     m_player = new QMediaPlayer(this);
     playlist = new QMediaPlaylist(this);
@@ -25,12 +25,30 @@ QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
 
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
+    connect(ui->playButton, &QPushButton::clicked, m_player, &QMediaPlayer::play);
+    connect(ui->stopButton, &QPushButton::clicked, m_player, &QMediaPlayer::stop);
+    connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
+    connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
+    connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
+}
+
+QPlayer::QPlayer(QWidget *parent, QString pathToXml) :
+        QWidget(parent), ui(new Ui::QPlayer) {
+    ui->setupUi(this);
+
+    m_player = new QMediaPlayer(this);
+    playlist = new QMediaPlaylist(this);
+    m_player->setPlaylist(playlist);
+
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
     connect(ui->playButton, &QPushButton::clicked, m_player, &QMediaPlayer::play);
     connect(ui->stopButton, &QPushButton::clicked, m_player, &QMediaPlayer::stop);
     connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
+
+    loadFromXml(pathToXml);
 }
 
 QPlayer::~QPlayer() {
@@ -41,5 +59,16 @@ QPlayer::~QPlayer() {
 
 void QPlayer::on_editButton_clicked() {
     QPlaylistEdit(nullptr, this).exec();
-    ui->titleLabel->setText(playlistName);
+    ui->titleLabel->setText(m_playlistName);
+}
+
+void QPlayer::setPlsylistName(QString name) {
+    if(name != m_playlistName){
+        m_playlistName = name;
+        emit playlistNameChanged();
+    }
+}
+
+void QPlayer::loadFromXml(QString pathToXml) {
+
 }

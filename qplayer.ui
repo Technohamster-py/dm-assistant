@@ -99,7 +99,7 @@ background: #4E4E4E;
      </property>
      <property name="icon">
       <iconset resource="static/app_resources.qrc">
-       <normaloff>:/prev.svg</normaloff>:/prev.svg</iconset>
+       <normaloff>:/player/prev.svg</normaloff>:/player/prev.svg</iconset>
      </property>
     </widget>
    </item>
@@ -113,7 +113,7 @@ background: #4E4E4E;
      </property>
      <property name="icon">
       <iconset resource="static/app_resources.qrc">
-       <normaloff>:/stop.svg</normaloff>:/stop.svg</iconset>
+       <normaloff>:/player/stop.svg</normaloff>:/player/stop.svg</iconset>
      </property>
     </widget>
    </item>
@@ -127,7 +127,7 @@ background: #4E4E4E;
      </property>
      <property name="icon">
       <iconset resource="static/app_resources.qrc">
-       <normaloff>:/play.svg</normaloff>:/play.svg</iconset>
+       <normaloff>:/player/play.svg</normaloff>:/player/play.svg</iconset>
      </property>
     </widget>
    </item>
@@ -141,7 +141,7 @@ background: #4E4E4E;
      </property>
      <property name="icon">
       <iconset resource="static/app_resources.qrc">
-       <normaloff>:/pause.svg</normaloff>:/pause.svg</iconset>
+       <normaloff>:/player/pause.svg</normaloff>:/player/pause.svg</iconset>
      </property>
     </widget>
    </item>
@@ -155,7 +155,7 @@ background: #4E4E4E;
      </property>
      <property name="icon">
       <iconset resource="static/app_resources.qrc">
-       <normaloff>:/next.svg</normaloff>:/next.svg</iconset>
+       <normaloff>:/player/next.svg</normaloff>:/player/next.svg</iconset>
      </property>
     </widget>
    </item>

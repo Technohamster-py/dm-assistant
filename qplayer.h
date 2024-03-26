@@ -19,18 +19,28 @@ Q_OBJECT
 
 public:
     QPlayer(QWidget *parent, QString title, int numId);
+    QPlayer(QWidget *parent, QString pathToXml);
 
     ~QPlayer() override;
 
-    int id;
-    QString playlistName;
+    QString getPlaylistName() const{return m_playlistName;};
+    void setPlsylistName(QString name);
+
     QMediaPlaylist *playlist; ///< Плейлист проигрывателя
+
+signals:
+    void playlistNameChanged();
+
+protected:
+    void loadFromXml(QString pathToXml);
 
 private slots:
     void on_editButton_clicked();
 
 private:
     Ui::QPlayer *ui;
+    QString m_playlistName;
+    int m_id;
 
     //QStandardItemModel *m_playlistModel; ///< Модель данных плейлиста для отображения
     QMediaPlayer *m_player; ///< Проигрыватель
