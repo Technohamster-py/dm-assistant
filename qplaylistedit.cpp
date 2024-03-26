@@ -58,7 +58,7 @@ void QPlaylistEdit::on_removeButton_clicked() {
 }
 
 void QPlaylistEdit::on_buttonBox_accepted() {
-    m_player->setPlsylistName(ui->titleEdit->text());
+    m_player->setPlaylistName(ui->titleEdit->text());
     accept();
 }
 

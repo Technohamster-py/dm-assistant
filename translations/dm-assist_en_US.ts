@@ -66,6 +66,16 @@
         <source>Edit playlist</source>
         <translation>Edit playlist</translation>
     </message>
+    <message>
+        <location filename="../qplayer.cpp" line="78"/>
+        <source>Can not open XML config: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qplayer.cpp" line="80"/>
+        <source>File error</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QPlaylistEdit</name>

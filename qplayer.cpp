@@ -7,17 +7,18 @@
 #include "qplayer.h"
 #include "ui_QPlayer.h"
 #include "qplaylistedit.h"
+#include "QMessageBox"
 
 
 QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
         QWidget(parent), ui(new Ui::QPlayer) {
     ui->setupUi(this);
 
-    m_id = numId;
-    m_playlistName = title;
+    id = numId;
+    playlistName = title;
 
-    ui->titleLabel->setText(m_playlistName);
-    ui->numberLabel->setText(QString::number(m_id));
+    ui->titleLabel->setText(playlistName);
+    ui->numberLabel->setText(QString::number(id));
 
     m_player = new QMediaPlayer(this);
     playlist = new QMediaPlaylist(this);
@@ -32,7 +33,7 @@ QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
 }
 
-QPlayer::QPlayer(QWidget *parent, QString pathToXml) :
+QPlayer::QPlayer(QWidget *parent, QFile *xmlFile) :
         QWidget(parent), ui(new Ui::QPlayer) {
     ui->setupUi(this);
 
@@ -48,7 +49,10 @@ QPlayer::QPlayer(QWidget *parent, QString pathToXml) :
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
 
-    loadFromXml(pathToXml);
+    loadFromXml(xmlFile);
+
+    ui->titleLabel->setText(playlistName);
+    ui->numberLabel->setText(QString::number(id));
 }
 
 QPlayer::~QPlayer() {
@@ -59,16 +63,34 @@ QPlayer::~QPlayer() {
 
 void QPlayer::on_editButton_clicked() {
     QPlaylistEdit(nullptr, this).exec();
-    ui->titleLabel->setText(m_playlistName);
+    ui->titleLabel->setText(playlistName);
 }
 
-void QPlayer::setPlsylistName(QString name) {
-    if(name != m_playlistName){
-        m_playlistName = name;
+void QPlayer::setPlaylistName(QString name) {
+    if(name != playlistName){
+        playlistName = name;
         emit playlistNameChanged();
     }
 }
 
-void QPlayer::loadFromXml(QString pathToXml) {
+void QPlayer::loadFromXml(QFile *xmlFile) {
+    if(!xmlFile->open(QIODevice::ReadWrite)){
+        QString message = tr("Can not open XML config: ") + xmlFile->errorString();
+        QMessageBox::critical(this,
+                              tr("File error"),
+                              message);
+        return;
+    }
+    xmlConfig.setContent(xmlFile);
+    xmlFile->close();
 
+    QDomElement playlistNode = xmlConfig.documentElement();
+    playlistName = playlistNode.attribute("name");
+    id = playlistNode.attribute("id").toInt();
+    QDomNodeList tracks = playlistNode.childNodes();
+
+    for (int i = 0; i < tracks.count(); ++i) {
+        QDomElement trackNode = tracks.at(i).toElement();
+        playlist->addMedia(QUrl(trackNode.firstChild().toText().data()));
+    }
 }

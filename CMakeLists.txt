@@ -38,6 +38,7 @@ find_package(Qt5 COMPONENTS
         Gui
         Widgets
         Multimedia
+        Xml
         LinguistTools
         REQUIRED)
 
@@ -71,6 +72,7 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Gui
         Qt5::Widgets
         Qt5::Multimedia
+        Qt5::Xml
 )
 
 
