@@ -30,7 +30,6 @@ set(TS_FILES
         translations/dm-assist_ru_RU.ts
 )
 
-message(${TS_FILES})
 
 set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/static/app_resources.qrc)
 
@@ -55,7 +54,7 @@ include_directories(
         static
 )
 
-qt5_create_translation(QM_FILES ${TS_FILES})
+qt5_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
 add_custom_target(translations DEPENDS ${QM_FILES})
 
 add_executable(${PROJECT_NAME} main.cpp
