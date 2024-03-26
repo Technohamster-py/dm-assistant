@@ -94,3 +94,7 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
         playlist->addMedia(QUrl(trackNode.firstChild().toText().data()));
     }
 }
+
+void QPlayer::saveToXml(QString pathToXml) {
+    
+}

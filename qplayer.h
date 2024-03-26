@@ -5,6 +5,7 @@
 #ifndef DM_ASSIST_QPLAYER_H
 #define DM_ASSIST_QPLAYER_H
 
+#include <QApplication>
 #include <QWidget>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
@@ -27,6 +28,8 @@ public:
 
     QString getPlaylistName() const{return playlistName;};
     void setPlaylistName(QString name);
+
+    void saveToXml(QString pathToXml = QCoreApplication::applicationDirPath());
 
     QMediaPlaylist *playlist; ///< Плейлист проигрывателя
 
