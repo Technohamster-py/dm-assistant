@@ -2,8 +2,6 @@
 // Created by arsen on 06.03.2024.
 //
 
-// You may need to build the project (run Qt uic code generator) to get "ui_QPlayer.h" resolved
-
 #include "qplayer.h"
 #include "ui_QPlayer.h"
 #include "qplaylistedit.h"
@@ -55,6 +53,31 @@ QPlayer::QPlayer(QWidget *parent, QFile *xmlFile) :
     ui->numberLabel->setText(QString::number(id));
 }
 
+QPlayer::QPlayer(QWidget *parent, int numId) : QWidget(parent), ui(new Ui::QPlayer) {
+    ui->setupUi(this);
+    id = numId;
+
+    QString xmlConfigPath = QCoreApplication::applicationDirPath() + "/configs/" + id + "_playlist.xml";
+
+    m_player = new QMediaPlayer(this);
+    playlist = new QMediaPlaylist(this);
+    m_player->setPlaylist(playlist);
+
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    connect(ui->playButton, &QPushButton::clicked, m_player, &QMediaPlayer::play);
+    connect(ui->stopButton, &QPushButton::clicked, m_player, &QMediaPlayer::stop);
+    connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
+    connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
+    connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
+
+    QFile *xmlFile = new QFile(xmlConfigPath);
+    loadFromXml(xmlFile);
+
+    ui->titleLabel->setText(playlistName);
+    ui->numberLabel->setText(QString::number(id));
+}
+
 QPlayer::~QPlayer() {
     delete ui;
     delete m_player;
@@ -96,5 +119,42 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
 }
 
 void QPlayer::saveToXml(QString pathToXml) {
-    
+    QString configFileNamePath;
+    if(pathToXml == QCoreApplication::applicationDirPath()){
+        configFileNamePath = pathToXml + "/configs/" + id + "_playlist.xml";
+    } else
+    {
+        configFileNamePath = pathToXml;
+    }
+    QFile config(configFileNamePath);
+
+    if (!config.open(QFile::WriteOnly))
+    {
+        QMessageBox::critical(this,
+                              tr("XML file error"),
+                              tr("Can not open XML config file") + config.errorString());
+        return;
+    }
+
+    QTextStream xmlContent(&config);
+
+    xmlConfig.clear();
+
+    QDomElement root = xmlConfig.createElement("playlist");
+    root.setAttribute("name", playlistName);
+    root.setAttribute("id", id);
+    xmlConfig.appendChild(root);
+
+    QString audioFilePath;
+    QDomElement trackNode;
+
+    for (int i = 0; i < playlist->mediaCount(); ++i) {
+        audioFilePath = playlist->media(i).canonicalUrl().toString();
+        trackNode = xmlConfig.createElement("file");
+        trackNode.setNodeValue(audioFilePath);
+
+        root.appendChild(trackNode);
+    }
+
+    xmlContent << xmlConfig.toString();
 }

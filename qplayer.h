@@ -23,6 +23,7 @@ Q_OBJECT
 public:
     QPlayer(QWidget *parent, QString title, int numId);
     QPlayer(QWidget *parent, QFile *xmlFile);
+    QPlayer(QWidget *parent, int numId);
 
     ~QPlayer() override;
 

@@ -67,13 +67,23 @@
         <translation>Редактировать плейлист</translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="79"/>
+        <location filename="../qplayer.cpp" line="101"/>
         <source>Can not open XML config: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="81"/>
+        <location filename="../qplayer.cpp" line="103"/>
         <source>File error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qplayer.cpp" line="134"/>
+        <source>XML file error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qplayer.cpp" line="135"/>
+        <source>Can not open XML config file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
