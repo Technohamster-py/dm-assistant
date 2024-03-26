@@ -2,13 +2,12 @@
 // Created by arseniy on 12.03.2024.
 //
 
-// You may need to build the project (run Qt uic code generator) to get "ui_QPlaylistEdit.h" resolved
-
 #include "qplaylistedit.h"
 #include "ui_QPlaylistEdit.h"
 
 #include <QFileDialog>
 #include <QDir>
+#include <QApplication>
 
 
 QPlaylistEdit::QPlaylistEdit(QWidget *parent, QPlayer *player) :
@@ -44,10 +43,25 @@ void QPlaylistEdit::on_addButton_clicked() {
 
     foreach (QString filePath, files){
         QList<QStandardItem *> items;
-        items.append((new QStandardItem(QDir(filePath).dirName())));
-        items.append(new QStandardItem(filePath));
+
+        QString localDirPath = QCoreApplication::applicationDirPath() + "/playlists/" + QString::number(m_player->getId()) + "_playlist";
+
+        QStringList fileDirs = filePath.split("/");
+        QString fileName = fileDirs.at(fileDirs.size()-1);
+        QString copiedFilePath = localDirPath + "/" + fileName;
+
+        if(!QDir(localDirPath).exists()){
+            QDir().mkpath(localDirPath);
+        }
+
+        //qDebug() << copiedFilePath;
+
+        QFile::copy(filePath, copiedFilePath);
+
+        items.append((new QStandardItem(QDir(copiedFilePath).dirName())));
+        items.append(new QStandardItem(copiedFilePath));
         m_playlistModel->appendRow(items);
-        m_player->playlist->addMedia(QUrl(filePath));
+        m_player->playlist->addMedia(QUrl(copiedFilePath));
     }
 }
 void QPlaylistEdit::on_removeButton_clicked() {

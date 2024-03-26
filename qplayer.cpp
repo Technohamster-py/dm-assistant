@@ -121,7 +121,7 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
 void QPlayer::saveToXml(QString pathToXml) {
     QString configFileNamePath;
     if(pathToXml == QCoreApplication::applicationDirPath()){
-        configFileNamePath = pathToXml + "/configs/" + id + "_playlist.xml";
+        configFileNamePath = pathToXml + "/configs/" + QString::number(id) + "_playlist.xml";
     } else
     {
         configFileNamePath = pathToXml;

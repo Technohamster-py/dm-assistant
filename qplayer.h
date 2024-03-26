@@ -27,8 +27,10 @@ public:
 
     ~QPlayer() override;
 
-    QString getPlaylistName() const{return playlistName;};
+    [[nodiscard]] QString getPlaylistName() const{return playlistName;};
     void setPlaylistName(QString name);
+
+    [[nodiscard]] int getId() const{return id;};
 
     void saveToXml(QString pathToXml = QCoreApplication::applicationDirPath());
 
