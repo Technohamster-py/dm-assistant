@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(DM_assist)
+project(DM-assist)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
@@ -7,7 +7,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/Release)
-#set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
+set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 set(HEADER_FILES
@@ -26,9 +26,10 @@ set(UI_FILES
 )
 
 set(TS_FILES
-        dm_assist_en.ts
-        dm_assist_ru.ts
+        translations/dm-assist_en_US.ts
+        translations/dm-assist_ru_RU.ts
 )
+
 
 set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/static/app_resources.qrc)
 
@@ -37,19 +38,11 @@ find_package(Qt5 COMPONENTS
         Gui
         Widgets
         Multimedia
+        Xml
         LinguistTools
         REQUIRED)
 
 qt5_add_resources(RESOURCES_ADD ${RESOURCES})
-
-
-add_executable(${PROJECT_NAME} main.cpp
-        ${HEADER_FILES}
-        ${SOURCE_FILES}
-        ${UI_FILES}
-        ${RESOURCES_ADD}
-        qt5_add_lupdate
-)
 
 include_directories(
         ${Qt5Core_INCLUDE_DIRS}
@@ -58,13 +51,28 @@ include_directories(
         ${Qt5PrintSupport_INCLUDE_DIRS}
         ${Qt5Sql_INCLUDE_DIRS}
         ${Qt5Multimedia_INCLUDE_DIRS}  #the directories
+        translations
+        static
 )
+
+qt5_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
+add_custom_target(translations DEPENDS ${QM_FILES})
+
+add_executable(${PROJECT_NAME} main.cpp
+        ${HEADER_FILES}
+        ${SOURCE_FILES}
+        ${UI_FILES}
+        ${RESOURCES_ADD}
+)
+
+add_dependencies(${PROJECT_NAME} translations)
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
         Qt5::Multimedia
+        Qt5::Xml
 )
 
 

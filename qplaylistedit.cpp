@@ -17,7 +17,7 @@ QPlaylistEdit::QPlaylistEdit(QWidget *parent, QPlayer *player) :
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     setWindowTitle(tr("Edit playlist"));
 
-    ui->titleEdit->setText(player->playlistName);
+    ui->titleEdit->setText(player->getPlaylistName());
 
     m_player = player;
     m_playlistModel = new QStandardItemModel(this);
@@ -58,7 +58,7 @@ void QPlaylistEdit::on_removeButton_clicked() {
 }
 
 void QPlaylistEdit::on_buttonBox_accepted() {
-    m_player->playlistName = ui->titleEdit->text();
+    m_player->setPlaylistName(ui->titleEdit->text());
     accept();
 }
 
