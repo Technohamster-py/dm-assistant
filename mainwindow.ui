@@ -25,12 +25,18 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QWidget" name="widget" native="true">
+     <widget class="QWidget" name="leftAsideWidget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>210</width>
+        <height>0</height>
+       </size>
       </property>
       <property name="maximumSize">
        <size>
@@ -38,38 +44,22 @@
         <height>16777215</height>
        </size>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Браузер</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout_2"/>
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="widget_2" native="true">
+     <widget class="QWidget" name="mainViewWidget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Карта</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout_3"/>
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="widget_3" native="true">
+     <widget class="QWidget" name="rightAsideWidget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -82,34 +72,7 @@
         <height>16777215</height>
        </size>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QWidget" name="widget_4" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Инициатива</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QWidget" name="widget_5" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Плеер</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>
     </item>
    </layout>
@@ -120,18 +83,28 @@
      <x>0</x>
      <y>0</y>
      <width>1440</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuCampain">
     <property name="title">
      <string>Campain</string>
     </property>
+    <widget class="QMenu" name="menuAdd">
+     <property name="title">
+      <string>Add</string>
+     </property>
+     <addaction name="actionNPC"/>
+     <addaction name="actionMonster"/>
+     <addaction name="separator"/>
+     <addaction name="actionMap_2"/>
+    </widget>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
-    <addaction name="actionAdd_NPC"/>
-    <addaction name="actionMap_manager"/>
+    <addaction name="menuAdd"/>
+    <addaction name="actionCampain_settings"/>
+    <addaction name="actionExport_campain"/>
    </widget>
    <widget class="QMenu" name="menuGlossary">
     <property name="title">
@@ -162,9 +135,23 @@
     <addaction name="actionEncounter_builder_2"/>
     <addaction name="actionCharacter_creator_2"/>
    </widget>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>Window</string>
+    </property>
+    <widget class="QMenu" name="menuTheme">
+     <property name="title">
+      <string>Theme</string>
+     </property>
+     <addaction name="actionLight"/>
+     <addaction name="actionDark"/>
+    </widget>
+    <addaction name="menuTheme"/>
+   </widget>
    <addaction name="menuCampain"/>
    <addaction name="menuGlossary"/>
    <addaction name="menuTools"/>
+   <addaction name="menuWindow"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -240,14 +227,49 @@
     <string>Character creator</string>
    </property>
   </action>
-  <action name="actionAdd_NPC">
-   <property name="text">
-    <string>Add NPC</string>
-   </property>
-  </action>
   <action name="actionMap_manager">
    <property name="text">
     <string>Add map</string>
+   </property>
+  </action>
+  <action name="actionNPC">
+   <property name="text">
+    <string>Character</string>
+   </property>
+  </action>
+  <action name="actionMonster">
+   <property name="text">
+    <string>Monster</string>
+   </property>
+  </action>
+  <action name="actionMap">
+   <property name="text">
+    <string>Map</string>
+   </property>
+  </action>
+  <action name="actionMap_2">
+   <property name="text">
+    <string>Map</string>
+   </property>
+  </action>
+  <action name="actionCampain_settings">
+   <property name="text">
+    <string>Campain settings</string>
+   </property>
+  </action>
+  <action name="actionExport_campain">
+   <property name="text">
+    <string>Export campain</string>
+   </property>
+  </action>
+  <action name="actionLight">
+   <property name="text">
+    <string>Light</string>
+   </property>
+  </action>
+  <action name="actionDark">
+   <property name="text">
+    <string>Dark</string>
    </property>
   </action>
  </widget>

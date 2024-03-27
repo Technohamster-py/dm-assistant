@@ -11,16 +11,19 @@ set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 set(HEADER_FILES
+        mainwindow.h
         qplayer.h
         qplaylistedit.h
 )
 
 set(SOURCE_FILES
+        mainwindow.cpp
         qplayer.cpp
         qplaylistedit.cpp
 )
 
 set(UI_FILES
+        mainwindow.ui
         qplayer.ui
         qplaylistedit.ui
 )

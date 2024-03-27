@@ -1,10 +1,20 @@
 <RCC version="1.0">
     <qresource prefix="/">
-        <file>edit.svg</file>
         <file>add.svg</file>
+        <file>book.svg</file>
+        <file>close.svg</file>
+        <file>compass.svg</file>
+        <file>double-sword.svg</file>
+        <file>dragon.svg</file>
+        <file>edit.svg</file>
+        <file>export.svg</file>
+        <file>human.svg</file>
         <file>remove.svg</file>
+        <file>save.svg</file>
         <file>search.svg</file>
         <file>settings.svg</file>
+        <file>shield.svg</file>
+        <file>sword.svg</file>
     </qresource>
     <qresource prefix="player">
         <file>next.svg</file>
