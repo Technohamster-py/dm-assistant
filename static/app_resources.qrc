@@ -26,4 +26,9 @@
     <qresource prefix="map">
         <file>torch.svg</file>
     </qresource>
+    <qresource prefix="initiative tracker">
+        <file>back.svg</file>
+        <file>forward.svg</file>
+        <file>share.svg</file>
+    </qresource>
 </RCC>

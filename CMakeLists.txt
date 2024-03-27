@@ -14,18 +14,21 @@ set(HEADER_FILES
         mainwindow.h
         qplayer.h
         qplaylistedit.h
+        qinititivetrackerwidget.h
 )
 
 set(SOURCE_FILES
         mainwindow.cpp
         qplayer.cpp
         qplaylistedit.cpp
+        qinititivetrackerwidget.cpp
 )
 
 set(UI_FILES
         mainwindow.ui
         qplayer.ui
         qplaylistedit.ui
+        qinititivetrackerwidget.ui
 )
 
 set(TS_FILES
