@@ -11,14 +11,20 @@ set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 set(HEADER_FILES
+        character.h
+        creature.h
         mainwindow.h
+        monster.h
         qplayer.h
         qplaylistedit.h
         qinititivetrackerwidget.h
 )
 
 set(SOURCE_FILES
+        character.cpp
+        creature.cpp
         mainwindow.cpp
+        monster.cpp
         qplayer.cpp
         qplaylistedit.cpp
         qinititivetrackerwidget.cpp
