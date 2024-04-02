@@ -5,9 +5,9 @@
 #ifndef DM_ASSIST_MONSTER_H
 #define DM_ASSIST_MONSTER_H
 
-#include "creature.h"
+#include "dndcreature.h"
 
-class Monster : Creature {
+class Monster : dndCreature {
 public:
     explicit Monster(QString monsterTitile);
     explicit Monster(QFile *xmlConfig);

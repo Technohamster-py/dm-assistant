@@ -1,44 +1,26 @@
 <?xml version="1.0" encodiong="UTF-8"?>
-<character>
-    <name></name>
-    <race></race>
-    <age></age>
+<character id="">
+    <name>Character name</name>
+    <race id="0">Race string</race>
+    <age>2320</age>
+    <gender>Character gender</gender>
 
-    <ac></ac>
-    <max-hp>
-        45
-        <formula>6d10+5</formula>
-    </max-hp>
+    <image></image>
 
-    <class>
-        <subclass></subclass>
-    </class>
+    <ac>12</ac>
+    <hp current="30" max="45"></hp>
+
+    <classes>
+        <class level="" subclass=""></class>
+    </classes>
 
     <stats>
-        <STR>
-            10
-            <bonus>+0</bonus>
-        </STR>
-        <DEX>
-            14
-            <bonus>+2</bonus>
-        </DEX>
-        <CON>
-            10
-            <bonus>+0</bonus>
-        </CON>
-        <INT>
-            11
-            <bonus>+0</bonus>
-        </INT>
-        <WIS>
-            12
-            <bonus>+1</bonus>
-        </WIS>
-        <CHA>
-            11
-            <bonus>+0</bonus>
-        </CHA>
+        <STR>10</STR>
+        <DEX>14</DEX>
+        <CON>10</CON>
+        <INT>11</INT>
+        <WIS>10</WIS>
+        <CHA>11</CHA>
     </stats>
 
     <skills>
@@ -50,7 +32,7 @@
     </saving-throws>
 
     <feelings>
-        <feeling></feeling>
+        <feeling name=""></feeling>
     </feelings>
     <languages></languages>
     <proficiency-bonus></proficiency-bonus>

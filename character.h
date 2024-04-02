@@ -5,14 +5,17 @@
 #ifndef DM_ASSIST_CHARACTER_H
 #define DM_ASSIST_CHARACTER_H
 
-#include "creature.h"
+#include "dndcreature.h"
 
-class Character : Creature{
+class Character : dndCreature{
 public:
     explicit Character(QString characterName);
     explicit Character(QFile *xmlConfig);
 
     ~Character();
+
+    void loadFromFile(QFile *xmlConfigFile);
+    void saveToFile(QString pathToConfigFile);
 
     /// Races from PHB
     enum Races{
@@ -28,16 +31,17 @@ public:
     };
 
 private:
-    int id; ///< Unique id of charlist
-
-    int race;
+    int raceId;
+    QString race;
     int age;
     QString gender;
+
+    int proficiencyBonus;
 
     QMap<QString, int> classLevel;        ///< Class - level
     QMap<QString, QString> subclasses;    ///< Class - subclass
 
-    QMap<QString, bool> skillsProficiency;    ///< skill - has proficiency
+    QMap<QString, int> skillsProficiency;    ///< skill - bonus
     QMap<QString, bool> savesProficiency;    ///< Save throw - has proficiency
 
     QMap<QString, QString> feelings;    ///< feeling name - description
@@ -51,6 +55,7 @@ private:
     QMap<QString, int> enemies; ///< Enemy name - enemy character id
 
     QMap<QString, QString> abilities;    ///< Ability name - description
+
 };
 
 

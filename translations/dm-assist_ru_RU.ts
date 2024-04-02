@@ -2,6 +2,167 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
+    <name>MainWindow</name>
+    <message>
+        <location filename="../mainwindow.ui" line="23"/>
+        <source>MainWindow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="91"/>
+        <source>Campain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="95"/>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="111"/>
+        <source>Glossary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="115"/>
+        <source>Classes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="121"/>
+        <source>Races</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="133"/>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="140"/>
+        <source>Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="144"/>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="159"/>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="173"/>
+        <location filename="../mainwindow.ui" line="208"/>
+        <location filename="../mainwindow.ui" line="213"/>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="178"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="183"/>
+        <source>Spells</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="188"/>
+        <source>Monsters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="193"/>
+        <source>Magic items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="198"/>
+        <location filename="../mainwindow.ui" line="218"/>
+        <source>Encounter builder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="203"/>
+        <location filename="../mainwindow.ui" line="223"/>
+        <source>Character creator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="228"/>
+        <source>Add map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="233"/>
+        <source>Character</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="238"/>
+        <source>Monster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="243"/>
+        <location filename="../mainwindow.ui" line="248"/>
+        <source>Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="253"/>
+        <source>Campain settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="258"/>
+        <source>Export campain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="263"/>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="268"/>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QInititiveTrackerWidget</name>
+    <message>
+        <location filename="../qinititivetrackerwidget.ui" line="26"/>
+        <source>QInititiveTrackerWidget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qinititivetrackerwidget.ui" line="35"/>
+        <source>Initiative tracker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qinititivetrackerwidget.ui" line="60"/>
+        <source>Previous turn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qinititivetrackerwidget.ui" line="92"/>
+        <source>NextTurn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qinititivetrackerwidget.ui" line="124"/>
+        <source>Open player wiev</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QPlayer</name>
     <message>
         <location filename="../qplayer.ui" line="20"/>
@@ -111,22 +272,27 @@
         <translation>Удалить файл из плейлиста</translation>
     </message>
     <message>
-        <location filename="../qplaylistedit.cpp" line="23"/>
+        <location filename="../qplaylistedit.cpp" line="18"/>
+        <source>Edit playlist</source>
+        <translation type="unfinished">Редактировать плейлист</translation>
+    </message>
+    <message>
+        <location filename="../qplaylistedit.cpp" line="24"/>
         <source>Track title</source>
         <translation>Название трека</translation>
     </message>
     <message>
-        <location filename="../qplaylistedit.cpp" line="23"/>
+        <location filename="../qplaylistedit.cpp" line="24"/>
         <source>File path</source>
         <translation>Путь к файлу</translation>
     </message>
     <message>
-        <location filename="../qplaylistedit.cpp" line="41"/>
+        <location filename="../qplaylistedit.cpp" line="42"/>
         <source>Add tracks</source>
         <translation>Дбавиьт треки</translation>
     </message>
     <message>
-        <location filename="../qplaylistedit.cpp" line="43"/>
+        <location filename="../qplaylistedit.cpp" line="44"/>
         <source>Audio files (*.mp3)</source>
         <translation>аудиофайлы (*mp3)</translation>
     </message>

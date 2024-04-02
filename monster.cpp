@@ -4,11 +4,11 @@
 
 #include "monster.h"
 
-Monster::Monster(QString monsterTitile) : Creature(monsterTitile) {
+Monster::Monster(QString monsterTitile) : dndCreature(monsterTitile) {
 
 }
 
-Monster::Monster(QFile *xmlConfig) : Creature(xmlConfig) {
+Monster::Monster(QFile *xmlConfig) : dndCreature(xmlConfig) {
 
 }
 

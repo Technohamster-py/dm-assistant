@@ -12,7 +12,7 @@ set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 
 set(HEADER_FILES
         character.h
-        creature.h
+        dndcreature.h
         mainwindow.h
         monster.h
         qplayer.h
@@ -22,7 +22,7 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
         character.cpp
-        creature.cpp
+        dndcreature.cpp
         mainwindow.cpp
         monster.cpp
         qplayer.cpp
