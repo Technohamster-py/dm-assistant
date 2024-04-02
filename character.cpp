@@ -5,11 +5,15 @@
 #include "character.h"
 
 Character::Character(QString characterName) : dndCreature(characterName) {
-
+    title = characterName;
 }
 
 Character::Character(QFile *xmlConfig) : dndCreature(xmlConfig) {
     loadFromFile(xmlConfig);
+}
+
+Character::~Character() {
+
 }
 
 void Character::loadFromFile(QFile *xmlConfigFile) {
@@ -27,7 +31,7 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
     raceId = raceNode.attribute("id").toInt();
     race = raceNode.toText().data();
 
-    age = characterNode.firstChildElement("age").toText().data().toInt()
+    age = characterNode.firstChildElement("age").toText().data().toInt();
 
     characteristics["Strength"] = characterNode.firstChildElement("stats").firstChildElement("STR").toText().data().toInt();
     characteristics["Constitution"] = characterNode.firstChildElement("stats").firstChildElement("CON").toText().data().toInt();
@@ -68,5 +72,10 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
     proficiencyBonus = characterNode.firstChildElement("proficiency-bonus").toText().data().toInt();
 
     QString imageFilePath = characterNode.firstChildElement("image").toText().data();
-    image.setFileName(imageFilePath);
+    image.load(imageFilePath);
 }
+
+void Character::saveToFile(QString pathToConfigFile) {
+
+}
+

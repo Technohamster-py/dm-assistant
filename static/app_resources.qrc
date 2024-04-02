@@ -31,4 +31,9 @@
         <file>forward.svg</file>
         <file>share.svg</file>
     </qresource>
+    <qresource prefix="charSheet">
+        <file>run.svg</file>
+        <file>wing.svg</file>
+        <file>swim.svg</file>
+    </qresource>
 </RCC>

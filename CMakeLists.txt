@@ -15,6 +15,7 @@ set(HEADER_FILES
         dndcreature.h
         mainwindow.h
         monster.h
+        qdndcharacterwidget.h
         qplayer.h
         qplaylistedit.h
         qinititivetrackerwidget.h
@@ -25,6 +26,7 @@ set(SOURCE_FILES
         dndcreature.cpp
         mainwindow.cpp
         monster.cpp
+        qdndcharacterwidget.cpp
         qplayer.cpp
         qplaylistedit.cpp
         qinititivetrackerwidget.cpp
@@ -32,6 +34,7 @@ set(SOURCE_FILES
 
 set(UI_FILES
         mainwindow.ui
+        qdndcharacterwidget.ui
         qplayer.ui
         qplaylistedit.ui
         qinititivetrackerwidget.ui
