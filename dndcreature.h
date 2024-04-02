@@ -7,6 +7,7 @@
 
 #include <QString>
 #include <QFile>
+#include <QPixmap>
 #include <QMap>
 #include <QDomDocument>
 #include <QApplication>
@@ -23,7 +24,8 @@ public:
     int loadCreatureFromFile(QFile *xmlConfigFile = nullptr);
     int saveCreatureToFile(QDomDocument configDomDocument, QString pathToXml = QCoreApplication::applicationDirPath());
 
-    int getBonuseFromCharacteristic(int characteristicValue);
+    static int getBonuseFromCharacteristic(int characteristicValue);
+    void setMaxHp(int value);
 
     enum FileErrors{
         ErrorNone = 0,
@@ -32,9 +34,10 @@ public:
     };
 signals:
     void titleChanged();
-    void xmlLoadError(int errCode);
-    void xmlSaveError(int errCode);
+    void xmlLoadError(QString errString);
+    void xmlSaveError(QString errString);
     void imageChanged();
+    void maxHpCahged();
 
 protected:
     int id; ///< Unique id of charlist
@@ -42,7 +45,7 @@ protected:
     QString title;
     QString notes;
 
-    QFile image;
+    QPixmap image;
 
     // Characteristics
     QMap<QString, int> characteristics;

@@ -15,6 +15,7 @@ dndCreature::dndCreature(QFile *xmlConfig) {
 
 int dndCreature::loadCreatureFromFile(QFile *xmlConfigFile) {
     if(!xmlConfigFile->open(QIODevice::ReadWrite)){
+        emit xmlSaveError(xmlConfigFile->errorString());
         return OpenFileError;
     }
     configDom.setContent(xmlConfigFile);
@@ -38,6 +39,7 @@ int dndCreature::saveCreatureToFile(QDomDocument configDomDocument, QString path
 
     if (!config.open(QFile::WriteOnly))
     {
+        emit xmlLoadError(config.errorString());
         return OpenFileError;
     }
 
@@ -48,4 +50,11 @@ int dndCreature::saveCreatureToFile(QDomDocument configDomDocument, QString path
 
 int dndCreature::getBonuseFromCharacteristic(int characteristicValue) {
     return (characteristicValue >= 0) ? (characteristicValue / 10) : (characteristicValue - 10 + 1) / 10;
+}
+
+void dndCreature::setMaxHp(int value) {
+    maxHP = value;
+    if (hp > maxHP)
+        hp = maxHP;
+    emit maxHpCahged();
 }
