@@ -26,6 +26,7 @@ public:
 
     static int getBonuseFromCharacteristic(int characteristicValue);
     void setMaxHp(int value);
+    bool setHp(int value);
 
     enum FileErrors{
         ErrorNone = 0,

@@ -58,3 +58,11 @@ void dndCreature::setMaxHp(int value) {
         hp = maxHP;
     emit maxHpCahged();
 }
+
+bool dndCreature::setHp(int value) {
+    if(value <= maxHP){
+        hp = value;
+        return true;
+    } else
+        return false;
+}
