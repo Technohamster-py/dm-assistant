@@ -25,6 +25,8 @@ public:
     int saveCreatureToFile(QDomDocument configDomDocument, QString pathToXml = QCoreApplication::applicationDirPath());
 
     static int getBonuseFromCharacteristic(int characteristicValue);
+    int getCharacterSheetId() const {return id;};
+
     void setMaxHp(int value);
     bool setHp(int value);
 
