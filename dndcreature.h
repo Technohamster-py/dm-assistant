@@ -14,7 +14,6 @@
 
 class dndCreature : public QObject{
 Q_OBJECT
-
 public:
     explicit dndCreature(QString creatureName);
     explicit dndCreature(QFile *xmlConfig);
@@ -26,6 +25,11 @@ public:
 
     static int getBonuseFromCharacteristic(int characteristicValue);
     int getCharacterSheetId() const {return id;};
+    QString getTitle() const {return title;};
+    int getAc() const {return ac;};
+    int getHp() const {return hp;};
+    int getMaxHp() const {return maxHP;};
+    int getInitiativeBonus() const {return initiativeBonus;};
 
     void setMaxHp(int value);
     bool setHp(int value);
@@ -53,7 +57,7 @@ protected:
     // Characteristics
     QMap<QString, int> characteristics;
 
-    int initiative = 10;
+    int initiativeBonus = 0;
 
     int ac = 10;
     int maxHP = 0;
