@@ -28,10 +28,10 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
     title = characterNode.firstChildElement("name").toText().data();
 
     QDomElement raceNode = characterNode.firstChildElement("race");
-    raceId = raceNode.attribute("id").toInt();
-    race = raceNode.toText().data();
+    m_raceId = raceNode.attribute("id").toInt();
+    m_race = raceNode.toText().data();
 
-    age = characterNode.firstChildElement("age").toText().data().toInt();
+    m_age = characterNode.firstChildElement("age").toText().data().toInt();
 
     characteristics["Strength"] = characterNode.firstChildElement("stats").firstChildElement("STR").toText().data().toInt();
     characteristics["Constitution"] = characterNode.firstChildElement("stats").firstChildElement("CON").toText().data().toInt();
@@ -43,7 +43,7 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
     QDomNodeList skillsList = characterNode.elementsByTagName("skill");
     for (int i = 0; i < skillsList.count(); ++i) {
         QDomElement skill = skillsList.at(i).toElement();
-        skillsProficiency[skill.attribute("name")] = skill.toText().data().toInt();
+        m_skillsProficiency[skill.attribute("name")] = skill.toText().data().toInt();
     }
 
     QDomNodeList classesList = characterNode.elementsByTagName("class");
@@ -52,8 +52,8 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
         QString className = characterClass.toText().data();
         int level = characterClass.attribute("level").toInt();
         QString subclass = characterClass.attribute("subclass");
-        classLevel[className] = level;
-        subclasses[className] = subclass;
+        m_classLevel[className] = level;
+        m_subclasses[className] = subclass;
     }
 
     ac = characterNode.firstChildElement("ac").toText().data().toInt();
@@ -64,12 +64,12 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
     for (int i = 0; i < feelingsList.count(); i++){
         QString feelingName = feelingsList.at(i).toElement().attribute("name");
         QString feelingDescription = feelingsList.at(i).toElement().toText().data();
-        feelings[feelingName] = feelingDescription;
+        m_feelings[feelingName] = feelingDescription;
     }
 
-    languages = characterNode.firstChildElement("languages").toText().data();
+    m_languages = characterNode.firstChildElement("languages").toText().data();
 
-    proficiencyBonus = characterNode.firstChildElement("proficiency-bonus").toText().data().toInt();
+    m_proficiencyBonus = characterNode.firstChildElement("proficiency-bonus").toText().data().toInt();
 
     QString imageFilePath = characterNode.firstChildElement("image").toText().data();
     image.load(imageFilePath);

@@ -31,30 +31,30 @@ public:
     };
 
 private:
-    int raceId;
-    QString race;
-    int age;
-    QString gender;
+    int m_raceId;
+    QString m_race;
+    int m_age;
+    QString m_gender;
 
-    int proficiencyBonus;
+    int m_proficiencyBonus;
 
-    QMap<QString, int> classLevel;        ///< Class - level
-    QMap<QString, QString> subclasses;    ///< Class - subclass
+    QMap<QString, int> m_classLevel;        ///< Class - level
+    QMap<QString, QString> m_subclasses;    ///< Class - subclass
 
-    QMap<QString, int> skillsProficiency;    ///< skill - bonus
-    QMap<QString, bool> savesProficiency;    ///< Save throw - has proficiency
+    QMap<QString, int> m_skillsProficiency;    ///< skill - bonus
+    QMap<QString, bool> m_savesProficiency;    ///< Save throw - has proficiency
 
-    QMap<QString, QString> feelings;    ///< feeling name - description
+    QMap<QString, QString> m_feelings;    ///< feeling name - description
 
-    QString languages; ///< list of languages
+    QString m_languages; ///< list of languages
 
     //inventory
     //spellbook
 
-    QMap<QString, int> friends; ///< Friend name - friend character id
-    QMap<QString, int> enemies; ///< Enemy name - enemy character id
+    QMap<QString, int> m_friends; ///< Friend name - friend character id
+    QMap<QString, int> m_enemies; ///< Enemy name - enemy character id
 
-    QMap<QString, QString> abilities;    ///< Ability name - description
+    QMap<QString, QString> m_abilities;    ///< Ability name - description
 
 };
 

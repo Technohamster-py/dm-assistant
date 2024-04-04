@@ -47,7 +47,7 @@ private slots:
 
 private:
     Ui::QPlayer *ui;
-    QDomDocument xmlConfig;
+    QDomDocument m_xmlConfig;
 
     //QStandardItemModel *m_playlistModel; ///< Модель данных плейлиста для отображения
     QMediaPlayer *m_player; ///< Проигрыватель

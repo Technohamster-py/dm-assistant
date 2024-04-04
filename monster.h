@@ -15,17 +15,17 @@ public:
     ~Monster();
 
 private:
-    QMap<QString, bool> skillsProficiency;    ///< skill - has proficiency
-    QMap<QString, bool> savesProficiency;    ///< Save throw - has proficiency
+    QMap<QString, bool> m_skillsProficiency;    ///< skill - has proficiency
+    QMap<QString, bool> m_savesProficiency;    ///< Save throw - has proficiency
 
-    QMap<QString, QString> feelings;    ///< feeling name - description
+    QMap<QString, QString> m_feelings;    ///< feeling name - description
 
-    QMap<QString, QString> abilities;    ///< Ability name - description
+    QMap<QString, QString> m_abilities;    ///< Ability name - description
 
-    QMap<QString, QString> actions;
+    QMap<QString, QString> m_actions;
 
-    QString area;
-    QString description;
+    QString m_area;
+    QString m_description;
 };
 
 
