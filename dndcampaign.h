@@ -7,10 +7,12 @@
 
 #include <QString>
 #include <QFile>
+#include <QSharedPointer>
 
 #include "character.h"
 #include "monster.h"
 #include "qplayer.h"
+#include "encounter.h"
 
 class dndCampaign : public QObject{
     Q_OBJECT
@@ -23,12 +25,16 @@ public:
     void rename(QString newTitle);
     void doLongRest();
 
+signals:
+    void titleChanged();
+
 private:
     QString m_campaignTitle;
 
-    QList<Character> m_characters;
-    QList<Monster> m_monsters;
-    QList<QPlayer> m_players;
+    QList<QSharedPointer<Character>> m_characters;
+    QList<QSharedPointer<Monster>> m_monsters;
+    QList<QSharedPointer<QPlayer>> m_players;
+    QList<QSharedPointer<Encounter>> m_encounters;
 };
 
 
