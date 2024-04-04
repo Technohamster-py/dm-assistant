@@ -13,6 +13,7 @@ set(CMAKE_PREFIX_PATH "/usr/local/qt/Qt-5.12.12/5.12.12")
 
 set(HEADER_FILES
         character.h
+        dndcampaign.h
         dndcreature.h
         encounter.h
         mainwindow.h
@@ -25,6 +26,7 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
         character.cpp
+        dndcampaign.cpp
         dndcreature.cpp
         encounter.cpp
         mainwindow.cpp
