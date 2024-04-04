@@ -7,7 +7,7 @@
 
 #include "dndcreature.h"
 
-class Character : dndCreature{
+class Character : public dndCreature{
 public:
     explicit Character(QString characterName);
     explicit Character(QFile *xmlConfig);
