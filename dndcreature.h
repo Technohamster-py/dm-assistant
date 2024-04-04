@@ -34,16 +34,21 @@ public:
     void setMaxHp(int value);
     bool setHp(int value);
 
+    void setFullHp();
+    void doDamage(int hpValue);
+
     enum FileErrors{
         ErrorNone = 0,
         OpenFileError = -1,
         ParseFileError = -2
     };
+
 signals:
     void titleChanged();
     void xmlLoadError(QString errString);
     void xmlSaveError(QString errString);
     void imageChanged();
+    void hpChanged();
     void maxHpCahged();
 
 protected:

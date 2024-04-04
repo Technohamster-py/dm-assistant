@@ -66,3 +66,13 @@ bool dndCreature::setHp(int value) {
     } else
         return false;
 }
+
+void dndCreature::setFullHp() {
+    hp = maxHP;
+}
+
+void dndCreature::doDamage(int hpValue) {
+    hp -= hpValue;
+    if (hp < 0)
+        hp = 0;
+}
