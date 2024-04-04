@@ -61,18 +61,88 @@
     <item>
      <widget class="QWidget" name="rightAsideWidget" native="true">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
       <property name="maximumSize">
        <size>
-        <width>444</width>
+        <width>330</width>
         <height>16777215</height>
        </size>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout"/>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="initiativeWidget" native="true"/>
+       </item>
+       <item>
+        <widget class="QWidget" name="musicWidget" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>330</width>
+           <height>504</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>504</height>
+          </size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QPlayer" name="playlist1Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist2Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist3Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist4Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist5Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist6Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist7Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist8Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist9Widget" native="true"/>
+          </item>
+          <item>
+           <widget class="QPlayer" name="playlist10Widget" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -83,7 +153,7 @@
      <x>0</x>
      <y>0</y>
      <width>1440</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuCampain">
@@ -269,6 +339,14 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QPlayer</class>
+   <extends>QWidget</extends>
+   <header>qplayer.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="static/app_resources.qrc"/>
  </resources>
