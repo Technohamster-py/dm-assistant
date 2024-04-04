@@ -42,7 +42,7 @@ private:
     QMap<QString, QString> m_subclasses;    ///< Class - subclass
 
     QMap<QString, int> m_skillsProficiency;    ///< skill - bonus
-    QMap<QString, bool> m_savesProficiency;    ///< Save throw - has proficiency
+    QMap<QString, int> m_savesProficiency;    ///< Save throw - has proficiency
 
     QMap<QString, QString> m_feelings;    ///< feeling name - description
 
