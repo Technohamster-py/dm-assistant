@@ -31,7 +31,6 @@ public:
     void setMaxHp(int value);
     void setInitiativeValue(int initiativeRoll, bool autoAddBonus);
 
-
 private:
     int m_type;
     Character *m_character;
@@ -44,6 +43,7 @@ private:
     int m_hp = 0;
     int m_maxHp = 0;
 };
+
 
 class Encounter {
 public:
