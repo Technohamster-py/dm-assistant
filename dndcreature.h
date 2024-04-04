@@ -21,7 +21,7 @@ public:
     ~dndCreature();
 
     int loadCreatureFromFile(QFile *xmlConfigFile = nullptr);
-    int saveCreatureToFile(QDomDocument configDomDocument, QString pathToXml = QCoreApplication::applicationDirPath());
+    int saveCreatureToFile(QString pathToXml = QCoreApplication::applicationDirPath());
 
     static int getBonuseFromCharacteristic(int characteristicValue);
     int getCharacterSheetId() const {return id;};
@@ -52,6 +52,7 @@ protected:
     QString title;
     QString notes;
 
+    QString imagePath;
     QPixmap image;
 
     // Characteristics

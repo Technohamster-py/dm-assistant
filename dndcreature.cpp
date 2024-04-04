@@ -27,7 +27,7 @@ dndCreature::~dndCreature() {
 
 }
 
-int dndCreature::saveCreatureToFile(QDomDocument configDomDocument, QString pathToXml) {
+int dndCreature::saveCreatureToFile(QString pathToXml) {
     QString configFileNamePath;
     if(pathToXml == QCoreApplication::applicationDirPath()){
         configFileNamePath = pathToXml + "/configs/" + id + "_charlist.xml";
@@ -44,7 +44,7 @@ int dndCreature::saveCreatureToFile(QDomDocument configDomDocument, QString path
     }
 
     QTextStream xmlContent(&config);
-    xmlContent << configDomDocument.toString();
+    xmlContent << configDom.toString();
     return ErrorNone;
 }
 
