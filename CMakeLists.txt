@@ -7,7 +7,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/Release)
-set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
+#set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
+set(CMAKE_PREFIX_PATH "/usr/local/qt/Qt-5.12.12/5.12.12")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 set(HEADER_FILES
@@ -56,7 +57,7 @@ find_package(Qt5 COMPONENTS
         Widgets
         Multimedia
         Xml
-        LinguistTools
+        #LinguistTools
         REQUIRED)
 
 qt5_add_resources(RESOURCES_ADD ${RESOURCES})
@@ -72,7 +73,7 @@ include_directories(
         static
 )
 
-qt5_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
+#qt5_create_translation(QM_FILES ${CMAKE_CURRENT_SOURCE_DIR} ${TS_FILES})
 add_custom_target(translations DEPENDS ${QM_FILES})
 
 add_executable(${PROJECT_NAME} main.cpp
