@@ -16,6 +16,11 @@ Character::~Character() {
 
 }
 
+/**
+ * \brief Loading character from .xml config file
+ * \details Load dnd character from .xml config file. By default - file in root folder
+ * @param xmlConfigFile .xml config file
+ */
 void Character::loadFromFile(QFile *xmlConfigFile) {
     int errCode = loadCreatureFromFile(xmlConfigFile);
     if (errCode != ErrorNone){
@@ -75,6 +80,10 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
     image.load(imagePath);
 }
 
+/**
+ * Save character to .xml file
+ * @param pathToConfigFile string, contains path to .xml config file
+ */
 void Character::saveToFile(QString pathToConfigFile) {
     configDom.clear();
 

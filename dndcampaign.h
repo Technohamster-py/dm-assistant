@@ -22,6 +22,8 @@ public:
 
     ~dndCampaign();
 
+    void loadFromFile(QFile *xmlFile);
+    void saveToFile(QString pathToXmlFile);
     void rename(QString newTitle);
     void doLongRest();
 

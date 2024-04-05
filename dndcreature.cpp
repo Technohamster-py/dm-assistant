@@ -13,6 +13,15 @@ dndCreature::dndCreature(QString creatureName) {
 dndCreature::dndCreature(QFile *xmlConfig) {
 }
 
+dndCreature::~dndCreature() {
+
+}
+
+/**
+ * Load creature stat list to DOM document object
+ * @param xmlConfigFile .xml, contains stat list of creature
+ * @return error code
+ */
 int dndCreature::loadCreatureFromFile(QFile *xmlConfigFile) {
     if(!xmlConfigFile->open(QIODevice::ReadWrite)){
         emit xmlSaveError(xmlConfigFile->errorString());
@@ -23,10 +32,11 @@ int dndCreature::loadCreatureFromFile(QFile *xmlConfigFile) {
     return ErrorNone;
 }
 
-dndCreature::~dndCreature() {
-
-}
-
+/**
+ * Save DOM document object, contains stats of creature to .xml file
+ * @param pathToXml string with path to .xml file
+ * @return error code
+ */
 int dndCreature::saveCreatureToFile(QString pathToXml) {
     QString configFileNamePath;
     if(pathToXml == QCoreApplication::applicationDirPath()){
