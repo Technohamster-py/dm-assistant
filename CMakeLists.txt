@@ -6,6 +6,10 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+set(CMAKE_AUTOUIC_SEARCH_PATHS
+        ${PROJECT_SOURCE_DIR}
+)
+
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/Release)
 #set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 set(CMAKE_PREFIX_PATH "/usr/local/qt/Qt-5.12.12/5.12.12")
@@ -15,6 +19,7 @@ set(HEADER_FILES
         character.h
         dndcampaign.h
         dndcreature.h
+        dndspellwidget.h
         encounter.h
         mainwindow.h
         monster.h
@@ -28,6 +33,7 @@ set(SOURCE_FILES
         character.cpp
         dndcampaign.cpp
         dndcreature.cpp
+        dndspellwidget.cpp
         encounter.cpp
         mainwindow.cpp
         monster.cpp
@@ -39,6 +45,7 @@ set(SOURCE_FILES
 
 set(UI_FILES
         mainwindow.ui
+        dndspellwidget.ui
         qdndcharacterwidget.ui
         qplayer.ui
         qplaylistedit.ui

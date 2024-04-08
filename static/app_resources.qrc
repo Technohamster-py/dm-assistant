@@ -36,4 +36,10 @@
         <file>wing.svg</file>
         <file>swim.svg</file>
     </qresource>
+    <qresource prefix="spell">
+        <file>clock.svg</file>
+        <file>hand.svg</file>
+        <file>ruler.svg</file>
+        <file>sound.svg</file>
+    </qresource>
 </RCC>
