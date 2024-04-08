@@ -8,6 +8,7 @@
 #include "character.h"
 #include "monster.h"
 #include <QStandardItemModel>
+#include <QSharedPointer>
 
 class EncounterEntity{
 public:
@@ -55,7 +56,7 @@ public:
 
 private:
     QStandardItemModel *m_encounterModel;
-    QVector<EncounterEntity> m_entities;
+    QList<QSharedPointer<EncounterEntity>> m_entities;
 };
 
 

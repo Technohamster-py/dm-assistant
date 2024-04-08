@@ -15,30 +15,30 @@ Encounter::~Encounter() {
 }
 
 void Encounter::addCharacter(Character character) {
-    EncounterEntity characterEntity(&character, false);
+    QSharedPointer<EncounterEntity> characterEntity(new EncounterEntity(&character, false));
 
     QList<QStandardItem *> items;
-    items.append(new QStandardItem(characterEntity.getInitiativeValue()));
-    items.append(new QStandardItem(characterEntity.getTitle()));
-    items.append(new QStandardItem(characterEntity.getAC()));
+    items.append(new QStandardItem(characterEntity.data()->getInitiativeValue()));
+    items.append(new QStandardItem(characterEntity.data()->getTitle()));
+    items.append(new QStandardItem(characterEntity.data()->getAC()));
 
-    QString hpToMaxHp = QString::number(characterEntity.getHP()) + "/" + QString::number(characterEntity.getMaxHp());
+    QString hpToMaxHp = QString::number(characterEntity.data()->getHP()) + "/" + QString::number(characterEntity.data()->getMaxHp());
 
     items.append(new QStandardItem(hpToMaxHp));
     m_encounterModel->appendRow(items);
 
-    m_entities.push_back(characterEntity);
+    m_entities.append(characterEntity);
 }
 
 void Encounter::addMonster(Monster monster) {
-    EncounterEntity monsterEntity(&monster, false);
+    QSharedPointer<EncounterEntity> monsterEntity(new EncounterEntity(&monster, false));
 
     QList<QStandardItem *> items;
-    items.append(new QStandardItem(monsterEntity.getInitiativeValue()));
-    items.append(new QStandardItem(monsterEntity.getTitle()));
-    items.append(new QStandardItem(monsterEntity.getAC()));
+    items.append(new QStandardItem(monsterEntity.data()->getInitiativeValue()));
+    items.append(new QStandardItem(monsterEntity.data()->getTitle()));
+    items.append(new QStandardItem(monsterEntity.data()->getAC()));
 
-    QString hpToMaxHp = QString::number(monsterEntity.getHP()) + "/" + QString::number(monsterEntity.getMaxHp());
+    QString hpToMaxHp = QString::number(monsterEntity.data()->getHP()) + "/" + QString::number(monsterEntity.data()->getMaxHp());
 
     items.append(new QStandardItem(hpToMaxHp));
     m_encounterModel->appendRow(items);
