@@ -33,6 +33,8 @@ public:
 
     void setMaxHp(int value);
     bool setHp(int value);
+    void setAc(int value);
+    void setInitiativeBonus(int value);
 
     void setFullHp();
     void doDamage(int damageValue);
@@ -49,6 +51,8 @@ signals:
     void imageChanged();
     void hpChanged();
     void maxHpCahged();
+    void acChanged();
+    void initiativeBonusChanged();
 
 protected:
     int id; ///< Unique id of charlist

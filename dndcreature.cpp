@@ -78,3 +78,13 @@ void dndCreature::doDamage(int damageValue) {
         newHp = 0;
     setHp(newHp);
 }
+
+void dndCreature::setAc(int value) {
+    ac = value;
+    emit acChanged();
+}
+
+void dndCreature::setInitiativeBonus(int value) {
+    initiativeBonus = value;
+    emit initiativeBonusChanged();
+}
