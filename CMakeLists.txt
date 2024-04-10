@@ -7,8 +7,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/Release)
-#set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
-set(CMAKE_PREFIX_PATH "/usr/local/qt/Qt-5.12.12/5.12.12")
+set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
+#set(CMAKE_PREFIX_PATH "/usr/local/qt/Qt-5.12.12/5.12.12")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 set(HEADER_FILES
@@ -20,7 +20,7 @@ set(HEADER_FILES
         qdndcharacterwidget.h
         qplayer.h
         qplaylistedit.h
-        qinititivetrackerwidget.h
+        qinitiativetrackerwidget.h
 )
 
 set(SOURCE_FILES
@@ -32,7 +32,7 @@ set(SOURCE_FILES
         qdndcharacterwidget.cpp
         qplayer.cpp
         qplaylistedit.cpp
-        qinititivetrackerwidget.cpp
+        qinitiativetrackerwidget.cpp
 )
 
 set(UI_FILES
@@ -40,7 +40,7 @@ set(UI_FILES
         qdndcharacterwidget.ui
         qplayer.ui
         qplaylistedit.ui
-        qinititivetrackerwidget.ui
+        qinitiativetrackerwidget.ui
 )
 
 set(TS_FILES
