@@ -26,7 +26,7 @@ public:
     [[nodiscard]] int getAC() const {return m_ac;};
     [[nodiscard]] int getHP() const {return m_hp;};
     [[nodiscard]] int getMaxHp() const {return m_maxHp;};
-    QString getTitle() const {}
+    QString getTitle() const {return m_title;};
 
     void setHp(int value);
     void setMaxHp(int value);
@@ -48,15 +48,22 @@ private:
 
 class Encounter {
 public:
-    Encounter();
+    Encounter(QString title);
     ~Encounter();
 
-    void addCharacter(Character character);
-    void addMonster(Monster monster);
+    QString getTitle() const {return m_title;};
+    QStandardItemModel* getModel() const {return m_encounterModel;};
+
+    void setTitle(QString title);
+
+    void addCharacter(Character *character, int initiativeRoll = 0, bool autoAddBonus = false);
+    void addMonster(Monster *monster, int initiativeRoll = 0, bool autoAddBonus = false);
 
 private:
     QStandardItemModel *m_encounterModel;
     QList<QSharedPointer<EncounterEntity>> m_entities;
+
+    QString m_title = "";
 };
 
 

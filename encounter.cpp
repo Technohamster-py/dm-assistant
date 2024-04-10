@@ -4,9 +4,10 @@
 
 #include "encounter.h"
 
-Encounter::Encounter() {
+Encounter::Encounter(QString title) {
+    m_title = title;
     m_encounterModel = new QStandardItemModel();
-    m_encounterModel->setHorizontalHeaderLabels(QStringList() << "" << "" << "AC" << "HP");
+    m_encounterModel->setHorizontalHeaderLabels(QStringList() << "" << "" << "Title" << "AC" << "HP");
 
 }
 
@@ -14,13 +15,14 @@ Encounter::~Encounter() {
 
 }
 
-void Encounter::addCharacter(Character character) {
-    QSharedPointer<EncounterEntity> characterEntity(new EncounterEntity(&character, false));
+void Encounter::addCharacter(Character *character, int initiativeRoll, bool autoAddBonus) {
+    QSharedPointer<EncounterEntity> characterEntity(new EncounterEntity(character, initiativeRoll, autoAddBonus));
 
     QList<QStandardItem *> items;
     items.append(new QStandardItem(characterEntity.data()->getInitiativeValue()));
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getInitiativeValue())));
     items.append(new QStandardItem(characterEntity.data()->getTitle()));
-    items.append(new QStandardItem(characterEntity.data()->getAC()));
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getAC())));
 
     QString hpToMaxHp = QString::number(characterEntity.data()->getHP()) + "/" + QString::number(characterEntity.data()->getMaxHp());
 
@@ -30,13 +32,14 @@ void Encounter::addCharacter(Character character) {
     m_entities.append(characterEntity);
 }
 
-void Encounter::addMonster(Monster monster) {
-    QSharedPointer<EncounterEntity> monsterEntity(new EncounterEntity(&monster, false));
+void Encounter::addMonster(Monster *monster, int initiativeRoll, bool autoAddBonus) {
+    QSharedPointer<EncounterEntity> monsterEntity(new EncounterEntity(monster, initiativeRoll, autoAddBonus));
 
     QList<QStandardItem *> items;
     items.append(new QStandardItem(monsterEntity.data()->getInitiativeValue()));
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getInitiativeValue())));
     items.append(new QStandardItem(monsterEntity.data()->getTitle()));
-    items.append(new QStandardItem(monsterEntity.data()->getAC()));
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getAC())));
 
     QString hpToMaxHp = QString::number(monsterEntity.data()->getHP()) + "/" + QString::number(monsterEntity.data()->getMaxHp());
 
@@ -44,6 +47,10 @@ void Encounter::addMonster(Monster monster) {
     m_encounterModel->appendRow(items);
 
     m_entities.push_back(monsterEntity);
+}
+
+void Encounter::setTitle(QString title) {
+    m_title = title;
 }
 
 
@@ -63,6 +70,7 @@ EncounterEntity::EncounterEntity(Character *entity, int initiativeRoll, bool aut
 EncounterEntity::EncounterEntity(Monster *entity, int initiativeRoll, bool autoAddBonus) {
     m_type = monster;
     m_characterSheetId = entity->getCharacterSheetId();
+    m_title = entity->getTitle();
     m_ac = entity->getAc();
     m_hp = entity->getHp();
     m_maxHp = entity->getMaxHp();
