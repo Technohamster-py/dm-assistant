@@ -110,34 +110,34 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QPlayer" name="playlist1Widget" native="true"/>
+           <widget class="QWidget" name="playlist1Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist2Widget" native="true"/>
+           <widget class="QWidget" name="playlist2Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist3Widget" native="true"/>
+           <widget class="QWidget" name="playlist3Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist4Widget" native="true"/>
+           <widget class="QWidget" name="playlist4Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist5Widget" native="true"/>
+           <widget class="QWidget" name="playlist5Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist6Widget" native="true"/>
+           <widget class="QWidget" name="playlist6Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist7Widget" native="true"/>
+           <widget class="QWidget" name="playlist7Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist8Widget" native="true"/>
+           <widget class="QWidget" name="playlist8Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist9Widget" native="true"/>
+           <widget class="QWidget" name="playlist9Widget" native="true"/>
           </item>
           <item>
-           <widget class="QPlayer" name="playlist10Widget" native="true"/>
+           <widget class="QWidget" name="playlist10Widget" native="true"/>
           </item>
          </layout>
         </widget>
@@ -153,7 +153,7 @@
      <x>0</x>
      <y>0</y>
      <width>1440</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuCampain">
@@ -339,14 +339,6 @@
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QPlayer</class>
-   <extends>QWidget</extends>
-   <header>qplayer.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="static/app_resources.qrc"/>
  </resources>
