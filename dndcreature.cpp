@@ -6,47 +6,20 @@
 #include <utility>
 #include <QTextStream>
 
-dndCreature::dndCreature(QString creatureName) {
+dndCreature::dndCreature(QString creatureName) : Creature(creatureName){
     title = std::move(creatureName);
 }
 
-dndCreature::dndCreature(QFile *xmlConfig) {
+dndCreature::dndCreature(QFile *xmlConfig) : Creature(xmlConfig){
 }
 
-int dndCreature::loadCreatureFromFile(QFile *xmlConfigFile) {
-    if(!xmlConfigFile->open(QIODevice::ReadWrite)){
-        emit xmlSaveError(xmlConfigFile->errorString());
-        return OpenFileError;
-    }
-    configDom.setContent(xmlConfigFile);
-    xmlConfigFile->close();
-    return ErrorNone;
-}
+
 
 dndCreature::~dndCreature() {
 
 }
 
-int dndCreature::saveCreatureToFile(QString pathToXml) {
-    QString configFileNamePath;
-    if(pathToXml == QCoreApplication::applicationDirPath()){
-        configFileNamePath = pathToXml + "/configs/" + id + "_charlist.xml";
-    } else
-    {
-        configFileNamePath = pathToXml;
-    }
-    QFile config(configFileNamePath);
 
-    if (!config.open(QFile::WriteOnly))
-    {
-        emit xmlLoadError(config.errorString());
-        return OpenFileError;
-    }
-
-    QTextStream xmlContent(&config);
-    xmlContent << configDom.toString();
-    return ErrorNone;
-}
 
 int dndCreature::getBonuseFromCharacteristic(int characteristicValue) {
     return (characteristicValue >= 0) ? (characteristicValue / 10) : (characteristicValue - 10 + 1) / 10;

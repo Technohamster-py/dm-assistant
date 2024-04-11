@@ -9,23 +9,17 @@
 #include <QFile>
 #include <QPixmap>
 #include <QMap>
-#include <QDomDocument>
-#include <QApplication>
+#include "creature.h"
 
-class dndCreature : public QObject{
-Q_OBJECT
+class dndCreature : public Creature{
 public:
     explicit dndCreature(QString creatureName);
     explicit dndCreature(QFile *xmlConfig);
 
     ~dndCreature();
 
-    int loadCreatureFromFile(QFile *xmlConfigFile = nullptr);
-    int saveCreatureToFile(QString pathToXml = QCoreApplication::applicationDirPath());
-
     static int getBonuseFromCharacteristic(int characteristicValue);
     int getCharacterSheetId() const {return id;};
-    QString getTitle() const {return title;};
     int getAc() const {return ac;};
     int getHp() const {return hp;};
     int getMaxHp() const {return maxHP;};
@@ -39,15 +33,7 @@ public:
     void setFullHp();
     void doDamage(int damageValue);
 
-    enum FileErrors{
-        ErrorNone = 0,
-        OpenFileError = -1,
-        ParseFileError = -2
-    };
 signals:
-    void titleChanged();
-    void xmlLoadError(QString errString);
-    void xmlSaveError(QString errString);
     void imageChanged();
     void hpChanged();
     void maxHpCahged();
@@ -55,9 +41,6 @@ signals:
     void initiativeBonusChanged();
 
 protected:
-    int id; ///< Unique id of charlist
-
-    QString title;
     QString notes;
 
     QString imagePath;
@@ -74,8 +57,6 @@ protected:
     QString hpFormula = "";
 
     QMap<QString, int> speedValues;
-
-    QDomDocument configDom;
 };
 
 
