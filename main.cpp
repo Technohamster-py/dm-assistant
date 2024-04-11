@@ -28,14 +28,14 @@ int main(int argc, char *argv[]) {
     monster2.setInitiativeBonus(3);
 
 
-    Character char1("Gandalf");
+    DndCharacter char1("Gandalf");
     char1.setAc(18);
     char1.setMaxHp(78);
     char1.setFullHp();
     char1.setInitiativeBonus(2);
 
 
-    Character char2("Shrek");
+    DndCharacter char2("Shrek");
     char2.setAc(16);
     char2.setMaxHp(53);
     char2.setFullHp();

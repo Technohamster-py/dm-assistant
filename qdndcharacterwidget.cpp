@@ -8,7 +8,7 @@
 #include "ui_QDndCharacterWidget.h"
 
 
-QDndCharacterWidget::QDndCharacterWidget(Character character, QWidget *parent) :
+QDndCharacterWidget::QDndCharacterWidget(DndCharacter character, QWidget *parent) :
         QWidget(parent), ui(new Ui::QDndCharacterWidget) {
     ui->setupUi(this);
 }

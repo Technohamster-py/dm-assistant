@@ -5,14 +5,14 @@
 #ifndef DM_ASSIST_ENCOUNTER_H
 #define DM_ASSIST_ENCOUNTER_H
 
-#include "character.h"
+#include "dndcharacter.h"
 #include "monster.h"
 #include <QStandardItemModel>
 #include <QSharedPointer>
 
 class EncounterEntity{
 public:
-    explicit EncounterEntity(Character *entity, int initiativeRoll = 0, bool autoAddBonus = false);
+    explicit EncounterEntity(DndCharacter *entity, int initiativeRoll = 0, bool autoAddBonus = false);
     explicit EncounterEntity(Monster *entity, int initiativeRoll = 0, bool autoAddBonus = false);
 
     ~EncounterEntity();
@@ -34,7 +34,7 @@ public:
 
 private:
     int m_type;
-    Character *m_character;
+    DndCharacter *m_character;
 
     QString m_title = "";
     int m_characterSheetId = 0;
@@ -56,7 +56,7 @@ public:
 
     void setTitle(QString title);
 
-    void addCharacter(Character *character, int initiativeRoll = 0, bool autoAddBonus = false);
+    void addCharacter(DndCharacter *character, int initiativeRoll = 0, bool autoAddBonus = false);
     void addMonster(Monster *monster, int initiativeRoll = 0, bool autoAddBonus = false);
 
 private:

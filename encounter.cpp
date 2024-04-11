@@ -15,7 +15,7 @@ Encounter::~Encounter() {
 
 }
 
-void Encounter::addCharacter(Character *character, int initiativeRoll, bool autoAddBonus) {
+void Encounter::addCharacter(DndCharacter *character, int initiativeRoll, bool autoAddBonus) {
     QSharedPointer<EncounterEntity> characterEntity(new EncounterEntity(character, initiativeRoll, autoAddBonus));
 
     QList<QStandardItem *> items;
@@ -54,7 +54,7 @@ void Encounter::setTitle(QString title) {
 }
 
 
-EncounterEntity::EncounterEntity(Character *entity, int initiativeRoll, bool autoAddBonus) {
+EncounterEntity::EncounterEntity(DndCharacter *entity, int initiativeRoll, bool autoAddBonus) {
     m_type = character;
     m_title = entity->getTitle();
     m_character = entity;

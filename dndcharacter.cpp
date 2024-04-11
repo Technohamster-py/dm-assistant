@@ -2,21 +2,21 @@
 // Created by arsen on 01.04.2024.
 //
 
-#include "character.h"
+#include "dndcharacter.h"
 
-Character::Character(QString characterName) : dndCreature(characterName) {
+DndCharacter::DndCharacter(QString characterName) : dndCreature(characterName) {
     title = characterName;
 }
 
-Character::Character(QFile *xmlConfig) : dndCreature(xmlConfig) {
+DndCharacter::DndCharacter(QFile *xmlConfig) : dndCreature(xmlConfig) {
     loadFromFile(xmlConfig);
 }
 
-Character::~Character() {
+DndCharacter::~DndCharacter() {
 
 }
 
-void Character::loadFromFile(QFile *xmlConfigFile) {
+void DndCharacter::loadFromFile(QFile *xmlConfigFile) {
     int errCode = loadCreatureFromFile(xmlConfigFile);
     if (errCode != ErrorNone){
         return;
@@ -75,7 +75,7 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
     image.load(imagePath);
 }
 
-void Character::saveToFile(QString pathToConfigFile) {
+void DndCharacter::saveToFile(QString pathToConfigFile) {
     configDom.clear();
 
     QDomElement characterNode = configDom.createElement("character");
