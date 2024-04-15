@@ -18,6 +18,8 @@ QInitiativeTrackerWidget::~QInitiativeTrackerWidget() {
 
 void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
     ui->titleLabel->setText(encounter->getTitle());
+    entityCount = encounter->getModel()->rowCount();
+
     CustomSortFilterProxyModel* initiativeProxyModel = new CustomSortFilterProxyModel();
     initiativeProxyModel->setSourceModel(encounter->getModel());
     initiativeProxyModel->setDynamicSortFilter(true);
@@ -28,6 +30,8 @@ void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
     ui->encounterView->setColumnWidth(0, 20);
     ui->encounterView->setColumnWidth(2, 20);
     ui->encounterView->setColumnWidth(3, 60);
+
+    selectRow(0);
 }
 
 void QInitiativeTrackerWidget::clear() {
@@ -35,6 +39,8 @@ void QInitiativeTrackerWidget::clear() {
 }
 
 void QInitiativeTrackerWidget::selectRow(int row) {
+    currentIndex = row;
+
     QItemSelectionModel *selectionModel = ui->encounterView->selectionModel();
     QItemSelection selection;
     QModelIndex topLeft = ui->encounterView->model()->index(row, 0);
@@ -44,5 +50,15 @@ void QInitiativeTrackerWidget::selectRow(int row) {
 }
 
 void QInitiativeTrackerWidget::on_nextButton_clicked() {
-    selectRow(2);
+    if(currentIndex+1 < entityCount)
+        selectRow(currentIndex+1);
+    else
+        selectRow(0);
+}
+
+void QInitiativeTrackerWidget::on_backButton_clicked() {
+    if(currentIndex-1 >= 0)
+        selectRow(currentIndex-1);
+    else
+        selectRow(entityCount-1);
 }

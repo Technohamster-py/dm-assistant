@@ -30,8 +30,10 @@ private:
     Ui::QInitiativeTrackerWidget *ui;
     void selectRow(int row);
 
+    int currentIndex;
+    int entityCount;
 private slots:
-
+    void on_backButton_clicked();
     void on_nextButton_clicked();
 };
 
