@@ -33,3 +33,16 @@ void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
 void QInitiativeTrackerWidget::clear() {
 
 }
+
+void QInitiativeTrackerWidget::selectRow(int row) {
+    QItemSelectionModel *selectionModel = ui->encounterView->selectionModel();
+    QItemSelection selection;
+    QModelIndex topLeft = ui->encounterView->model()->index(row, 0);
+    QModelIndex bottomRight = ui->encounterView->model()->index(row, 3);
+    selection.select(topLeft, bottomRight);
+    selectionModel->select(selection, QItemSelectionModel::ClearAndSelect);
+}
+
+void QInitiativeTrackerWidget::on_nextButton_clicked() {
+    selectRow(2);
+}

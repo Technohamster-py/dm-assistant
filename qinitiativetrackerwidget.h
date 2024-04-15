@@ -7,6 +7,8 @@
 
 #include <QWidget>
 #include <QSortFilterProxyModel>
+#include <QStyledItemDelegate>
+#include <QPainter>
 #include "encounter.h"
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +28,11 @@ public:
 
 private:
     Ui::QInitiativeTrackerWidget *ui;
+    void selectRow(int row);
+
+private slots:
+
+    void on_nextButton_clicked();
 };
 
 class CustomSortFilterProxyModel : public QSortFilterProxyModel
@@ -41,6 +48,22 @@ public:
         }
 
         return QSortFilterProxyModel::lessThan(left, right);
+    }
+};
+
+class HighlightDelegate : public QStyledItemDelegate
+{
+public:
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override
+    {
+        if (option.state & QStyle::State_Selected) {
+            painter->save();
+            painter->setBrush(Qt::yellow);
+            painter->drawRect(option.rect);
+            painter->restore();
+        }
+
+        QStyledItemDelegate::paint(painter, option, index);
     }
 };
 
