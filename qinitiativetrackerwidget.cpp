@@ -1,11 +1,10 @@
 //
 // Created by arseniy on 27.03.2024.
 //
-
-// You may need to build the project (run Qt uic code generator) to get "ui_QInititiveTrackerWidget.h" resolved
-
 #include "qinitiativetrackerwidget.h"
 #include "ui_QInitiativeTrackerWidget.h"
+
+#include <qdebug.h>
 
 QInitiativeTrackerWidget::QInitiativeTrackerWidget(QWidget *parent) :
         QWidget(parent), ui(new Ui::QInitiativeTrackerWidget) {
@@ -31,6 +30,9 @@ void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
     ui->encounterView->setColumnWidth(2, 20);
     ui->encounterView->setColumnWidth(3, 60);
 
+    ui->encounterView->hideColumn(4);
+    ui->encounterView->hideColumn(5);
+
     selectRow(0);
 }
 
@@ -47,6 +49,13 @@ void QInitiativeTrackerWidget::selectRow(int row) {
     QModelIndex bottomRight = ui->encounterView->model()->index(row, 3);
     selection.select(topLeft, bottomRight);
     selectionModel->select(selection, QItemSelectionModel::ClearAndSelect);
+
+    ui->nameLabel->setText(ui->encounterView->model()->index(row, 1).data().toString());
+    ui->acLabel->setText("AC " + ui->encounterView->model()->index(row, 2).data().toString());
+
+    ui->hpSpinBox->setMaximum(ui->encounterView->model()->index(row, 5).data().toInt());
+    ui->hpSpinBox->setValue(ui->encounterView->model()->index(row, 4).data().toInt());
+    ui->maxHpLabel->setText(ui->encounterView->model()->index(row, 5).data().toString());
 }
 
 void QInitiativeTrackerWidget::on_nextButton_clicked() {

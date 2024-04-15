@@ -24,8 +24,11 @@ void Encounter::addCharacter(DndCharacter *character, int initiativeRoll, bool a
     items.append(new QStandardItem(QString::number(characterEntity.data()->getAC())));
 
     QString hpToMaxHp = QString::number(characterEntity.data()->getHP()) + "/" + QString::number(characterEntity.data()->getMaxHp());
-
     items.append(new QStandardItem(hpToMaxHp));
+
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getHP())));
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getMaxHp())));
+
     m_encounterModel->appendRow(items);
 
     m_entities.append(characterEntity);
@@ -40,8 +43,11 @@ void Encounter::addMonster(Monster *monster, int initiativeRoll, bool autoAddBon
     items.append(new QStandardItem(QString::number(monsterEntity.data()->getAC())));
 
     QString hpToMaxHp = QString::number(monsterEntity.data()->getHP()) + "/" + QString::number(monsterEntity.data()->getMaxHp());
-
     items.append(new QStandardItem(hpToMaxHp));
+
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getHP())));
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getMaxHp())));
+
     m_encounterModel->appendRow(items);
 
     m_entities.push_back(monsterEntity);
