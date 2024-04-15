@@ -147,6 +147,9 @@
    </item>
    <item>
     <widget class="QTableView" name="encounterView">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0%);</string>
+     </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::SingleSelection</enum>
      </property>
