@@ -30,11 +30,16 @@ private:
     Ui::QInitiativeTrackerWidget *ui;
     void selectRow(int row);
 
-    int currentIndex;
-    int entityCount;
+    int m_currentIndex;
+    int m_entityCount;
+    int m_currentEntityIndex;
+
+    Encounter *m_encounter;
+
 private slots:
     void on_backButton_clicked();
     void on_nextButton_clicked();
+    void on_hpSpinBox_valueChanged(int value);
 };
 
 class CustomSortFilterProxyModel : public QSortFilterProxyModel
@@ -50,22 +55,6 @@ public:
         }
 
         return QSortFilterProxyModel::lessThan(left, right);
-    }
-};
-
-class HighlightDelegate : public QStyledItemDelegate
-{
-public:
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override
-    {
-        if (option.state & QStyle::State_Selected) {
-            painter->save();
-            painter->setBrush(Qt::yellow);
-            painter->drawRect(option.rect);
-            painter->restore();
-        }
-
-        QStyledItemDelegate::paint(painter, option, index);
     }
 };
 

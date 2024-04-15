@@ -51,6 +51,8 @@ public:
     Encounter(QString title);
     ~Encounter();
 
+    QList<QSharedPointer<EncounterEntity>> entities;
+
     QString getTitle() const {return m_title;};
     QStandardItemModel* getModel() const {return m_encounterModel;};
 
@@ -61,7 +63,6 @@ public:
 
 private:
     QStandardItemModel *m_encounterModel;
-    QList<QSharedPointer<EncounterEntity>> m_entities;
 
     QString m_title = "";
 };

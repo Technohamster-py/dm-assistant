@@ -17,7 +17,8 @@ QInitiativeTrackerWidget::~QInitiativeTrackerWidget() {
 
 void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
     ui->titleLabel->setText(encounter->getTitle());
-    entityCount = encounter->getModel()->rowCount();
+    m_entityCount = encounter->getModel()->rowCount();
+    m_encounter = encounter;
 
     CustomSortFilterProxyModel* initiativeProxyModel = new CustomSortFilterProxyModel();
     initiativeProxyModel->setSourceModel(encounter->getModel());
@@ -32,6 +33,7 @@ void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
 
     ui->encounterView->hideColumn(4);
     ui->encounterView->hideColumn(5);
+    ui->encounterView->hideColumn(6);
 
     selectRow(0);
 }
@@ -41,7 +43,7 @@ void QInitiativeTrackerWidget::clear() {
 }
 
 void QInitiativeTrackerWidget::selectRow(int row) {
-    currentIndex = row;
+    m_currentIndex = row;
 
     QItemSelectionModel *selectionModel = ui->encounterView->selectionModel();
     QItemSelection selection;
@@ -49,6 +51,8 @@ void QInitiativeTrackerWidget::selectRow(int row) {
     QModelIndex bottomRight = ui->encounterView->model()->index(row, 3);
     selection.select(topLeft, bottomRight);
     selectionModel->select(selection, QItemSelectionModel::ClearAndSelect);
+
+    m_currentEntityIndex = ui->encounterView->model()->index(row, 6).data().toInt();
 
     ui->nameLabel->setText(ui->encounterView->model()->index(row, 1).data().toString());
     ui->acLabel->setText("AC " + ui->encounterView->model()->index(row, 2).data().toString());
@@ -59,15 +63,19 @@ void QInitiativeTrackerWidget::selectRow(int row) {
 }
 
 void QInitiativeTrackerWidget::on_nextButton_clicked() {
-    if(currentIndex+1 < entityCount)
-        selectRow(currentIndex+1);
+    if(m_currentIndex + 1 < m_entityCount)
+        selectRow(m_currentIndex + 1);
     else
         selectRow(0);
 }
 
 void QInitiativeTrackerWidget::on_backButton_clicked() {
-    if(currentIndex-1 >= 0)
-        selectRow(currentIndex-1);
+    if(m_currentIndex - 1 >= 0)
+        selectRow(m_currentIndex - 1);
     else
-        selectRow(entityCount-1);
+        selectRow(m_entityCount - 1);
+}
+
+void QInitiativeTrackerWidget::on_hpSpinBox_valueChanged(int value) {
+    m_encounter->entities.at(m_currentEntityIndex)->setHp(ui->hpSpinBox->value());
 }

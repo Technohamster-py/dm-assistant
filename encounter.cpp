@@ -18,6 +18,8 @@ Encounter::~Encounter() {
 void Encounter::addCharacter(DndCharacter *character, int initiativeRoll, bool autoAddBonus) {
     QSharedPointer<EncounterEntity> characterEntity(new EncounterEntity(character, initiativeRoll, autoAddBonus));
 
+    int id = entities.count();
+
     QList<QStandardItem *> items;
     items.append(new QStandardItem(QString::number(characterEntity.data()->getInitiativeValue())));
     items.append(new QStandardItem(characterEntity.data()->getTitle()));
@@ -29,13 +31,18 @@ void Encounter::addCharacter(DndCharacter *character, int initiativeRoll, bool a
     items.append(new QStandardItem(QString::number(characterEntity.data()->getHP())));
     items.append(new QStandardItem(QString::number(characterEntity.data()->getMaxHp())));
 
+    items.append(new QStandardItem(QString::number(id)));
+
     m_encounterModel->appendRow(items);
 
-    m_entities.append(characterEntity);
+    entities.append(characterEntity);
 }
 
 void Encounter::addMonster(Monster *monster, int initiativeRoll, bool autoAddBonus) {
     QSharedPointer<EncounterEntity> monsterEntity(new EncounterEntity(monster, initiativeRoll, autoAddBonus));
+
+    int id = entities.count();
+
 
     QList<QStandardItem *> items;
     items.append(new QStandardItem(QString::number(monsterEntity.data()->getInitiativeValue())));
@@ -48,9 +55,11 @@ void Encounter::addMonster(Monster *monster, int initiativeRoll, bool autoAddBon
     items.append(new QStandardItem(QString::number(monsterEntity.data()->getHP())));
     items.append(new QStandardItem(QString::number(monsterEntity.data()->getMaxHp())));
 
+    items.append(new QStandardItem(QString::number(id)));
+
     m_encounterModel->appendRow(items);
 
-    m_entities.push_back(monsterEntity);
+    entities.push_back(monsterEntity);
 }
 
 void Encounter::setTitle(QString title) {
