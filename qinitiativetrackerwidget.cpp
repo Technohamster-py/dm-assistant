@@ -7,7 +7,6 @@
 #include "qinitiativetrackerwidget.h"
 #include "ui_QInitiativeTrackerWidget.h"
 
-
 QInitiativeTrackerWidget::QInitiativeTrackerWidget(QWidget *parent) :
         QWidget(parent), ui(new Ui::QInitiativeTrackerWidget) {
     ui->setupUi(this);
@@ -19,10 +18,16 @@ QInitiativeTrackerWidget::~QInitiativeTrackerWidget() {
 
 void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
     ui->titleLabel->setText(encounter->getTitle());
+    CustomSortFilterProxyModel* initiativeProxyModel = new CustomSortFilterProxyModel();
+    initiativeProxyModel->setSourceModel(encounter->getModel());
+    initiativeProxyModel->setDynamicSortFilter(true);
 
-    ui->encounterView->setModel(encounter->getModel());
-    ui->encounterView->hideColumn(0);
-    ui->encounterView->model()->sort(0);
+    ui->encounterView->setModel(initiativeProxyModel);
+    initiativeProxyModel->sort(0, Qt::AscendingOrder);
+
+    ui->encounterView->setColumnWidth(0, 20);
+    ui->encounterView->setColumnWidth(2, 20);
+    ui->encounterView->setColumnWidth(3, 60);
 }
 
 void QInitiativeTrackerWidget::clear() {

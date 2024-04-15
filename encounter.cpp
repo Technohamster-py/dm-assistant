@@ -7,7 +7,7 @@
 Encounter::Encounter(QString title) {
     m_title = title;
     m_encounterModel = new QStandardItemModel();
-    m_encounterModel->setHorizontalHeaderLabels(QStringList() << "" << "" << "Title" << "AC" << "HP");
+    m_encounterModel->setHorizontalHeaderLabels(QStringList() << "" << "Title" << "AC" << "HP");
 
 }
 
@@ -19,7 +19,6 @@ void Encounter::addCharacter(DndCharacter *character, int initiativeRoll, bool a
     QSharedPointer<EncounterEntity> characterEntity(new EncounterEntity(character, initiativeRoll, autoAddBonus));
 
     QList<QStandardItem *> items;
-    items.append(new QStandardItem(characterEntity.data()->getInitiativeValue()));
     items.append(new QStandardItem(QString::number(characterEntity.data()->getInitiativeValue())));
     items.append(new QStandardItem(characterEntity.data()->getTitle()));
     items.append(new QStandardItem(QString::number(characterEntity.data()->getAC())));
@@ -36,7 +35,6 @@ void Encounter::addMonster(Monster *monster, int initiativeRoll, bool autoAddBon
     QSharedPointer<EncounterEntity> monsterEntity(new EncounterEntity(monster, initiativeRoll, autoAddBonus));
 
     QList<QStandardItem *> items;
-    items.append(new QStandardItem(monsterEntity.data()->getInitiativeValue()));
     items.append(new QStandardItem(QString::number(monsterEntity.data()->getInitiativeValue())));
     items.append(new QStandardItem(monsterEntity.data()->getTitle()));
     items.append(new QStandardItem(QString::number(monsterEntity.data()->getAC())));

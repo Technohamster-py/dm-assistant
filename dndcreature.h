@@ -12,6 +12,7 @@
 #include "creature.h"
 
 class dndCreature : public Creature{
+    Q_OBJECT
 public:
     explicit dndCreature(QString creatureName);
     explicit dndCreature(QFile *xmlConfig);

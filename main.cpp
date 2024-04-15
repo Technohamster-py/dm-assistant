@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
 
     DndCharacter char2("Shrek");
-    char2.setAc(16);
+    char2.setAc(50);
     char2.setMaxHp(53);
     char2.setFullHp();
     char2.setInitiativeBonus(5);
