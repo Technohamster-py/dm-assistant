@@ -17,7 +17,7 @@ set(HEADER_FILES
         dndcreature.h
         encounter.h
         mainwindow.h
-        monster.h
+        dndmonster.h
         qdndcharacterwidget.h
         qplayer.h
         qplaylistedit.h
@@ -30,7 +30,7 @@ set(SOURCE_FILES
         dndcreature.cpp
         encounter.cpp
         mainwindow.cpp
-        monster.cpp
+        dndmonster.cpp
         qdndcharacterwidget.cpp
         qplayer.cpp
         qplaylistedit.cpp
