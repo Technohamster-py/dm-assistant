@@ -15,13 +15,13 @@ int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     Encounter encounter("Боссфайт");
 
-    Monster monster1("Werwolf");
+    dndMonster monster1("Werwolf");
     monster1.setAc(15);
     monster1.setMaxHp(48);
     monster1.setFullHp();
     monster1.setInitiativeBonus(-2);
 
-    Monster monster2("Dolboeb");
+    dndMonster monster2("Dolboeb");
     monster2.setAc(13);
     monster2.setMaxHp(100);
     monster2.setFullHp();

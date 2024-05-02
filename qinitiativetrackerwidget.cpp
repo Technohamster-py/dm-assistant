@@ -28,6 +28,7 @@ void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
     initiativeProxyModel->sort(0, Qt::AscendingOrder);
 
     ui->encounterView->setColumnWidth(0, 20);
+    ui->encounterView->setColumnWidth(1, 190);
     ui->encounterView->setColumnWidth(2, 20);
     ui->encounterView->setColumnWidth(3, 60);
 

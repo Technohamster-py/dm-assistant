@@ -38,7 +38,7 @@ void Encounter::addCharacter(DndCharacter *character, int initiativeRoll, bool a
     entities.append(characterEntity);
 }
 
-void Encounter::addMonster(Monster *monster, int initiativeRoll, bool autoAddBonus) {
+void Encounter::addMonster(dndMonster *monster, int initiativeRoll, bool autoAddBonus) {
     QSharedPointer<EncounterEntity> monsterEntity(new EncounterEntity(monster, initiativeRoll, autoAddBonus));
 
     int id = entities.count();
@@ -80,7 +80,7 @@ EncounterEntity::EncounterEntity(DndCharacter *entity, int initiativeRoll, bool 
     setInitiativeValue(initiativeRoll, autoAddBonus);
 }
 
-EncounterEntity::EncounterEntity(Monster *entity, int initiativeRoll, bool autoAddBonus) {
+EncounterEntity::EncounterEntity(dndMonster *entity, int initiativeRoll, bool autoAddBonus) {
     m_type = monster;
     m_characterSheetId = entity->getCharacterSheetId();
     m_title = entity->getTitle();
