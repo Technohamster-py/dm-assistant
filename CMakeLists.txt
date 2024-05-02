@@ -20,6 +20,7 @@ set(HEADER_FILES
         monster.h
         qdndcharacterwidget.h
         qplayer.h
+        qplayerinitiativeview.h
         qplaylistedit.h
         qinitiativetrackerwidget.h
 )
@@ -33,6 +34,7 @@ set(SOURCE_FILES
         monster.cpp
         qdndcharacterwidget.cpp
         qplayer.cpp
+        qplayerinitiativeview.cpp
         qplaylistedit.cpp
         qinitiativetrackerwidget.cpp
 )
@@ -43,6 +45,7 @@ set(UI_FILES
         qplayer.ui
         qplaylistedit.ui
         qinitiativetrackerwidget.ui
+        qplayerinitiativeview.ui
 )
 
 set(TS_FILES

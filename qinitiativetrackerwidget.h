@@ -10,6 +10,7 @@
 #include <QStyledItemDelegate>
 #include <QPainter>
 #include "encounter.h"
+#include "qplayerinitiativeview.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class QInitiativeTrackerWidget; }
@@ -19,12 +20,16 @@ class QInitiativeTrackerWidget : public QWidget {
 Q_OBJECT
 
 public:
-    explicit QInitiativeTrackerWidget(QWidget *parent = nullptr);
+    explicit QInitiativeTrackerWidget(QWidget *parent = nullptr, bool playerViewMode = false);
 
     ~QInitiativeTrackerWidget() override;
 
     void loadEncounter(Encounter *encounter);
+    Encounter *getEncounter() const {return m_encounter;};
     void clear();
+
+signals:
+    void encounterLoaded();
 
 private:
     Ui::QInitiativeTrackerWidget *ui;
@@ -35,12 +40,15 @@ private:
     int m_currentEntityIndex;
 
     Encounter *m_encounter;
+    qPlayerInitiativeView* m_playerView;
 
 private slots:
     void on_backButton_clicked();
     void on_nextButton_clicked();
+    void on_shareButton_clicked();
     void on_hpSpinBox_valueChanged(int value);
 };
+
 
 class CustomSortFilterProxyModel : public QSortFilterProxyModel
 {

@@ -6,7 +6,7 @@
 
 #include <qdebug.h>
 
-QInitiativeTrackerWidget::QInitiativeTrackerWidget(QWidget *parent) :
+QInitiativeTrackerWidget::QInitiativeTrackerWidget(QWidget *parent, bool playerViewMode) :
         QWidget(parent), ui(new Ui::QInitiativeTrackerWidget) {
     ui->setupUi(this);
 }
@@ -36,6 +36,8 @@ void QInitiativeTrackerWidget::loadEncounter(Encounter *encounter) {
     ui->encounterView->hideColumn(6);
 
     selectRow(0);
+
+    emit encounterLoaded();
 }
 
 void QInitiativeTrackerWidget::clear() {
@@ -78,4 +80,8 @@ void QInitiativeTrackerWidget::on_backButton_clicked() {
 
 void QInitiativeTrackerWidget::on_hpSpinBox_valueChanged(int value) {
     m_encounter->entities.at(m_currentEntityIndex)->setHp(ui->hpSpinBox->value());
+}
+
+void QInitiativeTrackerWidget::on_shareButton_clicked() {
+    m_playerView = new qPlayerInitiativeView(nullptr, this);
 }
