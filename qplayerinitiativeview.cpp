@@ -16,6 +16,8 @@ qPlayerInitiativeView::qPlayerInitiativeView(QWidget *parent, QInitiativeTracker
     ui->setupUi(this);
 
     loadEncounter(parentTracker->getEncounter());
+
+    connect(parentTracker, SIGNAL(currentEntityChanged), this, )
 }
 
 qPlayerInitiativeView::~qPlayerInitiativeView() {
@@ -53,4 +55,8 @@ void qPlayerInitiativeView::selectRow(int row) {
     QModelIndex bottomRight = ui->encounterView->model()->index(row, 3);
     selection.select(topLeft, bottomRight);
     selectionModel->select(selection, QItemSelectionModel::ClearAndSelect);
+}
+
+void qPlayerInitiativeView::changeActiveEntity(int index) {
+    selectRow(index);
 }

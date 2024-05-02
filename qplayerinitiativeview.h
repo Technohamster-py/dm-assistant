@@ -44,9 +44,10 @@ private:
     int m_entityCount;
     int m_currentEntityIndex;
 
-
     QString getEntityStatus(int hp, int maxHp);
 
+private slots:
+    void changeActiveEntity(int index);
 };
 
 

@@ -63,6 +63,8 @@ void QInitiativeTrackerWidget::selectRow(int row) {
     ui->hpSpinBox->setMaximum(ui->encounterView->model()->index(row, 5).data().toInt());
     ui->hpSpinBox->setValue(ui->encounterView->model()->index(row, 4).data().toInt());
     ui->maxHpLabel->setText(ui->encounterView->model()->index(row, 5).data().toString());
+
+    emit currentEntityChanged(m_currentIndex);
 }
 
 void QInitiativeTrackerWidget::on_nextButton_clicked() {

@@ -30,6 +30,7 @@ public:
 
 signals:
     void encounterLoaded();
+    void currentEntityChanged(int currentIndex);
 
 private:
     Ui::QInitiativeTrackerWidget *ui;
