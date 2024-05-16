@@ -2,7 +2,7 @@
 // Created by arseniy on 27.03.2024.
 //
 #include "qinitiativetrackerwidget.h"
-#include "ui_QInitiativeTrackerWidget.h"
+#include "ui_qinitiativetrackerwidget.h"
 
 #include <qdebug.h>
 

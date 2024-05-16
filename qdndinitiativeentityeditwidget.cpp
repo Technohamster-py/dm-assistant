@@ -5,7 +5,7 @@
 // You may need to build the project (run Qt uic code generator) to get "ui_qDndInitiativeEntityEditWidget.h" resolved
 
 #include "qdndinitiativeentityeditwidget.h"
-#include "ui_qDndInitiativeEntityEditWidget.h"
+#include "ui_qdndinitiativeentityeditwidget.h"
 
 
 qDndInitiativeEntityEditWidget::qDndInitiativeEntityEditWidget(EncounterEntity *entity, QWidget *parent) :

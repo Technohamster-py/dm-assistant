@@ -3,7 +3,7 @@
 //
 
 #include "qplayer.h"
-#include "ui_QPlayer.h"
+#include "ui_qplayer.h"
 #include "qplaylistedit.h"
 #include "QMessageBox"
 

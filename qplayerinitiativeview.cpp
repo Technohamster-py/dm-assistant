@@ -5,7 +5,7 @@
 // You may need to build the project (run Qt uic code generator) to get "ui_qPlayerInitiativeView.h" resolved
 
 #include "qplayerinitiativeview.h"
-#include "ui_qPlayerInitiativeView.h"
+#include "ui_qplayerinitiativeview.h"
 
 
 #include <qdebug.h>
