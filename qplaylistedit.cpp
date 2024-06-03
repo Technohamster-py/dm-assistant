@@ -5,7 +5,7 @@
 // You may need to build the project (run Qt uic code generator) to get "ui_QPlaylistEdit.h" resolved
 
 #include "qplaylistedit.h"
-#include "ui_QPlaylistEdit.h"
+#include "ui_qplaylistedit.h"
 
 #include <QFileDialog>
 #include <QDir>
