@@ -11,8 +11,11 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS
 )
 
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/Release)
-#set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
+if (WIN32)
+set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
+elseif (UNIX)
 set(CMAKE_PREFIX_PATH "/usr/local/qt/Qt-5.12.12/5.12.12")
+endif ()
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 set(HEADER_FILES
