@@ -1,7 +1,7 @@
 # dm-assist
 Инструмент в помощь мастерам в настольных ролевых
 
-figma: https://www.figma.com/file/t0Yu2NfIGyCkbjQyvye6Bt/DM-assist?type=design&node-id=5%3A2&mode=dev&t=O20H2Hw9OJLNkuUJ-1
+[FIGMA](https://www.figma.com/design/t0Yu2NfIGyCkbjQyvye6Bt/DM-assist?node-id=0-1&t=Qwt6n8pLhrwMxyTf-1)
 
 ## Планируемый функционал:
 - Музыкальные плейлисты с активацией по горячим клавишам для простоты контроля за музыкой в ходе игры
