@@ -511,7 +511,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QTabWidget" name="maintViewTabWidget">
+        <widget class="QTabWidget" name="mainViewTabWidget">
          <property name="tabPosition">
           <enum>QTabWidget::West</enum>
          </property>
@@ -548,6 +548,12 @@
              </property>
              <property name="tabsClosable">
               <bool>true</bool>
+             </property>
+             <property name="movable">
+              <bool>true</bool>
+             </property>
+             <property name="tabBarAutoHide">
+              <bool>false</bool>
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
