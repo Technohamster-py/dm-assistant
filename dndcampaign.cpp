@@ -9,11 +9,12 @@ dndCampaign::dndCampaign(QString campaignTitle) {
 
     for (int i = 0; i < 10; ++i) {
         QSharedPointer<QPlayer> player(new QPlayer(nullptr, i % 10));
-        m_players.append(player);
+        m_musicPlayers.append(player);
     }
 }
 
 dndCampaign::dndCampaign(QFile *xmlConfig) {
+    loadFromFile(xmlConfig);
 }
 
 dndCampaign::~dndCampaign() {

@@ -35,7 +35,7 @@ private:
 
     QList<QSharedPointer<Character>> m_characters;
     QList<QSharedPointer<Monster>> m_monsters;
-    QList<QSharedPointer<QPlayer>> m_players;
+    QList<QSharedPointer<QPlayer>> m_musicPlayers;
     QList<QSharedPointer<Encounter>> m_encounters;
 };
 
