@@ -12,10 +12,10 @@ qDndInitiativeEntityEditWidget::qDndInitiativeEntityEditWidget(EncounterEntity *
         QWidget(parent), ui(new Ui::qDndInitiativeEntityEditWidget) {
     ui->setupUi(this);
 
-    ui->nameLabel.setText(entity->getTitle());
-    ui->acLabel.setText(entity->getAC());
-    ui->hpSpinBox.setValue(entity->getHP());
-    ui->hpSpinBox.setMaximum(entity->getMaxHp());
+    ui->nameLabel->setText(entity->getTitle());
+    ui->acLabel->setText(QString::number(entity->getAC()));
+    ui->hpSpinBox->setValue(entity->getHP());
+    ui->hpSpinBox->setMaximum(entity->getMaxHp());
 }
 
 qDndInitiativeEntityEditWidget::~qDndInitiativeEntityEditWidget() {
