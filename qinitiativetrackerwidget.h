@@ -10,7 +10,6 @@
 #include <QStyledItemDelegate>
 #include <QPainter>
 #include "encounter.h"
-#include "qplayerinitiativeview.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class QInitiativeTrackerWidget; }
@@ -31,6 +30,7 @@ public:
 signals:
     void encounterLoaded();
     void currentEntityChanged(int currentIndex);
+    void share(Encounter* encounter);
 
 private:
     Ui::QInitiativeTrackerWidget *ui;
@@ -41,7 +41,7 @@ private:
     int m_currentEntityIndex;
 
     Encounter *m_encounter;
-    qPlayerInitiativeView* m_playerView;
+    //qPlayerInitiativeView m_playerView;
 
 private slots:
     void on_backButton_clicked();

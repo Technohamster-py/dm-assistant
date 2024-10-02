@@ -6,6 +6,9 @@
 #define DM_ASSIST_MAINWINDOW_H
 
 #include <QMainWindow>
+#include "encounter.h"
+#include "qplayerinitiativeview.h"
+
 
 
 QT_BEGIN_NAMESPACE
@@ -19,6 +22,12 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow() override;
+
+protected slots:
+    void slotShareTracker(Encounter *encounter);
+
+protected:
+    qPlayerInitiativeView* playerInitiativeView;
 
 private:
     Ui::MainWindow *ui;

@@ -20,10 +20,10 @@ set(HEADER_FILES
         dndmonster.h
         qdndcharacterwidget.h
         qdndinitiativeentityeditwidget.h
+        qinitiativetrackerwidget.h
         qplayer.h
         qplayerinitiativeview.h
         qplaylistedit.h
-        qinitiativetrackerwidget.h
 )
 
 set(SOURCE_FILES
@@ -35,10 +35,10 @@ set(SOURCE_FILES
         dndmonster.cpp
         qdndcharacterwidget.cpp
         qdndinitiativeentityeditwidget.cpp
+        qinitiativetrackerwidget.cpp
         qplayer.cpp
         qplayerinitiativeview.cpp
         qplaylistedit.cpp
-        qinitiativetrackerwidget.cpp
 )
 
 set(UI_FILES

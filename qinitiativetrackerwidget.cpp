@@ -86,5 +86,5 @@ void QInitiativeTrackerWidget::on_hpSpinBox_valueChanged(int value) {
 }
 
 void QInitiativeTrackerWidget::on_shareButton_clicked() {
-    m_playerView = new qPlayerInitiativeView(nullptr, this);
+    emit share(m_encounter);
 }

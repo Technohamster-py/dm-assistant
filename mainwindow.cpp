@@ -11,8 +11,15 @@
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
+    connect(ui->initiativeWidget, SIGNAL(share(Encounter *)), this, SLOT(slotShareTracker(Encounter *)));
 }
 
 MainWindow::~MainWindow() {
     delete ui;
+}
+
+void MainWindow::slotShareTracker(Encounter *encounter) {
+    
+    playerInitiativeView = new qPlayerInitiativeView()
 }
