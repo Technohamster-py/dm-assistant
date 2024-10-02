@@ -5,13 +5,12 @@
     <school>воплощение</school>
     <classes>
         <class>Колдун</class>
-        <class>Палладин
-            <subclass>Клятвопреступник</subclass>
+        <class subclasses="">Палладин
         </class>
     </classes>
     <range>60</range>
     <casting-time>Мгновенная</casting-time>
-    <duration></duration>
+    <duration concentration=""></duration>
 
     <components>
         <verbal>true</verbal>

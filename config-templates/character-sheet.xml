@@ -1,4 +1,5 @@
 <?xml version="1.0" encodiong="UTF-8"?>
+<!DOCTYPE character>
 <character id="">
     <name>Character name</name>
     <race id="0">Race string</race>
@@ -8,7 +9,7 @@
     <image></image>
 
     <ac>12</ac>
-    <hp current="30" max="45"></hp>
+    <hp max="45">30</hp>
 
     <classes>
         <class level="" subclass=""></class>
@@ -37,24 +38,22 @@
     <languages></languages>
     <proficiency-bonus></proficiency-bonus>
 
-    <invenory>
+    <inventory>
         <money>
             <coin type="gold">amount-of-cons</coin>
             <coin type="">amount-of-cons</coin>
             <coin type="">amount-of-cons</coin>
         </money>
-        <item>
-            <title></title>
-            <description></description>
-        </item>
-    </invenory>
+        <items>
+            <item title="">
+                description
+            </item>
+        </items>
+    </inventory>
 
     <spellbook>
-        <spell level="">
-            title
-            <link>
-                path/to/spell.xml
-            </link>
+        <spell level="" active="yes" title="">
+            path/to/spell.xml
         </spell>
     </spellbook>
 </character>
