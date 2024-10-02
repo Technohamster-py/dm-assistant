@@ -8,6 +8,7 @@
 #include "dndcreature.h"
 
 class dndMonster : public dndCreature {
+    Q_OBJECT
 public:
     explicit dndMonster(const QString& monsterTitle);
     explicit dndMonster(QFile *xmlConfig);
