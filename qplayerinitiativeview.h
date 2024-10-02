@@ -16,7 +16,7 @@ class qPlayerInitiativeView : public QWidget {
 Q_OBJECT
 
 public:
-    explicit qPlayerInitiativeView(QWidget *parent, QInitiativeTrackerWidget *parentTracker);
+    explicit qPlayerInitiativeView(QInitiativeTrackerWidget *parentTracker = nullptr, QWidget *parent = nullptr);
 
     ~qPlayerInitiativeView() override;
 
@@ -26,6 +26,7 @@ public:
         condition = 2
     };
 
+    void setParentTracker(QInitiativeTrackerWidget *tracker);
     void hpSetVisible(bool visible);
     void acSetVisible(bool visible);
 
@@ -39,6 +40,7 @@ private:
     void selectRow(int row);
 
     Encounter *m_encounter;
+    QInitiativeTrackerWidget* m_parentTracker;
 
     int m_currentIndex;
     int m_entityCount;

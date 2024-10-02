@@ -11,13 +11,13 @@
 #include <qdebug.h>
 
 
-qPlayerInitiativeView::qPlayerInitiativeView(QWidget *parent, QInitiativeTrackerWidget *parentTracker) :
+qPlayerInitiativeView::qPlayerInitiativeView(QInitiativeTrackerWidget *parentTracker, QWidget *parent) :
         QWidget(parent), ui(new Ui::qPlayerInitiativeView) {
     ui->setupUi(this);
 
     loadEncounter(parentTracker->getEncounter());
 
-    connect(parentTracker, SIGNAL(currentEntityChanged), this, )
+    //connect(parentTracker, SIGNAL(currentEntityChanged), this, )
 }
 
 qPlayerInitiativeView::~qPlayerInitiativeView() {
@@ -60,3 +60,10 @@ void qPlayerInitiativeView::selectRow(int row) {
 void qPlayerInitiativeView::changeActiveEntity(int index) {
     selectRow(index);
 }
+
+void qPlayerInitiativeView::setParentTracker(QInitiativeTrackerWidget *tracker) {
+    m_parentTracker = tracker;
+    connect(m_parentTracker, SIGNAL(currentEntityChanged(int)), SLOT(changeActiveEntity(int)));
+}
+
+
