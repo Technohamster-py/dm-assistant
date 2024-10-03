@@ -11,7 +11,7 @@
 #include <QMediaPlaylist>
 #include <QFile>
 #include <QDomDocument>
-
+#include <QShortcut>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class QPlayer; }
@@ -33,11 +33,16 @@ public:
     [[nodiscard]] int getId() const{return id;};
 
     void saveToXml(QString pathToXml = QCoreApplication::applicationDirPath());
+    void setPlayShortcut(QString key);
 
     QMediaPlaylist *playlist; ///< Плейлист проигрывателя
 
 signals:
     void playlistNameChanged();
+    void playerStarted();
+
+public slots:
+    void stop();
 
 protected:
     void loadFromXml(QFile *xmlFile);
@@ -46,10 +51,14 @@ protected:
 
 private slots:
     void on_editButton_clicked();
+    void on_playButton_clicked();
+    void playShortcutTriggered();
 
 private:
     Ui::QPlayer *ui;
     QDomDocument xmlConfig;
+
+    QShortcut *playKey;
 
     //QStandardItemModel *m_playlistModel; ///< Модель данных плейлиста для отображения
     QMediaPlayer *m_player; ///< Проигрыватель

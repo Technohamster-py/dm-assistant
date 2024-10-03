@@ -349,22 +349,22 @@
         <translation>Редактировать плейлист</translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="103"/>
+        <location filename="../qplayer.cpp" line="114"/>
         <source>Can not open XML config: </source>
         <translation>Невозможно открыть XML конфиг: </translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="105"/>
+        <location filename="../qplayer.cpp" line="116"/>
         <source>File error</source>
         <translation>Ошибка файла</translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="136"/>
+        <location filename="../qplayer.cpp" line="151"/>
         <source>XML file error</source>
         <translation>Ошибка XML файла</translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="137"/>
+        <location filename="../qplayer.cpp" line="152"/>
         <source>Can not open XML config file</source>
         <translation>Невозможно открыть XML файл кнофигурации</translation>
     </message>

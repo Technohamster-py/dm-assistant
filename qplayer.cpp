@@ -18,17 +18,19 @@ QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
     ui->titleLabel->setText(playlistName);
     ui->numberLabel->setText(QString::number(id));
 
+    playKey = new QShortcut(this);
+
     m_player = new QMediaPlayer(this);
     playlist = new QMediaPlaylist(this);
     m_player->setPlaylist(playlist);
 
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
-    connect(ui->playButton, &QPushButton::clicked, m_player, &QMediaPlayer::play);
     connect(ui->stopButton, &QPushButton::clicked, m_player, &QMediaPlayer::stop);
     connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
+    connect(playKey, SIGNAL(activated()), this, SLOT(playShortcutTriggered()));
 }
 
 QPlayer::QPlayer(QWidget *parent, QFile *xmlFile) :
@@ -84,11 +86,18 @@ QPlayer::~QPlayer() {
     delete playlist;
 }
 
+/**
+ * Открыть окно изменения плейлиста
+ */
 void QPlayer::on_editButton_clicked() {
     QPlaylistEdit(nullptr, this).exec();
     ui->titleLabel->setText(playlistName);
 }
 
+/**
+ * Задать название плейлиста
+ * @param name название
+ */
 void QPlayer::setPlaylistName(QString name) {
     if(name != playlistName){
         playlistName = name;
@@ -96,6 +105,10 @@ void QPlayer::setPlaylistName(QString name) {
     }
 }
 
+/**
+ * Загрузить существующий плейлист из .xml файла
+ * @param xmlFile
+ */
 void QPlayer::loadFromXml(QFile *xmlFile) {
     if(!xmlFile->open(QIODevice::ReadWrite)){
         QString message = tr("Can not open XML config: ") + xmlFile->errorString();
@@ -118,6 +131,10 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
     }
 }
 
+/**
+ * Записать плейлист в .xml файл
+ * @param pathToXml
+ */
 void QPlayer::saveToXml(QString pathToXml) {
     QString configFileNamePath;
     if(pathToXml == QCoreApplication::applicationDirPath()){
@@ -157,4 +174,26 @@ void QPlayer::saveToXml(QString pathToXml) {
     }
 
     xmlContent << xmlConfig.toString();
+}
+
+void QPlayer::playShortcutTriggered() {
+    emit playerStarted();
+    //m_player->play();
+    qDebug() << "play";
+}
+
+void QPlayer::stop() {
+    m_player->stop();
+}
+
+void QPlayer::on_playButton_clicked() {
+    playShortcutTriggered();
+}
+
+/**
+ * Задать сочетание клавиш для старта прогирывания
+ * @param key сочетание клавиш английской раскладки
+ */
+void QPlayer::setPlayShortcut(QString key) {
+    playKey->setKey(key);
 }
