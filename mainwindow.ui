@@ -59,6 +59,16 @@
      </widget>
     </item>
     <item>
+     <widget class="Line" name="line">
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QWidget" name="rightAsideWidget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -72,7 +82,7 @@
         <height>16777215</height>
        </size>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="rightAsideLayout">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -85,9 +95,6 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item>
-        <widget class="QWidget" name="initiativeWidget" native="true"/>
-       </item>
        <item>
         <widget class="QWidget" name="musicWidget" native="true">
          <property name="sizePolicy">
@@ -108,38 +115,17 @@
            <height>504</height>
           </size>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QWidget" name="playlist1Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist2Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist3Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist4Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist5Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist6Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist7Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist8Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist9Widget" native="true"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="playlist10Widget" native="true"/>
-          </item>
-         </layout>
+         <layout class="QVBoxLayout" name="verticalLayout_4"/>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
         </widget>
        </item>
       </layout>
