@@ -6,12 +6,13 @@
 #include <utility>
 #include <QTextStream>
 
-dndCreature::dndCreature(QString creatureName) {
+dndCreature::dndCreature(QString creatureName) : Creature(creatureName){
     title = std::move(creatureName);
 }
 
-dndCreature::dndCreature(QFile *xmlConfig) {
+dndCreature::dndCreature(QFile *xmlConfig) : Creature(xmlConfig){
 }
+
 
 dndCreature::~dndCreature() {
 
@@ -72,6 +73,7 @@ void dndCreature::setMaxHp(int value) {
 bool dndCreature::setHp(int value) {
     if(value <= maxHP){
         hp = value;
+        emit hpChanged();
         return true;
     } else
         return false;
@@ -81,8 +83,19 @@ void dndCreature::setFullHp() {
     hp = maxHP;
 }
 
-void dndCreature::doDamage(int hpValue) {
-    hp -= hpValue;
-    if (hp < 0)
-        hp = 0;
+void dndCreature::doDamage(int damageValue) {
+    int newHp = hp - damageValue;
+    if (newHp < 0)
+        newHp = 0;
+    setHp(newHp);
+}
+
+void dndCreature::setAc(int value) {
+    ac = value;
+    emit acChanged();
+}
+
+void dndCreature::setInitiativeBonus(int value) {
+    initiativeBonus = value;
+    emit initiativeBonusChanged();
 }
