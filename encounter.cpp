@@ -4,9 +4,10 @@
 
 #include "encounter.h"
 
-Encounter::Encounter() {
+Encounter::Encounter(QString title) {
+    m_title = title;
     m_encounterModel = new QStandardItemModel();
-    m_encounterModel->setHorizontalHeaderLabels(QStringList() << "" << "" << "AC" << "HP");
+    m_encounterModel->setHorizontalHeaderLabels(QStringList() << "" << "Title" << "AC" << "HP");
 
 }
 
@@ -14,40 +15,59 @@ Encounter::~Encounter() {
 
 }
 
-void Encounter::addCharacter(Character character) {
-    EncounterEntity characterEntity(&character, false);
+void Encounter::addCharacter(DndCharacter *character, int initiativeRoll, bool autoAddBonus) {
+    QSharedPointer<EncounterEntity> characterEntity(new EncounterEntity(character, initiativeRoll, autoAddBonus));
+
+    int id = entities.count();
 
     QList<QStandardItem *> items;
-    items.append(new QStandardItem(characterEntity.getInitiativeValue()));
-    items.append(new QStandardItem(characterEntity.getTitle()));
-    items.append(new QStandardItem(characterEntity.getAC()));
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getInitiativeValue())));
+    items.append(new QStandardItem(characterEntity.data()->getTitle()));
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getAC())));
 
-    QString hpToMaxHp = QString::number(characterEntity.getHP()) + "/" + QString::number(characterEntity.getMaxHp());
-
+    QString hpToMaxHp = QString::number(characterEntity.data()->getHP()) + "/" + QString::number(characterEntity.data()->getMaxHp());
     items.append(new QStandardItem(hpToMaxHp));
+
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getHP())));
+    items.append(new QStandardItem(QString::number(characterEntity.data()->getMaxHp())));
+
+    items.append(new QStandardItem(QString::number(id)));
+
     m_encounterModel->appendRow(items);
 
-    m_entities.push_back(characterEntity);
+    entities.append(characterEntity);
 }
 
-void Encounter::addMonster(Monster monster) {
-    EncounterEntity monsterEntity(&monster, false);
+void Encounter::addMonster(dndMonster *monster, int initiativeRoll, bool autoAddBonus) {
+    QSharedPointer<EncounterEntity> monsterEntity(new EncounterEntity(monster, initiativeRoll, autoAddBonus));
+
+    int id = entities.count();
+
 
     QList<QStandardItem *> items;
-    items.append(new QStandardItem(monsterEntity.getInitiativeValue()));
-    items.append(new QStandardItem(monsterEntity.getTitle()));
-    items.append(new QStandardItem(monsterEntity.getAC()));
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getInitiativeValue())));
+    items.append(new QStandardItem(monsterEntity.data()->getTitle()));
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getAC())));
 
-    QString hpToMaxHp = QString::number(monsterEntity.getHP()) + "/" + QString::number(monsterEntity.getMaxHp());
-
+    QString hpToMaxHp = QString::number(monsterEntity.data()->getHP()) + "/" + QString::number(monsterEntity.data()->getMaxHp());
     items.append(new QStandardItem(hpToMaxHp));
+
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getHP())));
+    items.append(new QStandardItem(QString::number(monsterEntity.data()->getMaxHp())));
+
+    items.append(new QStandardItem(QString::number(id)));
+
     m_encounterModel->appendRow(items);
 
-    m_entities.push_back(monsterEntity);
+    entities.push_back(monsterEntity);
+}
+
+void Encounter::setTitle(QString title) {
+    m_title = title;
 }
 
 
-EncounterEntity::EncounterEntity(Character *entity, int initiativeRoll, bool autoAddBonus) {
+EncounterEntity::EncounterEntity(DndCharacter *entity, int initiativeRoll, bool autoAddBonus) {
     m_type = character;
     m_title = entity->getTitle();
     m_character = entity;
@@ -60,9 +80,10 @@ EncounterEntity::EncounterEntity(Character *entity, int initiativeRoll, bool aut
     setInitiativeValue(initiativeRoll, autoAddBonus);
 }
 
-EncounterEntity::EncounterEntity(Monster *entity, int initiativeRoll, bool autoAddBonus) {
+EncounterEntity::EncounterEntity(dndMonster *entity, int initiativeRoll, bool autoAddBonus) {
     m_type = monster;
     m_characterSheetId = entity->getCharacterSheetId();
+    m_title = entity->getTitle();
     m_ac = entity->getAc();
     m_hp = entity->getHp();
     m_maxHp = entity->getMaxHp();

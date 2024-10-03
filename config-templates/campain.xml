@@ -1,65 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<campain name="Title">
+<!DOCTYPE CAMPAIN>
+<CAMPAIN name="Title">
     <characters>
-        <NPC>
-            <character name="" id="">
-                <brief>
-                    <age>charactrer age</age>
-                    <gender>character gender</gender>
-                    <race>character race</race>
-                    <connections>
-                        <friends>
-                            <character-id>id of friend character</character-id>
-                            <character-id>id of friend character</character-id>
-                            <character-id>id of friend character</character-id>
-                        </friends>
-                        <enemies>
-                            <character-id>id of enemy character</character-id>
-                            <character-id>id of enemy character</character-id>
-                            <character-id>id of enemy character</character-id>
-                        </enemies>
-                    </connections>
-                </brief>
-                <notes>path/to/notes.txt</notes>
-                <image>path/to/image.png</image>
-                <character-sheet>path/to/statlist.xml</character-sheet>
-            </character>
-        </NPC>
-        <PC>
-            <character name="" id="">
-                <brief>
-                    <age>charactrer age</age>
-                    <gender>character gender</gender>
-                    <race>character race</race>
-                    <connections>
-                        <friends>
-                            <character-id>id of friend character</character-id>
-                            <character-id>id of friend character</character-id>
-                            <character-id>id of friend character</character-id>
-                        </friends>
-                        <enemies>
-                            <character-id>id of enemy character</character-id>
-                            <character-id>id of enemy character</character-id>
-                            <character-id>id of enemy character</character-id>
-                        </enemies>
-                    </connections>
-                </brief>
-                <notes>path/to/notes.txt</notes>
-                <image>path/to/image.png</image>
-                <statlist>path/to/statlist.xml</statlist>
-            </character>
-        </PC>
+        <character type="NPC" name="" id="">
+            <brief>
+                <age>charactrer age</age>
+                <gender>character gender</gender>
+                <race source="">character race</race>
+                <connections>
+                    <friends>
+                        <character-id>id of friend character</character-id>
+                        <character-id>id of friend character</character-id>
+                        <character-id>id of friend character</character-id>
+                    </friends>
+                    <enemies>
+                        <character-id>id of enemy character</character-id>
+                        <character-id>id of enemy character</character-id>
+                        <character-id>id of enemy character</character-id>
+                    </enemies>
+                </connections>
+            </brief>
+            <notes>path/to/notes.txt</notes>
+            <image>path/to/image.png</image>
+            <character-sheet>path/to/statlist.xml</character-sheet>
+        </character>
+        <character type="PC" name="" id="">
+            <brief>
+                <age>charactrer age</age>
+                <gender>character gender</gender>
+                <race>character race</race>
+                <connections>
+                    <friends>
+                        <character-id>id of friend character</character-id>
+                        <character-id>id of friend character</character-id>
+                        <character-id>id of friend character</character-id>
+                    </friends>
+                    <enemies>
+                        <character-id>id of enemy character</character-id>
+                        <character-id>id of enemy character</character-id>
+                        <character-id>id of enemy character</character-id>
+                    </enemies>
+                </connections>
+            </brief>
+            <notes>path/to/notes.txt</notes>
+            <image>path/to/image.png</image>
+            <statlist>path/to/statlist.xml</statlist>
+        </character>
     </characters>
     <maps>
-        <map>
-            <backround>path/to/map.png</backround>
-            <overlay>path/to/overlay.png</overlay>
-        </map>
-        <map>
-            <backround>path/to/map.png</backround>
-            <overlay>path/to/overlay.png</overlay>
-        </map>
-        <map>
+        <map title="">
             <backround>path/to/map.png</backround>
             <overlay>path/to/overlay.png</overlay>
         </map>
@@ -93,4 +82,4 @@
         <playlist>path/to/playlist.xml</playlist>
         <playlist>path/to/playlist.xml</playlist>
     </playlists>
-</campain>
+</CAMPAIN>

@@ -6,7 +6,7 @@
 #define DM_ASSIST_QDNDCHARACTERWIDGET_H
 
 #include <QWidget>
-#include "character.h"
+#include "dndcharacter.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -17,7 +17,7 @@ class QDndCharacterWidget : public QWidget {
 Q_OBJECT
 
 public:
-    explicit QDndCharacterWidget(Character character, QWidget *parent = nullptr);
+    explicit QDndCharacterWidget(DndCharacter character, QWidget *parent = nullptr);
 
     ~QDndCharacterWidget() override;
 

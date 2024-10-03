@@ -2,17 +2,17 @@
 // Created by arsen on 01.04.2024.
 //
 
-#ifndef DM_ASSIST_CHARACTER_H
-#define DM_ASSIST_CHARACTER_H
+#ifndef DM_ASSIST_DNDCHARACTER_H
+#define DM_ASSIST_DNDCHARACTER_H
 
 #include "dndcreature.h"
 
-class Character : public dndCreature{
+class DndCharacter : public dndCreature{
 public:
-    explicit Character(QString characterName);
-    explicit Character(QFile *xmlConfig);
+    explicit DndCharacter(QString characterName);
+    explicit DndCharacter(QFile *xmlConfig);
 
-    ~Character();
+    ~DndCharacter();
 
     void loadFromFile(QFile *xmlConfigFile);
     void saveToFile(QString pathToConfigFile);
@@ -59,4 +59,4 @@ private:
 };
 
 
-#endif //DM_ASSIST_CHARACTER_H
+#endif //DM_ASSIST_DNDCHARACTER_H
