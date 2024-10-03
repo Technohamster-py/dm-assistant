@@ -9,6 +9,7 @@
 #include "encounter.h"
 #include "qplayerinitiativeview.h"
 #include "qinitiativetrackerwidget.h"
+#include "qplayer.h"
 
 
 
@@ -24,6 +25,9 @@ public:
 
     ~MainWindow() override;
 
+public slots:
+    void stopAllMusic();
+
 protected slots:
     void slotShareTracker(Encounter *encounter);
 
@@ -31,8 +35,21 @@ protected:
     qPlayerInitiativeView* playerInitiativeView;
     QInitiativeTrackerWidget* initiativeWidget;
 
+    QPlayer *player1;
+    QPlayer *player2;
+    QPlayer *player3;
+    QPlayer *player4;
+    QPlayer *player5;
+    QPlayer *player6;
+    QPlayer *player7;
+    QPlayer *player8;
+    QPlayer *player9;
+    QPlayer *player0;
+
 private:
     Ui::MainWindow *ui;
+
+    void configurePlayers();
 };
 
 

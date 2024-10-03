@@ -115,7 +115,7 @@
            <height>504</height>
           </size>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4"/>
+         <layout class="QVBoxLayout" name="musicLayout"/>
         </widget>
        </item>
        <item>
