@@ -6,13 +6,15 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "qdebug.h"
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    connect(ui->initiativeWidget, SIGNAL(share(Encounter *)), this, SLOT(slotShareTracker(Encounter *)));
+    initiativeWidget = new QInitiativeTrackerWidget(ui->rightAsideWidget);
+    ui->rightAsideLayout->addWidget(initiativeWidget);
+    connect(initiativeWidget, SIGNAL(share(Encounter *)), this, SLOT(slotShareTracker(Encounter *)));
 }
 
 MainWindow::~MainWindow() {
@@ -20,6 +22,6 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::slotShareTracker(Encounter *encounter) {
-    
-    playerInitiativeView = new qPlayerInitiativeView()
+    qDebug() << "slotShareTracker";
+    //playerInitiativeView = new qPlayerInitiativeView();
 }

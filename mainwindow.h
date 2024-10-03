@@ -8,6 +8,7 @@
 #include <QMainWindow>
 #include "encounter.h"
 #include "qplayerinitiativeview.h"
+#include "qinitiativetrackerwidget.h"
 
 
 
@@ -28,6 +29,7 @@ protected slots:
 
 protected:
     qPlayerInitiativeView* playerInitiativeView;
+    QInitiativeTrackerWidget* initiativeWidget;
 
 private:
     Ui::MainWindow *ui;
