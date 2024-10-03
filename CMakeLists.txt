@@ -35,7 +35,7 @@ set(HEADER_FILES
 )
 
 set(SOURCE_FILES
-        character.cpp
+        dndcharacter.cpp
         dndcampaign.cpp
         creature.cpp
         dndcharacter.cpp

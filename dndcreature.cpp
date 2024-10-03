@@ -18,47 +18,6 @@ dndCreature::~dndCreature() {
 
 }
 
-/**
- * Load creature stat list to DOM document object
- * @param xmlConfigFile .xml, contains stat list of creature
- * @return error code
- */
-int dndCreature::loadCreatureFromFile(QFile *xmlConfigFile) {
-    if(!xmlConfigFile->open(QIODevice::ReadWrite)){
-        emit xmlSaveError(xmlConfigFile->errorString());
-        return OpenFileError;
-    }
-    configDom.setContent(xmlConfigFile);
-    xmlConfigFile->close();
-    return ErrorNone;
-}
-
-/**
- * Save DOM document object, contains stats of creature to .xml file
- * @param pathToXml string with path to .xml file
- * @return error code
- */
-int dndCreature::saveCreatureToFile(QString pathToXml) {
-    QString configFileNamePath;
-    if(pathToXml == QCoreApplication::applicationDirPath()){
-        configFileNamePath = pathToXml + "/configs/" + id + "_charlist.xml";
-    } else
-    {
-        configFileNamePath = pathToXml;
-    }
-    QFile config(configFileNamePath);
-
-    if (!config.open(QFile::WriteOnly))
-    {
-        emit xmlLoadError(config.errorString());
-        return OpenFileError;
-    }
-
-    QTextStream xmlContent(&config);
-    xmlContent << configDom.toString();
-    return ErrorNone;
-}
-
 int dndCreature::getBonuseFromCharacteristic(int characteristicValue) {
     return (characteristicValue >= 0) ? (characteristicValue / 10) : (characteristicValue - 10 + 1) / 10;
 }

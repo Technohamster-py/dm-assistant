@@ -9,8 +9,8 @@
 #include <QFile>
 #include <QSharedPointer>
 
-#include "character.h"
-#include "monster.h"
+#include "dndcharacter.h"
+#include "dndmonster.h"
 #include "qplayer.h"
 #include "encounter.h"
 
@@ -33,8 +33,8 @@ signals:
 private:
     QString m_campaignTitle;
 
-    QList<QSharedPointer<Character>> m_characters;
-    QList<QSharedPointer<Monster>> m_monsters;
+    QList<QSharedPointer<DndCharacter>> m_characters;
+    QList<QSharedPointer<dndMonster>> m_monsters;
     QList<QSharedPointer<QPlayer>> m_players;
     QList<QSharedPointer<Encounter>> m_encounters;
 };
