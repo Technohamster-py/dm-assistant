@@ -420,28 +420,28 @@
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_dndspellwidget.h" line="217"/>
         <source>title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titile</translation>
     </message>
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_dndspellwidget.h" line="218"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_dndspellwidget.h" line="220"/>
         <source>Компоненты</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_dndspellwidget.h" line="221"/>
         <source>range</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_dndspellwidget.h" line="222"/>
         <source>class
 another class</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -449,12 +449,12 @@ another class</source>
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_qdndinitiativeentityeditwidget.h" line="107"/>
         <source>qDndInitiativeEntityEditWidget</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_qdndinitiativeentityeditwidget.h" line="108"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_qdndinitiativeentityeditwidget.h" line="109"/>
