@@ -1,7 +1,7 @@
 #include <QApplication>
 
 #include "random"
-#include "qinitiativetrackerwidget.h"
+#include "mainwindow.h"
 #include "encounter.h"
 
 #include <QDebug>
@@ -47,9 +47,8 @@ int main(int argc, char *argv[]) {
     encounter.addMonster(&monster1, dis(d20), true);
     encounter.addMonster(&monster2, dis(d20), true);
 
-    QInitiativeTrackerWidget initiativeTrackerWidget;
-    initiativeTrackerWidget.loadEncounter(&encounter);
-    initiativeTrackerWidget.show();
+    MainWindow mainWindow;
+    mainWindow.show();
 
-    return QApplication::exec();
+    return a.exec();
 }
