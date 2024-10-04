@@ -28,11 +28,11 @@ public:
     ~QPlayer() override;
 
     [[nodiscard]] QString getPlaylistName() const{return playlistName;};
-    void setPlaylistName(QString name);
+    void setPlaylistName(QString title);
 
     [[nodiscard]] int getId() const{return id;};
 
-    void saveToXml(QString pathToXml = QCoreApplication::applicationDirPath());
+    void saveToXml(QString pathToXmlDir = QCoreApplication::applicationDirPath());
     void setPlayShortcut(QString key);
 
     QMediaPlaylist *playlist; ///< Плейлист проигрывателя

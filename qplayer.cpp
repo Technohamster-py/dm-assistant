@@ -90,7 +90,7 @@ QPlayer::~QPlayer() {
 }
 
 /**
- * Открыть окно изменения плейлиста
+ * Open playlist edit window
  */
 void QPlayer::on_editButton_clicked() {
     QPlaylistEdit(nullptr, this).exec();
@@ -98,18 +98,18 @@ void QPlayer::on_editButton_clicked() {
 }
 
 /**
- * Задать название плейлиста
- * @param name название
+ * Set playlist title
+ * @param title new playlist title
  */
-void QPlayer::setPlaylistName(QString name) {
-    if(name != playlistName){
-        playlistName = name;
+void QPlayer::setPlaylistName(QString title) {
+    if(title != playlistName){
+        playlistName = title;
         emit playlistNameChanged();
     }
 }
 
 /**
- * Загрузить существующий плейлист из .xml файла
+ * Load playlist from existing .xml file
  * @param xmlFile
  */
 void QPlayer::loadFromXml(QFile *xmlFile) {
@@ -135,16 +135,16 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
 }
 
 /**
- * Записать плейлист в .xml файл
- * @param pathToXml
+ * Save playlist to .xml file
+ * @param pathToXmlDir
  */
-void QPlayer::saveToXml(QString pathToXml) {
+void QPlayer::saveToXml(QString pathToXmlDir) {
     QString configFileNamePath;
-    if(pathToXml == QCoreApplication::applicationDirPath()){
-        configFileNamePath = pathToXml + "/configs/" + QString::number(id) + "_playlist.xml";
+    if(pathToXmlDir == QCoreApplication::applicationDirPath()){
+        configFileNamePath = pathToXmlDir + "/configs/" + QString::number(id) + "_playlist.xml";
     } else
     {
-        configFileNamePath = pathToXml;
+        configFileNamePath = pathToXmlDir;
     }
     QFile config(configFileNamePath);
 
@@ -181,8 +181,7 @@ void QPlayer::saveToXml(QString pathToXml) {
 
 void QPlayer::playShortcutTriggered() {
     emit playerStarted();
-    //m_player->play();
-    qDebug() << "play";
+    m_player->play();
 }
 
 void QPlayer::stop() {
