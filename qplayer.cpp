@@ -18,17 +18,19 @@ QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
     ui->titleLabel->setText(playlistName);
     ui->numberLabel->setText(QString::number(id));
 
+    playKey = new QShortcut(this);
+
     m_player = new QMediaPlayer(this);
     playlist = new QMediaPlaylist(this);
     m_player->setPlaylist(playlist);
 
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
-    connect(ui->playButton, &QPushButton::clicked, m_player, &QMediaPlayer::play);
     connect(ui->stopButton, &QPushButton::clicked, m_player, &QMediaPlayer::stop);
     connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
+    connect(playKey, SIGNAL(activated()), this, SLOT(playShortcutTriggered()));
 }
 
 QPlayer::QPlayer(QWidget *parent, QFile *xmlFile) :
@@ -57,7 +59,10 @@ QPlayer::QPlayer(QWidget *parent, int numId) : QWidget(parent), ui(new Ui::QPlay
     ui->setupUi(this);
     id = numId;
 
-    QString xmlConfigPath = QCoreApplication::applicationDirPath() + "/configs/" + id + "_playlist.xml";
+    playlistName = "Test player " + QString::number(id);
+    ui->titleLabel->setText(playlistName);
+
+    QString xmlConfigPath = QCoreApplication::applicationDirPath() + "/configs/" + QString::number(id) + "_playlist.xml";
 
     m_player = new QMediaPlayer(this);
     playlist = new QMediaPlaylist(this);
@@ -71,8 +76,8 @@ QPlayer::QPlayer(QWidget *parent, int numId) : QWidget(parent), ui(new Ui::QPlay
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
 
-    QFile *xmlFile = new QFile(xmlConfigPath);
-    loadFromXml(xmlFile);
+    /*QFile *xmlFile = new QFile(xmlConfigPath);
+    loadFromXml(xmlFile);*/
 
     ui->titleLabel->setText(playlistName);
     ui->numberLabel->setText(QString::number(id));
@@ -84,18 +89,29 @@ QPlayer::~QPlayer() {
     delete playlist;
 }
 
+/**
+ * Open playlist edit window
+ */
 void QPlayer::on_editButton_clicked() {
     QPlaylistEdit(nullptr, this).exec();
     ui->titleLabel->setText(playlistName);
 }
 
-void QPlayer::setPlaylistName(QString name) {
-    if(name != playlistName){
-        playlistName = name;
+/**
+ * Set playlist title
+ * @param title new playlist title
+ */
+void QPlayer::setPlaylistName(QString title) {
+    if(title != playlistName){
+        playlistName = title;
         emit playlistNameChanged();
     }
 }
 
+/**
+ * Load playlist from existing .xml file
+ * @param xmlFile
+ */
 void QPlayer::loadFromXml(QFile *xmlFile) {
     if(!xmlFile->open(QIODevice::ReadWrite)){
         QString message = tr("Can not open XML config: ") + xmlFile->errorString();
@@ -118,13 +134,17 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
     }
 }
 
-void QPlayer::saveToXml(QString pathToXml) {
+/**
+ * Save playlist to .xml file
+ * @param pathToXmlDir
+ */
+void QPlayer::saveToXml(QString pathToXmlDir) {
     QString configFileNamePath;
-    if(pathToXml == QCoreApplication::applicationDirPath()){
-        configFileNamePath = pathToXml + "/configs/" + id + "_playlist.xml";
+    if(pathToXmlDir == QCoreApplication::applicationDirPath()){
+        configFileNamePath = pathToXmlDir + "/configs/" + QString::number(id) + "_playlist.xml";
     } else
     {
-        configFileNamePath = pathToXml;
+        configFileNamePath = pathToXmlDir;
     }
     QFile config(configFileNamePath);
 
@@ -157,4 +177,25 @@ void QPlayer::saveToXml(QString pathToXml) {
     }
 
     xmlContent << m_xmlConfig.toString();
+}
+
+void QPlayer::playShortcutTriggered() {
+    emit playerStarted();
+    m_player->play();
+}
+
+void QPlayer::stop() {
+    m_player->stop();
+}
+
+void QPlayer::on_playButton_clicked() {
+    playShortcutTriggered();
+}
+
+/**
+ * Задать сочетание клавиш для старта прогирывания
+ * @param key сочетание клавиш английской раскладки
+ */
+void QPlayer::setPlayShortcut(QString key) {
+    playKey->setKey(key);
 }

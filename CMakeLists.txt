@@ -16,40 +16,48 @@ set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 set(HEADER_FILES
-        character.h
-        dndcampaign.h
+        creature.h
+        dndcharacter.h
         dndcreature.h
         dndspellwidget.h
         encounter.h
         mainwindow.h
-        monster.h
+        dndmonster.h
         qdndcharacterwidget.h
+        qdndinitiativeentityeditwidget.h
+        qinitiativetrackerwidget.h
         qplayer.h
+        qplayerinitiativeview.h
         qplaylistedit.h
-        qinititivetrackerwidget.h
 )
 
 set(SOURCE_FILES
-        character.cpp
+        dndcharacter.cpp
         dndcampaign.cpp
+        creature.cpp
+        dndcharacter.cpp
         dndcreature.cpp
         dndspellwidget.cpp
         encounter.cpp
         mainwindow.cpp
-        monster.cpp
+        dndmonster.cpp
         qdndcharacterwidget.cpp
+        qdndinitiativeentityeditwidget.cpp
+        qinitiativetrackerwidget.cpp
         qplayer.cpp
+        qplayerinitiativeview.cpp
         qplaylistedit.cpp
-        qinititivetrackerwidget.cpp
 )
 
 set(UI_FILES
         mainwindow.ui
         dndspellwidget.ui
         qdndcharacterwidget.ui
+        qdndinitiativeentityeditwidget.ui
         qplayer.ui
         qplaylistedit.ui
-        qinititivetrackerwidget.ui
+        qinitiativetrackerwidget.ui
+        qplayerinitiativeview.ui
 )
 
 set(TS_FILES

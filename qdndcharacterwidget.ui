@@ -67,7 +67,7 @@
          </size>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>speed</string>
         </property>
        </widget>
       </item>
@@ -281,7 +281,7 @@
          </size>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>speed</string>
         </property>
        </widget>
       </item>
@@ -322,9 +322,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-358</y>
-        <width>535</width>
-        <height>838</height>
+        <y>0</y>
+        <width>546</width>
+        <height>818</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
@@ -412,6 +412,9 @@
               <pointsize>10</pointsize>
              </font>
             </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
          </layout>
@@ -436,6 +439,11 @@
            <width>300</width>
            <height>80</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
          </property>
          <property name="verticalScrollBarPolicy">
           <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -583,6 +591,11 @@
               <width>100</width>
               <height>240</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
             </property>
             <property name="verticalScrollBarPolicy">
              <enum>Qt::ScrollBarAlwaysOff</enum>

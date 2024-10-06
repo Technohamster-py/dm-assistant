@@ -2,17 +2,17 @@
 // Created by arsen on 01.04.2024.
 //
 
-#include "character.h"
+#include "dndcharacter.h"
 
-Character::Character(QString characterName) : dndCreature(characterName) {
+DndCharacter::DndCharacter(QString characterName) : dndCreature(characterName) {
     title = characterName;
 }
 
-Character::Character(QFile *xmlConfig) : dndCreature(xmlConfig) {
+DndCharacter::DndCharacter(QFile *xmlConfig) : dndCreature(xmlConfig) {
     loadFromFile(xmlConfig);
 }
 
-Character::~Character() {
+DndCharacter::~DndCharacter() {
 
 }
 
@@ -21,7 +21,7 @@ Character::~Character() {
  * \details Load dnd character from .xml config file. By default - file in root folder
  * @param xmlConfigFile .xml config file
  */
-void Character::loadFromFile(QFile *xmlConfigFile) {
+void DndCharacter::loadFromFile(QFile *xmlConfigFile) {
     int errCode = loadCreatureFromFile(xmlConfigFile);
     if (errCode != ErrorNone){
         return;
@@ -84,7 +84,7 @@ void Character::loadFromFile(QFile *xmlConfigFile) {
  * Save character to .xml file
  * @param pathToConfigFile string, contains path to .xml config file
  */
-void Character::saveToFile(QString pathToConfigFile) {
+void DndCharacter::saveToFile(QString pathToConfigFile) {
     configDom.clear();
 
     QDomElement characterNode = configDom.createElement("character");

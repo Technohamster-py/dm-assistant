@@ -5,14 +5,15 @@
 #ifndef DM_ASSIST_ENCOUNTER_H
 #define DM_ASSIST_ENCOUNTER_H
 
-#include "character.h"
-#include "monster.h"
+#include "dndcharacter.h"
+#include "dndmonster.h"
 #include <QStandardItemModel>
+#include <QSharedPointer>
 
 class EncounterEntity{
 public:
-    explicit EncounterEntity(Character *entity, int initiativeRoll = 0, bool autoAddBonus = false);
-    explicit EncounterEntity(Monster *entity, int initiativeRoll = 0, bool autoAddBonus = false);
+    explicit EncounterEntity(DndCharacter *entity, int initiativeRoll = 0, bool autoAddBonus = false);
+    explicit EncounterEntity(dndMonster *entity, int initiativeRoll = 0, bool autoAddBonus = false);
 
     ~EncounterEntity();
 
@@ -25,16 +26,15 @@ public:
     [[nodiscard]] int getAC() const {return m_ac;};
     [[nodiscard]] int getHP() const {return m_hp;};
     [[nodiscard]] int getMaxHp() const {return m_maxHp;};
-    QString getTitle() const {}
+    QString getTitle() const {return m_title;};
 
     void setHp(int value);
     void setMaxHp(int value);
     void setInitiativeValue(int initiativeRoll, bool autoAddBonus);
 
-
 private:
     int m_type;
-    Character *m_character;
+    DndCharacter *m_character;
 
     QString m_title = "";
     int m_characterSheetId = 0;
@@ -45,17 +45,26 @@ private:
     int m_maxHp = 0;
 };
 
+
 class Encounter {
 public:
-    Encounter();
+    Encounter(QString title);
     ~Encounter();
 
-    void addCharacter(Character character);
-    void addMonster(Monster monster);
+    QList<QSharedPointer<EncounterEntity>> entities;
+
+    QString getTitle() const {return m_title;};
+    QStandardItemModel* getModel() const {return m_encounterModel;};
+
+    void setTitle(QString title);
+
+    void addCharacter(DndCharacter *character, int initiativeRoll = 0, bool autoAddBonus = false);
+    void addMonster(dndMonster *monster, int initiativeRoll = 0, bool autoAddBonus = false);
 
 private:
     QStandardItemModel *m_encounterModel;
-    QVector<EncounterEntity> m_entities;
+
+    QString m_title = "";
 };
 
 

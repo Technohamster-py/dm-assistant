@@ -44,10 +44,7 @@
     </stats>
 
     <skills>
-        <skill>
-            Восприятие
-            <bonus>+5</bonus>
-        </skill>
+        <skill name="Восприятие">+5</skill>
     </skills>
 
     <feelings>

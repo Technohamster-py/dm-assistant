@@ -6,56 +6,16 @@
 #include <utility>
 #include <QTextStream>
 
-dndCreature::dndCreature(QString creatureName) {
+dndCreature::dndCreature(QString creatureName) : Creature(creatureName){
     title = std::move(creatureName);
 }
 
-dndCreature::dndCreature(QFile *xmlConfig) {
+dndCreature::dndCreature(QFile *xmlConfig) : Creature(xmlConfig){
 }
+
 
 dndCreature::~dndCreature() {
 
-}
-
-/**
- * Load creature stat list to DOM document object
- * @param xmlConfigFile .xml, contains stat list of creature
- * @return error code
- */
-int dndCreature::loadCreatureFromFile(QFile *xmlConfigFile) {
-    if(!xmlConfigFile->open(QIODevice::ReadWrite)){
-        emit xmlSaveError(xmlConfigFile->errorString());
-        return OpenFileError;
-    }
-    configDom.setContent(xmlConfigFile);
-    xmlConfigFile->close();
-    return ErrorNone;
-}
-
-/**
- * Save DOM document object, contains stats of creature to .xml file
- * @param pathToXml string with path to .xml file
- * @return error code
- */
-int dndCreature::saveCreatureToFile(QString pathToXml) {
-    QString configFileNamePath;
-    if(pathToXml == QCoreApplication::applicationDirPath()){
-        configFileNamePath = pathToXml + "/configs/" + id + "_charlist.xml";
-    } else
-    {
-        configFileNamePath = pathToXml;
-    }
-    QFile config(configFileNamePath);
-
-    if (!config.open(QFile::WriteOnly))
-    {
-        emit xmlLoadError(config.errorString());
-        return OpenFileError;
-    }
-
-    QTextStream xmlContent(&config);
-    xmlContent << configDom.toString();
-    return ErrorNone;
 }
 
 int dndCreature::getBonuseFromCharacteristic(int characteristicValue) {
@@ -72,6 +32,7 @@ void dndCreature::setMaxHp(int value) {
 bool dndCreature::setHp(int value) {
     if(value <= maxHP){
         hp = value;
+        emit hpChanged();
         return true;
     } else
         return false;
@@ -81,8 +42,19 @@ void dndCreature::setFullHp() {
     hp = maxHP;
 }
 
-void dndCreature::doDamage(int hpValue) {
-    hp -= hpValue;
-    if (hp < 0)
-        hp = 0;
+void dndCreature::doDamage(int damageValue) {
+    int newHp = hp - damageValue;
+    if (newHp < 0)
+        newHp = 0;
+    setHp(newHp);
+}
+
+void dndCreature::setAc(int value) {
+    ac = value;
+    emit acChanged();
+}
+
+void dndCreature::setInitiativeBonus(int value) {
+    initiativeBonus = value;
+    emit initiativeBonusChanged();
 }
