@@ -6,6 +6,8 @@
 #include "ui_QPlayer.h"
 #include "qplaylistedit.h"
 #include "QMessageBox"
+#include <QFileInfo>
+#include <QDir>
 
 
 QPlayer::QPlayer(QWidget *parent, QString title, int numId) :
@@ -117,18 +119,24 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
                               message);
         return;
     }
-    xmlConfig.setContent(xmlFile);
-    xmlFile->close();
 
+    xmlConfig.setContent(xmlFile);
+    QFileInfo fileInfo(xmlFile->fileName());
+
+    qDebug() << xmlConfig.toString();
     QDomElement playlistNode = xmlConfig.documentElement();
     playlistName = playlistNode.attribute("name");
     id = playlistNode.attribute("id").toInt();
     QDomNodeList tracks = playlistNode.childNodes();
 
+    qDebug() << "file dir: " << fileInfo.dir().canonicalPath();
+    qDebug() << tracks.count();
     for (int i = 0; i < tracks.count(); ++i) {
         QDomElement trackNode = tracks.at(i).toElement();
-        playlist->addMedia(QUrl(trackNode.firstChild().toText().data()));
+        QString absolutePath = fileInfo.dir().canonicalPath() + "/" + trackNode.firstChild().toText().data();
+        playlist->addMedia(QUrl(absolutePath));
     }
+    xmlFile->close();
 }
 
 /**
@@ -178,8 +186,7 @@ void QPlayer::saveToXml(QString pathToXml) {
 
 void QPlayer::playShortcutTriggered() {
     emit playerStarted();
-    //m_player->play();
-    qDebug() << "play";
+    m_player->play();
 }
 
 void QPlayer::stop() {
