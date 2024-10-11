@@ -349,22 +349,22 @@
         <translation>Edit playlist</translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="114"/>
+        <location filename="../qplayer.cpp" line="116"/>
         <source>Can not open XML config: </source>
         <translation>Can not open XML config: </translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="116"/>
+        <location filename="../qplayer.cpp" line="118"/>
         <source>File error</source>
         <translation>File error</translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="151"/>
+        <location filename="../qplayer.cpp" line="159"/>
         <source>XML file error</source>
         <translation>XML file error</translation>
     </message>
     <message>
-        <location filename="../qplayer.cpp" line="152"/>
+        <location filename="../qplayer.cpp" line="160"/>
         <source>Can not open XML config file</source>
         <translation>Can not open XML config file</translation>
     </message>
