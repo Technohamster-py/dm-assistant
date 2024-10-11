@@ -43,6 +43,8 @@ QPlayer::QPlayer(QWidget *parent, QFile *xmlFile) :
     playlist = new QMediaPlaylist(this);
     m_player->setPlaylist(playlist);
 
+    playKey = new QShortcut(this);
+
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
     connect(ui->playButton, &QPushButton::clicked, m_player, &QMediaPlayer::play);
@@ -60,12 +62,16 @@ QPlayer::QPlayer(QWidget *parent, QFile *xmlFile) :
 QPlayer::QPlayer(QWidget *parent, int numId) : QWidget(parent), ui(new Ui::QPlayer) {
     ui->setupUi(this);
     id = numId;
+    ui->titleLabel->setText(playlistName);
+    ui->numberLabel->setText(QString::number(id));
 
     QString xmlConfigPath = QCoreApplication::applicationDirPath() + "/configs/" + id + "_playlist.xml";
 
     m_player = new QMediaPlayer(this);
     playlist = new QMediaPlaylist(this);
     m_player->setPlaylist(playlist);
+
+    playKey = new QShortcut(this);
 
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
@@ -74,12 +80,6 @@ QPlayer::QPlayer(QWidget *parent, int numId) : QWidget(parent), ui(new Ui::QPlay
     connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
-
-    QFile *xmlFile = new QFile(xmlConfigPath);
-    loadFromXml(xmlFile);
-
-    ui->titleLabel->setText(playlistName);
-    ui->numberLabel->setText(QString::number(id));
 }
 
 QPlayer::~QPlayer() {
