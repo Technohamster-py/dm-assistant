@@ -3,12 +3,15 @@
 #include <qfile.h>
 #include "qplayer.h"
 #include <QDomDocument>
+#include "mainwindow.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    QFile file("D:\\documents\\dm_assist_campains\\cam1\\playlist.xml");
-    QPlayer player(nullptr, &file);
+    //QFile file("D:\\documents\\dm_assist_campains\\cam1\\playlist.xml");
+    //QPlayer player(nullptr, &file);
     //player.setPlayShortcut("Ctrl+0");
-    player.show();
+    //player.show();
+    MainWindow mainWindow(nullptr);
+    mainWindow.show();
     return QApplication::exec();
 }
