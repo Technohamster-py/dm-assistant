@@ -18,15 +18,15 @@ MainWindow::~MainWindow() {
 }
 
  void MainWindow::configurePlayers() {
-     QPlayer *player1 = new QPlayer(ui->player1, 1);
-     QPlayer *player2 = new QPlayer(ui->player2, 2);
-     QPlayer *player3 = new QPlayer(ui->player3, 3);
-     QPlayer *player4 = new QPlayer(ui->player4, 4);
-     QPlayer *player5 = new QPlayer(ui->player5, 5);
-     QPlayer *player6 = new QPlayer(ui->player6, 6);
-     QPlayer *player7 = new QPlayer(ui->player7, 7);
-     QPlayer *player8 = new QPlayer(ui->player8, 8);
-     QPlayer *player9 = new QPlayer(ui->player9, 9);
+     player1 = new QPlayer(ui->player1, 1);
+     player2 = new QPlayer(ui->player2, 2);
+     player3 = new QPlayer(ui->player3, 3);
+     player4 = new QPlayer(ui->player4, 4);
+     player5 = new QPlayer(ui->player5, 5);
+     player6 = new QPlayer(ui->player6, 6);
+     player7 = new QPlayer(ui->player7, 7);
+     player8 = new QPlayer(ui->player8, 8);
+     player9 = new QPlayer(ui->player9, 9);
 
      connect(ui->play1, SIGNAL(clicked(bool)), player1, SLOT(play()));
      connect(ui->play2, SIGNAL(clicked(bool)), player2, SLOT(play()));
@@ -60,7 +60,7 @@ MainWindow::~MainWindow() {
  }
 
  void MainWindow::stopAll() {
-    /*player1->stop();
+    player1->stop();
     player2->stop();
     player3->stop();
     player4->stop();
@@ -68,5 +68,5 @@ MainWindow::~MainWindow() {
     player6->stop();
     player7->stop();
     player8->stop();
-    player9->stop();*/
+    player9->stop();
  }

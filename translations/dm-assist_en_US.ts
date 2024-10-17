@@ -4,144 +4,144 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="513"/>
+        <location filename="../mainwindow.ui" line="456"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="638"/>
         <source>MainWindow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="51"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="520"/>
+        <location filename="../mainwindow.ui" line="938"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="645"/>
         <source>7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="870"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="515"/>
+        <location filename="../mainwindow.ui" line="1757"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="640"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="96"/>
-        <location filename="../mainwindow.ui" line="185"/>
-        <location filename="../mainwindow.ui" line="274"/>
-        <location filename="../mainwindow.ui" line="363"/>
-        <location filename="../mainwindow.ui" line="452"/>
-        <location filename="../mainwindow.ui" line="541"/>
-        <location filename="../mainwindow.ui" line="630"/>
-        <location filename="../mainwindow.ui" line="719"/>
-        <location filename="../mainwindow.ui" line="808"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="522"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="525"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="528"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="531"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="534"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="537"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="540"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="543"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="546"/>
+        <location filename="../mainwindow.ui" line="983"/>
+        <location filename="../mainwindow.ui" line="1072"/>
+        <location filename="../mainwindow.ui" line="1161"/>
+        <location filename="../mainwindow.ui" line="1250"/>
+        <location filename="../mainwindow.ui" line="1339"/>
+        <location filename="../mainwindow.ui" line="1428"/>
+        <location filename="../mainwindow.ui" line="1517"/>
+        <location filename="../mainwindow.ui" line="1606"/>
+        <location filename="../mainwindow.ui" line="1695"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="647"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="650"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="653"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="656"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="659"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="662"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="665"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="668"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="671"/>
         <source>Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="140"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="523"/>
+        <location filename="../mainwindow.ui" line="1027"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="648"/>
         <source>8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="229"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="526"/>
+        <location filename="../mainwindow.ui" line="1116"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="651"/>
         <source>9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="318"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="529"/>
+        <location filename="../mainwindow.ui" line="1205"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="654"/>
         <source>4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="407"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="532"/>
+        <location filename="../mainwindow.ui" line="1294"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="657"/>
         <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="496"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="535"/>
+        <location filename="../mainwindow.ui" line="1383"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="660"/>
         <source>6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="585"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="538"/>
+        <location filename="../mainwindow.ui" line="1472"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="663"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="674"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="541"/>
+        <location filename="../mainwindow.ui" line="1561"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="666"/>
         <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="763"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="544"/>
+        <location filename="../mainwindow.ui" line="1650"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="669"/>
         <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="832"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="547"/>
+        <location filename="../mainwindow.ui" line="1719"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="672"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="836"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="548"/>
+        <location filename="../mainwindow.ui" line="1723"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="673"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="847"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="550"/>
+        <location filename="../mainwindow.ui" line="1734"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="675"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="865"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="514"/>
+        <location filename="../mainwindow.ui" line="1752"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="639"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="875"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="516"/>
+        <location filename="../mainwindow.ui" line="1762"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="641"/>
         <source>Light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="880"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="517"/>
+        <location filename="../mainwindow.ui" line="1767"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="642"/>
         <source>Dark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="885"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="518"/>
+        <location filename="../mainwindow.ui" line="1772"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="643"/>
         <source>Русский</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="890"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="519"/>
+        <location filename="../mainwindow.ui" line="1777"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="644"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="840"/>
-        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="549"/>
+        <location filename="../mainwindow.ui" line="1727"/>
+        <location filename="../cmake-build-debug/DM-assist_autogen/include/ui_mainwindow.h" line="674"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
