@@ -31,6 +31,7 @@ public:
     void setPlaylistName(QString name);
 
     [[nodiscard]] int getId() const{return id;};
+    [[nodiscard]] bool isPlaying() const {return isActive;};
 
     void saveToXml(QString pathToXml = QCoreApplication::applicationDirPath());
     void setPlayShortcut(QString key);
@@ -40,14 +41,17 @@ public:
 signals:
     void playlistNameChanged();
     void playerStarted();
+    void playerStopped();
 
 public slots:
     void stop();
+    void play();
 
 protected:
     void loadFromXml(QFile *xmlFile);
     QString playlistName;
     int id;
+    bool isActive;
 
 private slots:
     void on_editButton_clicked();

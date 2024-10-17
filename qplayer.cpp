@@ -182,16 +182,24 @@ void QPlayer::saveToXml(QString pathToXml) {
 }
 
 void QPlayer::playShortcutTriggered() {
-    emit playerStarted();
-    m_player->play();
+    play();
 }
 
 void QPlayer::stop() {
+    emit  playerStopped();
+    isActive = false;
     m_player->stop();
 }
 
+void QPlayer::play() {
+    emit playerStarted();
+    qDebug() << "player " << id << "started";
+    isActive = true;
+    m_player->play();
+}
+
 void QPlayer::on_playButton_clicked() {
-    playShortcutTriggered();
+    play();
 }
 
 /**
