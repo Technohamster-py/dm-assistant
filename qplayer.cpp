@@ -120,11 +120,11 @@ void QPlayer::loadFromXml(QFile *xmlFile) {
         return;
     }
 
-    xmlConfig.setContent(xmlFile);
+    m_xmlConfig.setContent(xmlFile);
     QFileInfo fileInfo(xmlFile->fileName());
 
-    qDebug() << xmlConfig.toString();
-    QDomElement playlistNode = xmlConfig.documentElement();
+    qDebug() << m_xmlConfig.toString();
+    QDomElement playlistNode = m_xmlConfig.documentElement();
     playlistName = playlistNode.attribute("name");
     id = playlistNode.attribute("id").toInt();
     QDomNodeList tracks = playlistNode.childNodes();
@@ -163,25 +163,25 @@ void QPlayer::saveToXml(QString pathToXml) {
 
     QTextStream xmlContent(&config);
 
-    xmlConfig.clear();
+    m_xmlConfig.clear();
 
-    QDomElement root = xmlConfig.createElement("playlist");
+    QDomElement root = m_xmlConfig.createElement("playlist");
     root.setAttribute("name", playlistName);
     root.setAttribute("id", id);
-    xmlConfig.appendChild(root);
+    m_xmlConfig.appendChild(root);
 
     QString audioFilePath;
     QDomElement trackNode;
 
     for (int i = 0; i < playlist->mediaCount(); ++i) {
         audioFilePath = playlist->media(i).canonicalUrl().toString();
-        trackNode = xmlConfig.createElement("file");
+        trackNode = m_xmlConfig.createElement("file");
         trackNode.setNodeValue(audioFilePath);
 
         root.appendChild(trackNode);
     }
 
-    xmlContent << xmlConfig.toString();
+    xmlContent << m_xmlConfig.toString();
 }
 
 void QPlayer::playShortcutTriggered() {
