@@ -34,6 +34,7 @@ public:
     [[nodiscard]] bool isPlaying() const {return isActive;};
 
     void saveToXml(QString pathToXml = QCoreApplication::applicationDirPath());
+    void loadFromXml(QFile *xmlFile);
     void setPlayShortcut(QString key);
 
     QMediaPlaylist *playlist; ///< Плейлист проигрывателя
@@ -48,7 +49,6 @@ public slots:
     void play();
 
 protected:
-    void loadFromXml(QFile *xmlFile);
     QString playlistName;
     int id;
     bool isActive;

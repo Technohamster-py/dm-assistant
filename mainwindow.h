@@ -39,6 +39,9 @@ private:
     Ui::MainWindow *ui;
 
     void configurePlayers();
+
+private slots:
+    void loadConfigFile();
 };
 
 
