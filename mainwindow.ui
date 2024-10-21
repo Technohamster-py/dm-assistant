@@ -1299,8 +1299,8 @@
       <property name="title">
        <string>Language</string>
       </property>
-      <addaction name="action_3"/>
-      <addaction name="actionEnglish"/>
+      <addaction name="actionRu"/>
+      <addaction name="actionEng"/>
      </widget>
      <addaction name="menuTheme"/>
      <addaction name="menuLanguage"/>
@@ -1333,12 +1333,12 @@
     <string>Dark</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="actionRu">
    <property name="text">
     <string>Русский</string>
    </property>
   </action>
-  <action name="actionEnglish">
+  <action name="actionEng">
    <property name="text">
     <string>English</string>
    </property>
