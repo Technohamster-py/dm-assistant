@@ -21,7 +21,7 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
- void MainWindow::configurePlayers() {
+void MainWindow::configurePlayers() {
      player1 = new QPlayer(ui->player1, 1);
      player2 = new QPlayer(ui->player2, 2);
      player3 = new QPlayer(ui->player3, 3);
@@ -73,7 +73,7 @@ MainWindow::~MainWindow() {
      player9->setPlayShortcut("Ctrl+9");
  }
 
- void MainWindow::stopAll() {
+void MainWindow::stopAll() {
     player1->stop();
     player2->stop();
     player3->stop();
@@ -83,9 +83,9 @@ MainWindow::~MainWindow() {
     player7->stop();
     player8->stop();
     player9->stop();
- }
+}
 
- void MainWindow::loadConfigFile() {
+void MainWindow::loadConfigFile() {
     QString fileName = QFileDialog::getOpenFileName(this,
                                                     tr("Open player config file"),
                                                     QDir::homePath(),
@@ -145,4 +145,30 @@ MainWindow::~MainWindow() {
             }
         }
     }
- }
+}
+
+void MainWindow::saveConfigFile() {
+    QString fileName = QFileDialog::getSaveFileName(this,
+                                                    tr("Save to"),
+                                                    QDir::homePath(),
+                                                    tr("xml file (*.xml)"));
+    if(fileName.isEmpty())
+        return;
+    else{
+        QFile configFile(fileName);
+        if (!configFile.open(QIODevice::ReadWrite))
+        {
+            QMessageBox::critical(this, tr("Open file error"), configFile.errorString());
+            return;
+        }
+        QFileInfo fileInfo(configFile.fileName());
+
+        QTextStream xmlContent(&configFile);
+        QDomDocument configDocument;
+
+        QDomElement root = configDocument.createElement("music-player");
+        configDocument.appendChild(root);
+
+        QString baseDir = fileInfo.dir().canonicalPath() + "/";
+    }
+}

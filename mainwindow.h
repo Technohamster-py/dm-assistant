@@ -42,6 +42,7 @@ private:
 
 private slots:
     void loadConfigFile();
+    void saveConfigFile();
 };
 
 
