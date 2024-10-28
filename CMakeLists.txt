@@ -19,10 +19,8 @@ set(HEADER_FILES
         mainwindow.h
         dndmonster.h
         qdndcharacterwidget.h
-        qdndinitiativeentityeditwidget.h
         qinitiativetrackerwidget.h
         qplayer.h
-        qplayerinitiativeview.h
         qplaylistedit.h
 )
 
@@ -34,10 +32,8 @@ set(SOURCE_FILES
         mainwindow.cpp
         dndmonster.cpp
         qdndcharacterwidget.cpp
-        qdndinitiativeentityeditwidget.cpp
         qinitiativetrackerwidget.cpp
         qplayer.cpp
-        qplayerinitiativeview.cpp
         qplaylistedit.cpp
 )
 
