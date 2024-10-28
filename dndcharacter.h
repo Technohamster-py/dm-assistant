@@ -5,7 +5,13 @@
 #ifndef DM_ASSIST_DNDCHARACTER_H
 #define DM_ASSIST_DNDCHARACTER_H
 
+#include <QWidget>
 #include "dndcreature.h"
+
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class QDndCharacterWidget; }
+QT_END_NAMESPACE
 
 class DndCharacter : public dndCreature{
 public:
@@ -56,6 +62,21 @@ private:
 
     QMap<QString, QString> m_abilities;    ///< Ability name - description
 
+};
+
+
+class QDndCharacterWidget : public QWidget {
+Q_OBJECT
+
+public:
+    explicit QDndCharacterWidget(DndCharacter character, QWidget *parent = nullptr);
+
+    ~QDndCharacterWidget() override;
+
+
+
+private:
+    Ui::QDndCharacterWidget *ui;
 };
 
 

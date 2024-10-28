@@ -3,6 +3,7 @@
 //
 
 #include "dndcharacter.h"
+#include "ui_qdndcharacterwidget.h"
 
 DndCharacter::DndCharacter(QString characterName) : dndCreature(characterName) {
     title = characterName;
@@ -161,3 +162,15 @@ void DndCharacter::saveToFile(QString pathToConfigFile) {
     characterNode.appendChild(proficiencyNode);
 }
 
+////////////////////////////////////////////////////
+//         QDndCharacterWidget                    //
+////////////////////////////////////////////////////
+
+QDndCharacterWidget::QDndCharacterWidget(DndCharacter character, QWidget *parent) :
+        QWidget(parent), ui(new Ui::QDndCharacterWidget) {
+    ui->setupUi(this);
+}
+
+QDndCharacterWidget::~QDndCharacterWidget() {
+    delete ui;
+}
