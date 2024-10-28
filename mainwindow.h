@@ -6,7 +6,7 @@
 #define DM_ASSIST_MAINWINDOW_H
 
 #include <QMainWindow>
-#include "qplayer.h"
+#include "qplayerwidget.h"
 
 
 

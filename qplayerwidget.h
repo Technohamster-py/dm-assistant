@@ -2,19 +2,21 @@
 // Created by arsen on 06.03.2024.
 //
 
-#ifndef DM_ASSIST_QPLAYER_H
-#define DM_ASSIST_QPLAYER_H
+#ifndef DM_ASSIST_QPLAYERWIDGET_H
+#define DM_ASSIST_QPLAYERWIDGET_H
 
 #include <QApplication>
-#include <QWidget>
+#include <QDialog>
+#include <QDomDocument>
+#include <QFile>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
-#include <QFile>
-#include <QDomDocument>
+#include <QStandardItem>
 #include <QShortcut>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class QPlayer; }
+namespace Ui { class QPlayer; class QPlaylistEdit;}
 QT_END_NAMESPACE
 
 class QPlayer : public QWidget {
@@ -69,4 +71,29 @@ private:
 };
 
 
-#endif //DM_ASSIST_QPLAYER_H
+class QPlaylistEdit : public QDialog {
+Q_OBJECT
+
+public:
+    explicit QPlaylistEdit(QWidget *parent = nullptr, QPlayer *player = nullptr);
+
+    ~QPlaylistEdit() override;
+
+private slots:
+    void on_addButton_clicked();
+    void on_removeButton_clicked();
+
+    void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
+
+private:
+    Ui::QPlaylistEdit *ui;
+    QPlayer *m_player;
+    QStandardItemModel *m_playlistModel;
+
+    int m_selectedIndex;
+
+    void displayPlaylist();
+};
+
+#endif //DM_ASSIST_QPLAYERWIDGET_H

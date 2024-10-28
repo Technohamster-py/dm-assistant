@@ -12,13 +12,13 @@ set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 
 set(HEADER_FILES
         mainwindow.h
-        qplayer.h
+        qplayerwidget.h
         qplaylistedit.h
 )
 
 set(SOURCE_FILES
         mainwindow.cpp
-        qplayer.cpp
+        qplayerwidget.cpp
         qplaylistedit.cpp
 )
 
