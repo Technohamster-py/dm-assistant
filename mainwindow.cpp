@@ -40,7 +40,7 @@ void MainWindow::configurePlayers() {
     player9 = new QPlayer(ui->musicWidget, 9);
     player0 = new QPlayer(ui->musicWidget, 0);
 
-    /*player1->setPlayShortcut("a");
+    player1->setPlayShortcut("a");
     player2->setPlayShortcut("Ctrl+2");
     player3->setPlayShortcut("Ctrl+3");
     player4->setPlayShortcut("Ctrl+4");
@@ -49,7 +49,7 @@ void MainWindow::configurePlayers() {
     player7->setPlayShortcut("Ctrl+7");
     player8->setPlayShortcut("Ctrl+8");
     player9->setPlayShortcut("Ctrl+9");
-    player0->setPlayShortcut("Ctrl+0");*/
+    player0->setPlayShortcut("Ctrl+0");
 
     connect(player1, SIGNAL(playerStarted()), this, SLOT(stopAllMusic()));
     connect(player2, SIGNAL(playerStarted()), this, SLOT(stopAllMusic()));
