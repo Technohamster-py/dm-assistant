@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 MainWindow::~MainWindow() {
+    saveConfigFile();
     delete ui;
 }
 
