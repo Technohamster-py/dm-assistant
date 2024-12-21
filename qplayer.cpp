@@ -208,3 +208,7 @@ void QPlayer::on_playButton_clicked() {
 void QPlayer::setPlayShortcut(QString key) {
     playKey->setKey(key);
 }
+
+void QPlayer::edit() {
+    on_editButton_clicked();
+}

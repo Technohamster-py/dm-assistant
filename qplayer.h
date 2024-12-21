@@ -46,6 +46,7 @@ signals:
 public slots:
     void stop();
     void play();
+    void edit();
 
 protected:
     void loadFromXml(QFile *xmlFile);
