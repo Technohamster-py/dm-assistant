@@ -6,7 +6,7 @@
 #define DM_ASSIST_MAINWINDOW_H
 
 #include <QMainWindow>
-#include "qplayer.h"
+#include "qplayerwidget.h"
 
 
 
@@ -39,6 +39,10 @@ private:
     Ui::MainWindow *ui;
 
     void configurePlayers();
+
+private slots:
+    void loadConfigFile();
+    void saveConfigFile();
 };
 
 
