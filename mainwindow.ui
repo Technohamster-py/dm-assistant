@@ -485,7 +485,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QLabel" name="Lbel7">
+           <widget class="QLabel" name="label7">
             <property name="minimumSize">
              <size>
               <width>70</width>
