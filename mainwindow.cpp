@@ -48,6 +48,16 @@ MainWindow::~MainWindow() {
      connect(player8, SIGNAL(playerStarted()), this, SLOT(stopAll()));
      connect(player9, SIGNAL(playerStarted()), this, SLOT(stopAll()));
 
+     connect(ui->edit1, SIGNAL(clicked(bool)), player1, SLOT(edit()));
+     connect(ui->edit2, SIGNAL(clicked(bool)), player2, SLOT(edit()));
+     connect(ui->edit3, SIGNAL(clicked(bool)), player3, SLOT(edit()));
+     connect(ui->edit4, SIGNAL(clicked(bool)), player4, SLOT(edit()));
+     connect(ui->edit5, SIGNAL(clicked(bool)), player5, SLOT(edit()));
+     connect(ui->edit6, SIGNAL(clicked(bool)), player6, SLOT(edit()));
+     connect(ui->edit7, SIGNAL(clicked(bool)), player7, SLOT(edit()));
+     connect(ui->edit9, SIGNAL(clicked(bool)), player8, SLOT(edit()));
+     connect(ui->edit1, SIGNAL(clicked(bool)), player9, SLOT(edit()));
+
      player1->setPlayShortcut("Ctrl+1");
      player2->setPlayShortcut("Ctrl+2");
      player3->setPlayShortcut("Ctrl+3");
