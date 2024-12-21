@@ -33,15 +33,15 @@ void MainWindow::configurePlayers() {
      player8 = new QPlayer(ui->player8, 8);
      player9 = new QPlayer(ui->player9, 9);
 
-     ui->label1.setText(player1->getPlaylistName());
-     ui->label2.setText(player2->getPlaylistName());
-     ui->label3.setText(player3->getPlaylistName());
-     ui->label4.setText(player4->getPlaylistName());
-     ui->label5.setText(player5->getPlaylistName());
-     ui->label6.setText(player6->getPlaylistName());
-     ui->label7.setText(player7->getPlaylistName());
-     ui->label8.setText(player8->getPlaylistName());
-     ui->label9.setText(player9->getPlaylistName());
+     ui->label1->setText(player1->getPlaylistName());
+     ui->label2->setText(player2->getPlaylistName());
+     ui->label3->setText(player3->getPlaylistName());
+     ui->label4->setText(player4->getPlaylistName());
+     ui->label5->setText(player5->getPlaylistName());
+     ui->label6->setText(player6->getPlaylistName());
+     ui->label7->setText(player7->getPlaylistName());
+     ui->label8->setText(player8->getPlaylistName());
+     ui->label9->setText(player9->getPlaylistName());
 
      connect(ui->play1, SIGNAL(clicked(bool)), player1, SLOT(play()));
      connect(ui->play2, SIGNAL(clicked(bool)), player2, SLOT(play()));
