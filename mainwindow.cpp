@@ -181,5 +181,15 @@ void MainWindow::saveConfigFile() {
         configDocument.appendChild(root);
 
         QString baseDir = fileInfo.dir().canonicalPath() + "/";
+
+
+        player1->saveToXml(baseDir + "playlist1.xml");
+        QDomElement playlist_node = configDocument.createElement("playlist");
+        playlist_node.setAttribute("id", 1);
+        playlist_node.setNodeValue("playlist1.xml");
+        root.appendChild(playlist_node);
+
+
+        xmlContent << configDocument.toString();
     }
 }

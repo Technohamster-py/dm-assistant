@@ -35,6 +35,8 @@ protected:
     QPlayer *player8;
     QPlayer *player9;
 
+    //TODO переделать на цикле
+
 private:
     Ui::MainWindow *ui;
 
