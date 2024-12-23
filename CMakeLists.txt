@@ -76,6 +76,7 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Xml
 )
 
+target_sources(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/static/resources.rc)
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     set(DEBUG_SUFFIX)
