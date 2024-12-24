@@ -52,7 +52,7 @@ public slots:
     void edit();
 
 protected:
-    QString playlistName;
+    QString playlistName = "playlist";
     int id;
     bool isActive;
 
