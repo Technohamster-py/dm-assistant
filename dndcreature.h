@@ -20,6 +20,28 @@
 class dndCreature : public Creature{
     Q_OBJECT
 public:
+    enum lifeStatus{
+        Alive,
+        Knockout,
+        Dead
+    };
+
+    enum conditions{
+        Blinded,
+        Charmed,
+        Deafened,
+        Frightened,
+        Grappled,
+        Incapacitated,
+        Invisible,
+        Paralyzed,
+        Petrified,
+        Poisoned,
+        Prone,
+        Restrained,
+        Unconscious
+    };
+
     explicit dndCreature(QString creatureName);
     explicit dndCreature(QFile *xmlConfig);
 
