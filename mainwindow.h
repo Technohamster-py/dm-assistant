@@ -25,15 +25,7 @@ public:
 public slots:
     void stopAll();
 protected:
-    QPlayer *player1;
-    QPlayer *player2;
-    QPlayer *player3;
-    QPlayer *player4;
-    QPlayer *player5;
-    QPlayer *player6;
-    QPlayer *player7;
-    QPlayer *player8;
-    QPlayer *player9;
+    QList<QPlayer*> playerList;
 
     //TODO переделать на цикле
 

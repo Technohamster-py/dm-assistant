@@ -23,77 +23,68 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::configurePlayers() {
-     player1 = new QPlayer(ui->player1, 1);
-     player2 = new QPlayer(ui->player2, 2);
-     player3 = new QPlayer(ui->player3, 3);
-     player4 = new QPlayer(ui->player4, 4);
-     player5 = new QPlayer(ui->player5, 5);
-     player6 = new QPlayer(ui->player6, 6);
-     player7 = new QPlayer(ui->player7, 7);
-     player8 = new QPlayer(ui->player8, 8);
-     player9 = new QPlayer(ui->player9, 9);
 
-     ui->label1->setText(player1->getPlaylistName());
-     ui->label2->setText(player2->getPlaylistName());
-     ui->label3->setText(player3->getPlaylistName());
-     ui->label4->setText(player4->getPlaylistName());
-     ui->label5->setText(player5->getPlaylistName());
-     ui->label6->setText(player6->getPlaylistName());
-     ui->label7->setText(player7->getPlaylistName());
-     ui->label8->setText(player8->getPlaylistName());
-     ui->label9->setText(player9->getPlaylistName());
+    QPlayer* player;
+    for (int i = 0; i < 9; ++i) {
+        player = new QPlayer(nullptr, i);
+        playerList.append(player);
+    }
 
-     connect(ui->play1, SIGNAL(clicked(bool)), player1, SLOT(play()));
-     connect(ui->play2, SIGNAL(clicked(bool)), player2, SLOT(play()));
-     connect(ui->play3, SIGNAL(clicked(bool)), player3, SLOT(play()));
-     connect(ui->play4, SIGNAL(clicked(bool)), player4, SLOT(play()));
-     connect(ui->play5, SIGNAL(clicked(bool)), player5, SLOT(play()));
-     connect(ui->play6, SIGNAL(clicked(bool)), player6, SLOT(play()));
-     connect(ui->play7, SIGNAL(clicked(bool)), player7, SLOT(play()));
-     connect(ui->play8, SIGNAL(clicked(bool)), player8, SLOT(play()));
-     connect(ui->play9, SIGNAL(clicked(bool)), player9, SLOT(play()));
+     ui->label1->setText(playerList[0]->getPlaylistName());
+     ui->label2->setText(playerList[1]->getPlaylistName());
+     ui->label3->setText(playerList[2]->getPlaylistName());
+     ui->label4->setText(playerList[3]->getPlaylistName());
+     ui->label5->setText(playerList[4]->getPlaylistName());
+     ui->label6->setText(playerList[5]->getPlaylistName());
+     ui->label7->setText(playerList[6]->getPlaylistName());
+     ui->label8->setText(playerList[7]->getPlaylistName());
+     ui->label9->setText(playerList[8]->getPlaylistName());
 
-     connect(player1, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player2, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player3, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player4, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player5, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player6, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player7, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player8, SIGNAL(playerStarted()), this, SLOT(stopAll()));
-     connect(player9, SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(ui->play1, SIGNAL(clicked(bool)), playerList[0], SLOT(play()));
+     connect(ui->play2, SIGNAL(clicked(bool)), playerList[1], SLOT(play()));
+     connect(ui->play3, SIGNAL(clicked(bool)), playerList[2], SLOT(play()));
+     connect(ui->play4, SIGNAL(clicked(bool)), playerList[3], SLOT(play()));
+     connect(ui->play5, SIGNAL(clicked(bool)), playerList[4], SLOT(play()));
+     connect(ui->play6, SIGNAL(clicked(bool)), playerList[5], SLOT(play()));
+     connect(ui->play7, SIGNAL(clicked(bool)), playerList[6], SLOT(play()));
+     connect(ui->play8, SIGNAL(clicked(bool)), playerList[7], SLOT(play()));
+     connect(ui->play9, SIGNAL(clicked(bool)), playerList[8], SLOT(play()));
 
-     connect(ui->edit1, SIGNAL(clicked(bool)), player1, SLOT(edit()));
-     connect(ui->edit2, SIGNAL(clicked(bool)), player2, SLOT(edit()));
-     connect(ui->edit3, SIGNAL(clicked(bool)), player3, SLOT(edit()));
-     connect(ui->edit4, SIGNAL(clicked(bool)), player4, SLOT(edit()));
-     connect(ui->edit5, SIGNAL(clicked(bool)), player5, SLOT(edit()));
-     connect(ui->edit6, SIGNAL(clicked(bool)), player6, SLOT(edit()));
-     connect(ui->edit7, SIGNAL(clicked(bool)), player7, SLOT(edit()));
-     connect(ui->edit9, SIGNAL(clicked(bool)), player8, SLOT(edit()));
-     connect(ui->edit1, SIGNAL(clicked(bool)), player9, SLOT(edit()));
+     connect(playerList[0], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[1], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[2], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[3], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[4], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[5], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[6], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[7], SIGNAL(playerStarted()), this, SLOT(stopAll()));
+     connect(playerList[8], SIGNAL(playerStarted()), this, SLOT(stopAll()));
 
-     player1->setPlayShortcut("Ctrl+1");
-     player2->setPlayShortcut("Ctrl+2");
-     player3->setPlayShortcut("Ctrl+3");
-     player4->setPlayShortcut("Ctrl+4");
-     player5->setPlayShortcut("Ctrl+5");
-     player6->setPlayShortcut("Ctrl+6");
-     player7->setPlayShortcut("Ctrl+7");
-     player8->setPlayShortcut("Ctrl+8");
-     player9->setPlayShortcut("Ctrl+9");
- }
+     connect(ui->edit1, SIGNAL(clicked(bool)), playerList[0], SLOT(edit()));
+     connect(ui->edit2, SIGNAL(clicked(bool)), playerList[1], SLOT(edit()));
+     connect(ui->edit3, SIGNAL(clicked(bool)), playerList[2], SLOT(edit()));
+     connect(ui->edit4, SIGNAL(clicked(bool)), playerList[3], SLOT(edit()));
+     connect(ui->edit5, SIGNAL(clicked(bool)), playerList[4], SLOT(edit()));
+     connect(ui->edit6, SIGNAL(clicked(bool)), playerList[5], SLOT(edit()));
+     connect(ui->edit7, SIGNAL(clicked(bool)), playerList[6], SLOT(edit()));
+     connect(ui->edit9, SIGNAL(clicked(bool)), playerList[7], SLOT(edit()));
+     connect(ui->edit1, SIGNAL(clicked(bool)), playerList[8], SLOT(edit()));
+
+     playerList[0]->setPlayShortcut("Ctrl+1");
+     playerList[1]->setPlayShortcut("Ctrl+2");
+     playerList[2]->setPlayShortcut("Ctrl+3");
+     playerList[3]->setPlayShortcut("Ctrl+4");
+     playerList[4]->setPlayShortcut("Ctrl+5");
+     playerList[5]->setPlayShortcut("Ctrl+6");
+     playerList[6]->setPlayShortcut("Ctrl+7");
+     playerList[7]->setPlayShortcut("Ctrl+8");
+     playerList[8]->setPlayShortcut("Ctrl+9");
+}
 
 void MainWindow::stopAll() {
-    player1->stop();
-    player2->stop();
-    player3->stop();
-    player4->stop();
-    player5->stop();
-    player6->stop();
-    player7->stop();
-    player8->stop();
-    player9->stop();
+    for (int i = 0; i < 9; ++i) {
+        playerList[i]->stop();
+    }
 }
 
 void MainWindow::loadConfigFile() {
@@ -123,37 +114,7 @@ void MainWindow::loadConfigFile() {
             QString absolutePath = fileInfo.dir().canonicalPath() + "/" + playerNode.firstChild().toText().data();
             int playerId = playerNode.attribute("id").toInt();
             QFile playerFile(absolutePath);
-            switch (playerId) {
-                case 1:
-                    player1->loadFromXml(&playerFile);
-                    break;
-                case 2:
-                    player2->loadFromXml(&playerFile);
-                    break;
-                case 3:
-                    player3->loadFromXml(&playerFile);
-                    break;
-                case 4:
-                    player4->loadFromXml(&playerFile);
-                    break;
-                case 5:
-                    player5->loadFromXml(&playerFile);
-                    break;
-                case 6:
-                    player6->loadFromXml(&playerFile);
-                    break;
-                case 7:
-                    player7->loadFromXml(&playerFile);
-                    break;
-                case 8:
-                    player8->loadFromXml(&playerFile);
-                    break;
-                case 9:
-                    player9->loadFromXml(&playerFile);
-                    break;
-                default:
-                    break;
-            }
+            playerList[i]->loadFromXml(&playerFile);
         }
     }
 }
@@ -182,14 +143,14 @@ void MainWindow::saveConfigFile() {
 
         QString baseDir = fileInfo.dir().canonicalPath() + "/";
 
-
-        player1->saveToXml(baseDir + "playlist1.xml");
-        QDomElement playlist_node = configDocument.createElement("playlist");
-        playlist_node.setAttribute("id", 1);
-        playlist_node.setNodeValue("playlist1.xml");
-        root.appendChild(playlist_node);
-
-
+        for (int i = 0; i < 9; ++i) {
+            QString playerFileName = QString("playlist%1.xml").arg(QString::number(i));
+            playerList[i]->saveToXml(baseDir + playerFileName);
+            QDomElement playlist_node = configDocument.createElement("playlist");
+            playlist_node.setAttribute("id", i);
+            playlist_node.setNodeValue(playerFileName);
+            root.appendChild(playlist_node);
+        }
         xmlContent << configDocument.toString();
     }
 }
