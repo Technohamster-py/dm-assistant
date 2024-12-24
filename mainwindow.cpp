@@ -13,7 +13,9 @@
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-
+    playerWidgetsList = {ui->player1, ui->player2, ui->player3, ui->player4, ui->player5, ui->player6, ui->player7, ui->player8, ui->player9};
+    playButtonsList = {ui->play1, ui->play2, ui->play3, ui->play4, ui->play5, ui->play6, ui->play7, ui->play8, ui->play9};
+    editButtonList = {ui->edit1, ui->edit2, ui->edit3, ui->edit4, ui->edit5, ui->edit6, ui->edit7, ui->edit8, ui->edit9};
     configurePlayers();
 }
 
@@ -25,43 +27,15 @@ MainWindow::~MainWindow() {
 void MainWindow::configurePlayers() {
 
     for (int i = 0; i < 9; ++i) {
-        playerList.append(new QPlayer(nullptr, i));
+        playerList.append(new QPlayer(playerWidgetsList[i], i+1));
     }
 
     for (int i = 0; i < 9; ++i) {
         connect(playerList[i], SIGNAL(playerStarted()), this, SLOT(stopAll()));
-        playerList[0]->setPlayShortcut(QString("Ctrl+%1").arg(QString::number(i)));
+        playerList[i]->setPlayShortcut(QString("Ctrl+%1").arg(QString::number(i+1)));
+        connect(playButtonsList[i], SIGNAL(clicked(bool)), playerList[i], SLOT(play()));
+        connect(editButtonList[i], SIGNAL(clicked(bool)), playerList[i], SLOT(edit()));
     }
-
-    ui->label1->setText(playerList[0]->getPlaylistName());
-    ui->label2->setText(playerList[1]->getPlaylistName());
-    ui->label3->setText(playerList[2]->getPlaylistName());
-    ui->label4->setText(playerList[3]->getPlaylistName());
-    ui->label5->setText(playerList[4]->getPlaylistName());
-    ui->label6->setText(playerList[5]->getPlaylistName());
-    ui->label7->setText(playerList[6]->getPlaylistName());
-    ui->label8->setText(playerList[7]->getPlaylistName());
-    ui->label9->setText(playerList[8]->getPlaylistName());
-
-    connect(ui->play1, SIGNAL(clicked(bool)), playerList[0], SLOT(play()));
-    connect(ui->play2, SIGNAL(clicked(bool)), playerList[1], SLOT(play()));
-    connect(ui->play3, SIGNAL(clicked(bool)), playerList[2], SLOT(play()));
-    connect(ui->play4, SIGNAL(clicked(bool)), playerList[3], SLOT(play()));
-    connect(ui->play5, SIGNAL(clicked(bool)), playerList[4], SLOT(play()));
-    connect(ui->play6, SIGNAL(clicked(bool)), playerList[5], SLOT(play()));
-    connect(ui->play7, SIGNAL(clicked(bool)), playerList[6], SLOT(play()));
-    connect(ui->play8, SIGNAL(clicked(bool)), playerList[7], SLOT(play()));
-    connect(ui->play9, SIGNAL(clicked(bool)), playerList[8], SLOT(play()));
-
-    connect(ui->edit1, SIGNAL(clicked(bool)), playerList[0], SLOT(edit()));
-    connect(ui->edit2, SIGNAL(clicked(bool)), playerList[1], SLOT(edit()));
-    connect(ui->edit3, SIGNAL(clicked(bool)), playerList[2], SLOT(edit()));
-    connect(ui->edit4, SIGNAL(clicked(bool)), playerList[3], SLOT(edit()));
-    connect(ui->edit5, SIGNAL(clicked(bool)), playerList[4], SLOT(edit()));
-    connect(ui->edit6, SIGNAL(clicked(bool)), playerList[5], SLOT(edit()));
-    connect(ui->edit7, SIGNAL(clicked(bool)), playerList[6], SLOT(edit()));
-    connect(ui->edit9, SIGNAL(clicked(bool)), playerList[7], SLOT(edit()));
-    connect(ui->edit1, SIGNAL(clicked(bool)), playerList[8], SLOT(edit()));
 }
 
 void MainWindow::stopAll() {

@@ -26,6 +26,9 @@ public slots:
     void stopAll();
 protected:
     QList<QPlayer*> playerList;
+    QList<QWidget*> playerWidgetsList;
+    QList<QPushButton*> playButtonsList;
+    QList<QPushButton*> editButtonList;
 
     //TODO переделать на цикле
 
