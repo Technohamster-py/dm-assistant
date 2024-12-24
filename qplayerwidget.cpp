@@ -55,6 +55,7 @@ QPlayer::QPlayer(QWidget *parent, QFile *xmlFile) :
     connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
+    connect(playKey, SIGNAL(activated()), this, SLOT(playShortcutTriggered()));
 
     loadFromXml(xmlFile);
 
@@ -83,6 +84,8 @@ QPlayer::QPlayer(QWidget *parent, int numId) : QWidget(parent), ui(new Ui::QPlay
     connect(ui->pauseButton, &QPushButton::clicked, m_player, &QMediaPlayer::pause);
     connect(ui->nextButton, &QPushButton::clicked, playlist, &QMediaPlaylist::next);
     connect(ui->prevButton, &QPushButton::clicked, playlist, &QMediaPlaylist::previous);
+    connect(playKey, SIGNAL(activated()), this, SLOT(playShortcutTriggered()));
+
 }
 
 QPlayer::~QPlayer() {
@@ -195,6 +198,7 @@ void QPlayer::stop() {
 }
 
 void QPlayer::play() {
+    qDebug() << id;
     emit playerStarted();
     isActive = true;
     m_player->play();
