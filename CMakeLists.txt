@@ -13,12 +13,9 @@ set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake")
 
 set(HEADER_FILES
         creature.h
-        dndcharacter.h
         dndcreature.h
         encounter.h
         mainwindow.h
-        dndmonster.h
-        qdndcharacterwidget.h
         qinitiativetrackerwidget.h
         qplayer.h
         qplaylistedit.h
@@ -26,12 +23,9 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
         creature.cpp
-        dndcharacter.cpp
         dndcreature.cpp
         encounter.cpp
         mainwindow.cpp
-        dndmonster.cpp
-        qdndcharacterwidget.cpp
         qinitiativetrackerwidget.cpp
         qplayer.cpp
         qplaylistedit.cpp
