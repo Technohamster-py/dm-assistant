@@ -2,9 +2,11 @@
     <qresource prefix="/">
         <file>edit.svg</file>
         <file>add.svg</file>
+        <file>folder.svg</file>
         <file>remove.svg</file>
         <file>search.svg</file>
         <file>settings.svg</file>
+        <file>upload.svg</file>
     </qresource>
     <qresource prefix="player">
         <file>next.svg</file>
