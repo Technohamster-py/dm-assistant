@@ -1305,6 +1305,7 @@
      <addaction name="menuTheme"/>
      <addaction name="menuLanguage"/>
     </widget>
+    <addaction name="actionNew"/>
     <addaction name="actionSave"/>
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
@@ -1317,10 +1318,16 @@
    <property name="text">
     <string>Save</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionOpen">
    <property name="text">
     <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="actionLight">
@@ -1341,6 +1348,14 @@
   <action name="actionEng">
    <property name="text">
     <string>English</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>
