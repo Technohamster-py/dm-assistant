@@ -83,6 +83,8 @@ public:
 private slots:
     void on_addButton_clicked();
     void on_removeButton_clicked();
+    void on_folderButton_clicked();
+    void on_uploadButton_clicked();
 
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
